@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<style>
+  .navbar {
+    /* Existing styles */
+    transform: translateY(-100%);
+    transition: transform 1.5s ease;
+    height: 100px;
+    width: 100%;
+  }
+
+  .navbar.nav-dropdown {
+    transform: translateY(0);
+  }
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    padding: 25px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+
+  .dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+  /* Navigation bar */
+  .navbar {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    animation: textReveal 2s;
+    width: 100%;
+  }
+
+  @keyframes textReval {
+    0% {
+      opacity: 1;
+      transform: translateY(-100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+.navbar {
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
+  z-index: 1000;
+  position: fixed; /* Ensures navbar stays fixed on scroll */
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  animation: textReveal 2s;
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.logo img {
+  height: 80px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  font-size: 15px;
+}
+
+.navigation__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex; /* Ensures menu items are inline */
+  align-items: center; /* Aligns items vertically */
+}
+
+.navigation__menu > li {
+  position: relative;
+  display: flex;
+  align-items: center; /* Ensures the arrow aligns with text */
+  margin-right: 10px; /* Reduces gap between menu items */
+}
+
+.navigation__menu > li > a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 15px; /* Adjust padding for consistency */
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Aligns text and arrow vertically */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 10px;
+}
+
+.navigation__menu > li > a:hover {
+  background-color: #b22049;
+  color: #ffffff;
+}
+
+.navarrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ffffff;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.navigation__menu > li:hover .navarrow {
+  transform: rotate(180deg);
+}
+
+.navigation__submenu {
+  position: absolute;
+  top: 100%;
+  left: 10%; /* Aligns submenu directly below parent item */
+  width: max-content; /* Fit submenu to content width */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #000000;
+  border: 1px solid #b22049;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  max-height: 0;
+  border-radius: 4px;
+  z-index: 1000;
+  transform: translateY(-10px);
+}
+
+.navigation__menu > li:hover .navigation__submenu {
+  opacity: 1;
+  max-height: 300px; /* Adjust based on content */
+  transform: translateY(0);
+}
+
+.navigation__submenu > li > a {
+  padding: 10px 15px; /* Consistent padding with submenu */
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigation__submenu > li > a:hover {
+  background-color: #000000;
+  color: #b22049;
+}
+
+.navigation__submenu .submenu-button {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.navigation__submenu .submenu-button button {
+  background-color: #b22049;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.navigation__submenu .submenu-button button:hover {
+  background-color: #ffffff;
+  color: #b22049;
+  transform: scale(1.05);
+}
+
+
+  body {
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+    font-family: Arial, sans-serif;
+    /* Set font family */
+    background-color: #ffffff;
+    /* Set background color */
+    overflow-x: hidden;
+  }
+
+  footer {
+    background-color: #000000;
+    /* Set background color */
+    color: #00ff08;
+    /* Set text color */
+    width: 100%;
+    /* Full width of the viewport */
+    padding: 20px 0;
+    /* Add padding for spacing */
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    /* Limit content width */
+    margin: 0 auto;
+    /* Center the content horizontally */
+    padding: 0 20px;
+    /* Adjust padding as needed */
+  }
+
+  .footer-left,
+  .footer-right {
+    flex: 1;
+    /* Take up remaining space */
+  }
+
+  .footer-divider {
+    width: 1px;
+    height: 50px;
+    /* Adjust based on your design */
+    background-color: #ccc;
+    margin: 0 20px;
+  }
+
+  footer p {
+    margin: 0;
+    /* Remove default margin for paragraphs */
+    font-size: 14px;
+    /* Adjust font size */
+  }
+
+  .logo img {
+    height: 90px;
+    /* Adjust the height of the logo */
+  }
+
+  .logo2 img {
+    height: 100px;
+    /* Adjust the height of the logo */
+  }
+
+  #new {
+    background-color: black;
+    color: white;
+    display: flex;
+    width: 1050px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+    margin-left: 200px;
+    margin-top: 20px;
+    /* Add margin-top to move it down from the top */
+    position: fixed;
+    z-index: 1000;
+    height: 90px;
+    padding: 15px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  #new.visible {
+    opacity: 1;
+    /* Fade in */
+    transform: translateY(0);
+    /* Slide in */
+    transition: opacity 3s ease, transform 3s ease;
+  }
+
+  #new {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    height: 50px;
+  }
+
+  .navbar a,
+  #new a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .container {
+    max-width: 1300px;
+    height: 450px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  }
+
+  .container.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .container .text {
+    flex: 1;
+    text-align: left; /* Ensure text is aligned to the left */
+    padding-right: 20px; /* Add some space between text and video */
+}
+
+  .container .image {
+    flex: 1;
+    text-align: right;
+    margin: 0%;
+  }
+
+  .container img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .galleries {
+    max-width: 1200px;
+    height: calc(70vh);
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 100px;
+    position: relative;
+  }
+
+  .galleries.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .gallery-text {
+    width: 350px;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    z-index: 100;
+    background-color: rgba(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #image-track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    transition: transform 0.3s linear;
+  }
+
+  #image-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .galleries .image {
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% center;
+    border-radius: 20px;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    /* Smaller font size */
+    color: rgba(255, 255, 255, 0.7);
+    /* Mostly transparent color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* No background */
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 8px;
+    /* Reduced padding */
+    border-radius: 50%;
+    transition: color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+
+  .arrow:hover {
+    color: rgba(255, 255, 255, 0.9);
+    /* Darker color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow on hover */
+    transform: translateY(-50%) scale(1.1);
+    /* Slightly enlarge on hover */
+  }
+
+  .right-arrow {
+    right: 15px;
+    /* Adjusted for smaller size */
+  }
+
+  .animated-button {
+    width: 150px;
+    height: 50px;
+    background-color: #b22049;
+    color: white;
+    border: 5px solid #b22049;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s;
+    border-radius: 40px;
+    margin-top: 20px;
+  }
+
+  .animated-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+    transition: top 0.3s;
+    top: 100%;
+  }
+
+  .animated-button:hover::before {
+    top: 0;
+  }
+
+  .animated-button span {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s;
+  }
+
+  .animated-button:hover span {
+    color: #b22049;
+  }
+
+  html,
+  body {
+    margin: 0;
+    /* Remove default margins */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+  }
+
+  #backimage {
+    width: 300vw;
+    /* Total width for 3 containers (100vw each) */
+    height: 100vh;
+    /* Full viewport height */
+    position: relative;
+    display: flex;
+    /* Align containers side by side */
+    transition: transform 0.5s ease;
+    /* Smooth transition for slides */
+  }
+
+  .backimage-container {
+    width: 100vw;
+    /* Each container takes full viewport width */
+    height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Ensure stacking context */
+  }
+
+  .backimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cover the container */
+    filter: brightness(50%);
+    position: absolute;
+  }
+
+  .nav-dots {
+    position: absolute;
+    /* Absolute within the container */
+    bottom: 10px;
+    /* Space from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: auto;
+    /* Adjust width as needed */
+    z-index: 100;
+    /* Ensure it appears above other content */
+  }
+
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background-color: #b22049;
+  }
+
+  .container .image {
+    flex: 1;
+    text-align: center;
+    /* Center align content */
+    position: relative;
+    /* Ensure the position context for absolute positioning */
+  }
+
+  .container .image img {
+    max-width: 100%;
+    max-height: 100%;
+    /* Ensure image does not exceed container */
+    object-fit: contain;
+    /* Maintain aspect ratio */
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Smooth transitions */
+
+  }
+
+  .container .image:hover img {
+    transform: scale(1.05);
+    /* Scale up slightly on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    /* Shadow effect on hover */
+  }
+
+  .container .btn-container {
+    display: flex;
+    justify-content: space-around;
+    /* Equal spacing between images */
+  }
+
+
+
+  .events {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Space between images */
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+  }
+
+  .events .event {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 480px;
+    /* Adjusted width */
+    height: auto;
+    /* Adjusted height */
+    aspect-ratio: 3/2;
+    /* Maintain aspect ratio */
+    border-radius: 12px;
+    /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #ddd;
+    /* Placeholder background */
+  }
+
+  .events .event:hover {
+    transform: scale(1.00);
+  }
+
+  .events .event img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+  }
+
+  .events .event .event-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Darker overlay */
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    /* Slightly less padding */
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    font-size: 1em;
+    /* Adjusted font size */
+    font-weight: 500;
+    /* Medium weight */
+  }
+
+  .events .event:hover .event-title {
+    transform: translateY(0);
+  }
+
+  .events .event:hover img {
+    filter: brightness(70%);
+  }
+
+  .event-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+  }
+
+
+  .event-link:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  .event-link:active {
+    color: #000
+  }
+
+  .event-link:active:after {
+    background: transparent;
+  }
+
+  .event-link:hover:before {
+    opacity: 1;
+  }
+
+  .event-link:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+
+  @keyframes glowing {
+    0% {
+      background-position: 0 0;
+    }
+
+    50% {
+      background-position: 400% 0;
+    }
+
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+      /* Adjusted padding */
+    }
+
+    .text h2 {
+      font-size: 1.8em;
+      /* Smaller font size */
+    }
+
+    .events {
+      gap: 10px;
+      /* Reduced gap */
+    }
+
+    .events .event {
+      width: 100%;
+      /* Full width */
+    }
+
+    .events .event .event-title {
+      font-size: 0.9em;
+      /* Smaller font size */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .text h2 {
+      font-size: 1.5em;
+      /* Smaller font size */
+    }
+
+    .events {
+      gap: 5px;
+      /* Reduced gap */
+    }
+
+    .events .event {
+      width: 100%;
+      /* Full width */
+    }
+
+    .events .event .event-title {
+      font-size: 0.8em;
+      /* Smaller font size */
+    }
+  }
+
+
+
+  .navbar.scrolled {
+    width: 1050px;
+    /* Adjust width as needed */
+    margin-left: calc((100vw - 1050px) / 2);
+    /* Center horizontally */
+    margin-top: 20px;
+    /* Adjust top margin as needed */
+    border-radius: 70px;
+    /* Rounded corners */
+    transition: width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
+    /* Smooth transitions */
+    position: fixed;
+    /* Fixed positioning */
+    left: 0;
+    /* Ensure it sticks to the left */
+    right: 0;
+    /* Ensure it stretches to the right */
+    display: flex;
+    /* Ensure flex layout */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+  }
+
+  .navbar.scrolledup {
+    transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
+    /* Smooth transitions with ease-out */
+  }
+
+  .ACN {
+    width: 1000px;
+    height: 900px;
+    margin-bottom: 105px;
+  }
+
+  .chief-guest-section {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    overflow: hidden;
+    margin: 20px auto;
+    white-space: nowrap;
+  }
+
+  .chief-guest-section:hover .chief-guest-container {
+    animation-play-state: paused;
+  }
+
+  .chief-guest-container {
+    display: inline-block;
+  }
+
+  .chief-guest {
+    position: relative;
+    display: inline-block;
+    width: 280px;
+    height: 460px;
+    overflow: hidden;
+    margin-right: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .chief-guest img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s, filter 0.3s;
+  }
+
+  .chief-guest:hover img {
+    filter: brightness(0.8);
+  }
+
+  .chief-guest-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    color: white;
+    padding: 0px 15px 20px 0px;
+    text-align: center;
+    z-index: 1;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center vertically */
+    align-items: center;
+    /* Center horizontally */
+  }
+
+  .chief-guest-info h3 {
+    font-size: large;
+    text-shadow: 2px 2px 4px rgba(179, 32, 73, 0.6);
+    margin: 0;
+    /* Remove default margin */
+  }
+
+  .chief-guest-info p {
+    margin: 2px 0;
+    font-size: medium;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+
+  .chief-guest:hover .chief-guest-info p {
+    opacity: 1;
+  }
+
+  .chief-guest:hover {
+    transform: scale(1.05);
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .chief-guest-container {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  @media screen and (max-width: 600px) {
+    .chief-guest {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+
+  .logo-sponsor-text {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Slide animation */
+  @keyframes logo-sponsor-slide {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Logos container */
+  .logo-sponsor-logos {
+
+    border-top: 2px solid #333;
+    overflow: hidden;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    border-bottom: 3px solid #333;
+  }
+
+  /* Gradient overlays */
+  .logo-sponsor-logos:before,
+  .logo-sponsor-logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .logo-sponsor-logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
+
+  .logo-sponsor-logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  }
+
+  /* Sliding logos */
+  .logo-sponsor-slide {
+    display: inline-block;
+    animation: 35s logo-sponsor-slide infinite linear;
+  }
+
+  .logo-sponsor-slide img {
+    height: 100px;
+    margin: 0 40px;
+    width: 266px;
+  }
+
+  .logo-sponsor-logos:hover .logo-sponsor-slide {
+    animation-play-state: paused;
+  }
+
+
+  /*moving text*/
+  .moving-text {
+    background: black;
+    white-space: nowrap;
+    position: relative;
+    font-size: 20px;
+    /* Increased by 5px */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    /* Increased by 5px */
+    overflow: hidden;
+    width: 51%;
+  }
+
+
+  .moving-text:before,
+  .moving-text:after {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    /* Increased by 5px */
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .moving-text:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), black);
+  }
+
+  .moving-text:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), black);
+  }
+
+  .text-slide {
+    display: inline-flex;
+    align-items: center;
+    animation: 10s slide infinite linear;
+  }
+
+  .animated-button {
+    width: 130px;
+    height: 35px;
+    /* Decreased height */
+    background-color: #b22049;
+    color: white;
+    border: none;
+    font-size: 15px;
+    /* Optional: Adjust font size if needed */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, background-color 0.3s;
+    /* Added transition for background-color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    margin: 0 10px;
+    /* Added margin for spacing around "X" */
+  }
+
+
+  .animated-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+    transition: top 0.3s;
+    top: 100%;
+  }
+
+  .animated-button:hover::before {
+    top: 0;
+  }
+
+  .animated-button span {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s;
+  }
+
+  .animated-button:hover {
+    background-color: black;
+    /* Changed hover color to black */
+  }
+
+  .animated-button:hover span {
+    color: #b22049;
+  }
+
+  .text-slide span {
+    margin: 0 10px;
+    /* Added margin for spacing around "X" */
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .moving-text:hover .text-slide {
+    animation-play-state: paused;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  #backimage {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .backimage-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .backimage-container img.backimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .countdown-wrapper {
+    position: absolute;
+    bottom: 20px;
+    /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .countdown-item {
+    background-color: #fff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100px;
+    text-align: center;
+  }
+
+  .number {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  .label {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .title {
+    font-size: 36px;
+    color: #000000;
+  }
+
+  .description {
+    font-size: 18px;
+    color: #000000;
+  }
+  .video {
+    width: 60%;  /* Adjust as needed */
+    height: 90%; /* Adjust as needed */
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+</style>
+<header>
+  <section id="home" class="section">
+    <nav class="navbar" id="myNav">
+      <a href="index.html#home" class="logo">
+        <img src="image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo">
+      </a>
+      <div class="moving-text">
+        <div class="text-slide">
+          <span>ACN 3rd edition</span>
+          <span>|</span>
+          <button class="animated-button"><span>Register Now</span></button>
+          <span>|</span>
+          <span>ACN 3rd edition</span>
+          <span>|</span>
+          <button class="animated-button"><span>Register Now</span></button>
+          <span>|</span>
+          <span>ACN 3rd edition</span>
+          <span>|</span>
+          <button class="animated-button"><span>Register Now</span></button>
+          <span>|</span>
+        </div>
+      </div>
+      <div class="navigation">
+        <ul class="navigation__menu">
+          <li>
+            <a href="index.html#home">Home<span></span></a>
+          </li>
+        </ul>
+        <ul class="navigation__menu">
+          <li>
+            <a href="index.html#aboutacn">About<span></span></a>
+          </li>
+        </ul>
+        <ul class="navigation__menu">
+          <li>
+            <a href="#">Editions<span class="navarrow"></span></a>
+            <ul class="navigation__submenu">
+              <li><a href="#">2022</a></li>
+              <li><a href="#">2023</a></li>
+
+            </ul>
+          </li>
+        </ul>
+        <ul class="navigation__menu">
+          <li>
+            <a href="index.html#home">Sponsors<span></span></a>
+          </li>
+        </ul>
+        
+        
+        <ul class="navigation__menu">
+          <li>
+            <a href="#">Gallery<span class="navarrow"></span></a>
+            <ul class="navigation__submenu">
+              <li><a href="#">2022</a></li>
+              <li><a href="#">2023</a></li>
+
+            </ul>
+          </li>
+        </ul>
+        <ul class="navigation__menu">
+          <li>
+            <a href="index.html#footer">Contact<span></span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+</header>
+
+<body>
+  <section id="backimage">
+    <div class="backimage-container" data-duration="5000">
+      <img class="ACN" style="z-index: 1;" src="image/1st edition.png" draggable="false" />
+      <img class="backimage" src="image/2Z2A1194.JPG" />
+    </div>
+    <div class="backimage-container" data-duration="5000">
+      <img class="ACN" style="z-index: 1;" src="image/2nd edition.png" draggable="false" />
+      <img class="backimage" src="image/abc.JPG" />
+    </div>
+    <div class="backimage-container" data-duration="20000"> <!-- Different duration -->
+      <img class="ACN" style="z-index: 1;" src="image/3rd edition.png" draggable="false" />
+      <div class="countdown-wrapper">
+        <div class="countdown">
+          <div class="countdown-item">
+            <div id="months" class="number">00</div>
+            <div class="label">Months</div>
+          </div>
+          <div class="countdown-item">
+            <div id="days" class="number">00</div>
+            <div class="label">Days</div>
+          </div>
+          <div class="countdown-item">
+            <div id="hours" class="number">00</div>
+            <div class="label">Hours</div>
+          </div>
+          <div class="countdown-item">
+            <div id="minutes" class="number">00</div>
+            <div class="label">Minutes</div>
+          </div>
+          <div class="countdown-item">
+            <div id="seconds" class="number">00</div>
+            <div class="label">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="navdots">
+    <div class="nav-dots">
+      <span class="dot" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text" id="aboutacn">
+      <h2>ABOUT ACN</h2>
+      <div class="text" id="aboutacn">
+        <p>Amrita CyberNation is an annual event dedicated to promoting cyber awareness and education among
+          students. Held every October in conjunction with Cyber Awareness Month, our event aims to foster a
+          deeper understanding of cybersecurity through a series of engaging and educational activities. </p>
+      </div>
+    </div>
+    <div class="video">
+      <video src="image/0713(6).mp4" alt="Events video" autoplay loop muted>
+      </video>
+  </div>
+  </div>
+  <h1 style="margin-left: 35%;">Our Chief-Guests</h1>
+  <div class="chief-guest-section">
+    <br>
+    <br>
+    <div class="chief-guest-container">
+      <div class="chief-guest">
+        <img src="image/c1.png" alt="Chief Guest 1">
+        <div class="chief-guest-info">
+          <h3>Ishwar Prasad Bhat</h3>
+          <p>Founder and CEO, Necurity Solutions</p>
+          <br>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c4.jpeg" alt="Chief Guest 2">
+        <div class="chief-guest-info">
+          <h3>Mr. Natarajan Elangovan</h3>
+          <p>Head - Security Engineering at Wipro Limited, Chennai</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c7.png" alt="Chief Guest 3">
+        <div class="chief-guest-info">
+          <h3>Mr. T. T. Aditya</h3>
+          <p>Product Owner - Security and Privacy, Continental Corporation Pvt. Ltd.</p>
+        </div>
+        <br>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c5.jpeg" alt="Chief Guest 4">
+        <div class="chief-guest-info">
+          <h3>Shri. S. Venkat Sairam</h3>
+          <p>Chief Manager, Computer Systems Dept. CUB</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c11.jpeg" alt="Chief Guest 5">
+        <div class="chief-guest-info">
+          <h3>Dr. Prabaharan Poornachandran</h3>
+          <p>Director, Internet Studies and Artificial Intelligence, AVV, Amritapuri</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c12.jpeg" alt="Chief Guest 6">
+        <div class="chief-guest-info">
+          <h3>Mr Yesudian Rajkumar J.K</h3>
+          <p>Founder Amud Solutions, Zero Trust Consultant, Chennai</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c13.jpeg" alt="Chief Guest 7">
+        <div class="chief-guest-info">
+          <h3>Dr. Dittin Andrews</h3>
+          <p>Joint Director Cyber Security, CDAC, Thiruvanthapuram</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c6.png" alt="Chief Guest 8">
+        <div class="chief-guest-info">
+          <h3>Mr. Melvin John</h3>
+          <p>Security Specialist at NEC Corporation India Pvt. Ltd, Bangalore</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c15.png" alt="Chief Guest 9">
+        <div class="chief-guest-info">
+          <h3>Mr. Devender Singh Rawat</h3>
+          <p>Former Deputy Director, Electronic Warfare Communication Spectrum.</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c3.jpeg" alt="Chief Guest 10">
+        <div class="chief-guest-info">
+          <h3>Dr Shankar Raman</h3>
+          <p>CEO, Pravarthak Ecosystems, IIT Madras Research Park, Chennai</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c2.jpeg" alt="Chief Guest 11">
+        <div class="chief-guest-info">
+          <h3>Dr S.A.V.Satyamurty</h3>
+          <p>Director, Research, Vinayaga Missions Research Foundation</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c10.jpeg" alt="Chief Guest 12">
+        <div class="chief-guest-info">
+          <h3>Prof Dr Sethumadhavan</h3>
+          <p>Head, TIFAC Core in Cybersecurity,</p>
+          <p>AVV, Coimbatore</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c9.png" alt="Chief Guest 13">
+        <div class="chief-guest-info">
+          <h3>Dr. Siraj Rahim DGM</h3>
+          <p>Operation Technology, MRF Limited, Chennai</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c16.png" alt="Chief Guest 14">
+        <div class="chief-guest-info">
+          <h3>Mr Pradeep</h3>
+          <p>Sr Director, FICE/INTEL Bangalore</p>
+          <br>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c8.jpeg" alt="Chief Guest 15">
+        <div class="chief-guest-info">
+          <h3>Mr.Sitaram Chamarty</h3>
+          <p>Principal Consultant at TCS, </p>
+          <p>Hyderabad</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c17.JPG" alt="Chief Guest 16">
+        <div class="chief-guest-info">
+          <h3>Mr Natarajan Swarninathan</h3>
+          <p>Senior Consultant, Cyber security practice, Tata Consultancy Services</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c18.JPG" alt="Chief Guest 17">
+        <div class="chief-guest-info">
+          <h3>Dr. Manikantan Srinivasan</h3>
+          <p>Assistant General Manager, (NMEC), NEC Corporation india Private Limited</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c14.JPG" alt="Chief Guest 18">
+        <div class="chief-guest-info">
+          <h3>Mr. Andrew David Bhagyam</h3>
+          <p>Privacy Prograrn Manager, Zoho Corporation, Chennai</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c19.JPG" alt="Chief Guest 19">
+        <div class="chief-guest-info">
+          <h3>Ms. panchi S</h3>
+          <p>Managing Director, YesPanchi Tech Services Pvt Ltd, Chennai</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c20.JPG" alt="Chief Guest 20">
+        <div class="chief-guest-info">
+          <h3>Mr. Aashish Vivekanand</h3>
+          <p>Cloud Solution Architect, Trusted Services, Singapore</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c21.png" alt="Chief Guest 21">
+        <div class="chief-guest-info">
+          <h3>Mr. Venkatesh Natarajan</h3>
+          <p>Ex President-IT & Chief Digital Officer, Ashok Leyland Limited, Chennai </p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c22.jpeg" alt="Chief Guest 22">
+        <div class="chief-guest-info">
+          <h3>Dr. N. Subramanian</h3>
+          <p>Executive Director, SETS, Chennai</p>
+          <br>
+        </div>
+      </div>
+
+      <div class="chief-guest">
+        <img src="image/c23.jpeg" alt="Chief Guest 23">
+        <div class="chief-guest-info">
+          <h3>Mrs. Nalini Kannan</h3>
+          <p>Senior Technical Architect & Zero Trust Solution IBM Security, ISL</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c24.jpeg" alt="Chief Guest 24">
+        <div class="chief-guest-info">
+          <h3>Mr. K. Sibi</h3>
+          <p>Associate Manager, Ongil.ai</p>
+          <br>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c25.jpeg" alt="Chief Guest 25">
+        <div class="chief-guest-info">
+          <h3>Dr. N. Gopalakrishnan</h3>
+          <p>Former member of DRDO</p>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c26.jpeg" alt="Chief Guest 26">
+        <div class="chief-guest-info">
+          <h3>Mr. Raghuraman R</h3>
+          <p>Founder - Meynikara XR Technologies</p>
+          <br>
+        </div>
+      </div>
+      <div class="chief-guest">
+        <img src="image/c27.jpeg" alt="Chief Guest 27">
+        <div class="chief-guest-info">
+          <h3>Mr. Palanikumar Arumugam</h3>
+          <p>Vice President - Information Security Equitas Small Finance Bank</p>
+        </div>
+      </div>
+
+      <!-- Add more chief guests as needed -->
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content">
+      <div class="container">
+        <div class="text">
+          <h2>Editions</h2>
+        </div>
+        <div class="events">
+          <a href="2022.html" class="event-link">
+            <div class="event">
+              <img src="image/e21.jpg" alt="Event 2022"
+                class="event-image event-image-2022">
+              <div class="event-title">Event 2022</div>
+            </div>
+          </a>
+          <a href="2023.html" class="event-link">
+            <div class="event">
+              <img src="image/e31.jpg" alt="Event 2023"
+                class="event-image event-image-2023">
+              <div class="event-title">Event 2023</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1 class="logo-sponsor-text">Sponsors</h1>
+    </div>
+    <div class="logo-sponsor-head">
+    </div>
+
+    <div class="logo-sponsor-logos">
+      <div class="logo-sponsor-slide">
+        <img src="image/innspark.jpg" />
+        <img src="image/barstool-store.svg" />
+        <img src="image/budweiser.svg" />
+        <img src="image/buzzfeed.svg" />
+        <img src="image/forbes.svg" />
+        <img src="image/macys.svg" />
+        <img src="image/menshealth.svg" />
+        <img src="image/mrbeast.svg" />
+      </div>
+    </div>
+
+
+
+
+    <div class="galleries" id="galleries">
+      <div class="gallery-text">Gallery
+        <br>
+        <br>
+          <button class="animated-button"><span>view more</span></button>
+      </div>
+      <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+          <img class="image" src="image/a.jpeg" draggable="false" />
+          <img class="image" src="image/b.jpeg" draggable="false" />
+          <img class="image" src="image/c.jpeg" draggable="false" />
+          <img class="image" src="image/d.jpeg" draggable="false" />
+          <img class="image" src="image/e.jpeg" draggable="false" />
+          <img class="image" src="image/f.jpeg" draggable="false" />
+          <img class="image" src="image/c.jpeg" draggable="false" />
+          <img class="image" src="image/h.jpeg" draggable="false" />
+      </div>
+      <button class="arrow right-arrow" id="right-arrow">&#9654;</button>
+  </div>
+  </div>
+</body>
+<footer>
+  <div class="footer-content" id="footer">
+    <div class="footer-left">
+      <a href="index.html#home" class="logo2"><img src="image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png"
+          alt="Logo"></a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-right">
+      <p>ACN 2024. CREATED BY Dept of CSE CYS.</p>
+    </div>
+  </div>
+</footer>
+<script>
+  function navigateTo(url) {
+    window.location.href = url;
+  }
+
+  function openContactPopup() {
+    document.getElementById('contactPopup').style.display = 'block';
+  }
+
+  function closeContactPopup() {
+    document.getElementById('contactPopup').style.display = 'none';
+  }
+  window.onload = function () {
+    var nav = document.getElementById("myNav");
+    nav.style.transform = "translateY(0)";
+  }
+  window.onload = function () {
+    var nav = document.getElementById("myNav");
+    nav.classList.add("nav-dropdown"); // Add a class to trigger dropdown
+  }
+
+
+
+  function navigateTo(hash) {
+    window.location.hash = hash;
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll('.container');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    containers.forEach(container => {
+      observer.observe(container);
+    });
+  });
+
+
+  function navigateTo(url) {
+    window.location.href = url;
+  }
+
+  function openContactPopup() {
+    document.getElementById('contactPopup').style.display = 'block';
+  }
+
+  function closeContactPopup() {
+    document.getElementById('contactPopup').style.display = 'none';
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const gallery = document.querySelectorAll('.galleries');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    gallery.forEach(galleries => {
+      observer.observe(galleries);
+    });
+
+    const track = document.getElementById("image-track");
+    const galleries = track.getElementsByClassName("image");
+    const rightArrow = document.getElementById("right-arrow");
+
+    track.style.transform = "translate(0%, -50%)";
+
+    for (const image of galleries) {
+      image.style.objectPosition = "100% center";
+    }
+
+    let mouseDownAt = 0;
+    let prevPercentage = 0;
+    let autoScrollInterval;
+
+    const handleOnDown = e => {
+      clearInterval(autoScrollInterval);
+      mouseDownAt = e.clientX || e.touches[0].clientX;
+    };
+
+    const handleOnUp = () => {
+      mouseDownAt = 0;
+      prevPercentage = parseFloat(track.dataset.percentage) || 0;
+      clearInterval(autoScrollInterval); // Stop auto-scroll when mouse is released
+    };
+
+    const handleOnMove = e => {
+      if (mouseDownAt === 0) return;
+
+      const mouseDelta = mouseDownAt - (e.clientX || e.touches[0].clientX);
+      const maxDelta = window.innerWidth / 2;
+
+      let percentage = (mouseDelta / maxDelta) * -100;
+      let nextPercentage = prevPercentage + percentage;
+
+      nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
+
+      track.style.transform = `translate(${nextPercentage}%, -50%)`;
+
+      for (const image of galleries) {
+        image.style.objectPosition = `${100 + nextPercentage}% center`;
+      }
+
+      track.dataset.percentage = nextPercentage;
+
+      handleInfiniteScroll();
+    };
+
+    const handleInfiniteScroll = () => {
+      const trackRect = track.getBoundingClientRect();
+      const firstImageRect = galleries[0].getBoundingClientRect();
+      const lastImageRect = galleries[galleries.length - 1].getBoundingClientRect();
+
+      if (firstImageRect.right < trackRect.left) {
+        track.appendChild(galleries[0]);
+      } else if (lastImageRect.left > trackRect.right) {
+        track.insertBefore(galleries[galleries.length - 1], galleries[0]);
+      }
+    };
+
+    const startScroll = (direction = 'left') => {
+      clearInterval(autoScrollInterval);
+      autoScrollInterval = setInterval(() => {
+        let nextPercentage = (parseFloat(track.dataset.percentage) || 0) + (direction === 'left' ? -0.05 : 0.05);
+        nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
+
+        track.style.transform = `translate(${nextPercentage}%, -50%)`;
+
+        for (const image of galleries) {
+          image.style.objectPosition = `${100 + nextPercentage}% center`;
+        }
+
+        track.dataset.percentage = nextPercentage;
+
+        handleInfiniteScroll();
+      }, 10); // Adjust the interval for speed and smoothness
+    };
+
+    rightArrow.addEventListener("click", () => startScroll('left'));
+
+    window.addEventListener("mousedown", e => handleOnDown(e));
+    window.addEventListener("touchstart", e => handleOnDown(e.touches[0]));
+    window.addEventListener("mouseup", handleOnUp);
+    window.addEventListener("touchend", handleOnUp);
+    window.addEventListener("mousemove", e => handleOnMove(e));
+    window.addEventListener("touchmove", e => handleOnMove(e.touches[0]));
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    var navbar = document.querySelector(".navbar"); // Selects element with class "navbar"
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.add("scrolledup");
+        navbar.classList.remove("scrolled");
+      }
+    });
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    const guestSection = document.querySelector('.chief-guest-section');
+    const guestContainer = document.querySelector('.chief-guest-container');
+    const clonedContainer = guestContainer.cloneNode(true);
+    guestSection.appendChild(clonedContainer);
+  });
+  const containers = document.querySelectorAll('.backimage-container');
+  const dots = document.querySelectorAll('.dot');
+  let currentIndex = 0;
+  let slideInterval;
+
+  // Function to show a specific slide
+  function showSlide(index) {
+    const offset = -index * 100; // Move the slide container
+    document.querySelector('#backimage').style.transform = `translateX(${offset}vw)`;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+
+    // Clear the existing interval
+    clearInterval(slideInterval);
+
+    // Set a new interval based on the duration of the current slide
+    const duration = parseInt(containers[index].getAttribute('data-duration'), 10);
+    slideInterval = setInterval(nextSlide, duration);
+  }
+
+  // Function to move to the next slide
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % containers.length;
+    showSlide(currentIndex);
+  }
+
+  // Function to move to the previous slide
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + containers.length) % containers.length;
+    showSlide(currentIndex);
+  }
+
+  // Initialize the first slide and set the interval
+  showSlide(currentIndex);
+
+  // Handle dot clicks
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+    });
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var copy = document.querySelector(".logo-sponsor-slide").cloneNode(true);
+    document.querySelector(".logo-sponsor-logos").appendChild(copy);
+  });
+
+  /* moving text*/
+  var textSlide = document.querySelector(".text-slide").cloneNode(true);
+  document.querySelector(".moving-text").appendChild(textSlide);
+
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll('.container');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    containers.forEach(container => {
+      observer.observe(container);
+    });
+
+    // Image cycling script
+    const images2022 = [
+      'image/e21.jpg',
+      'image/e22.jpg',
+      'image/e23.jpg'
+    ];
+    const images2023 = [
+      'image/e31.jpg',
+      'image/e32.jpg',
+      'image/e33.jpg'
+    ];
+
+    const eventImages2022 = document.querySelectorAll('.event-image-2022');
+    const eventImages2023 = document.querySelectorAll('.event-image-2023');
+
+    let currentImageIndex2022 = 0;
+    let currentImageIndex2023 = 0;
+
+    function cycleImages() {
+      eventImages2022.forEach(img => {
+        img.src = images2022[currentImageIndex2022];
+      });
+      eventImages2023.forEach(img => {
+        img.src = images2023[currentImageIndex2023];
+      });
+
+      currentImageIndex2022 = (currentImageIndex2022 + 1) % images2022.length;
+      currentImageIndex2023 = (currentImageIndex2023 + 1) % images2023.length;
+    }
+
+    // Change images every 3 seconds
+    setInterval(cycleImages, 3000);
+  });
+  const targetDate = new Date("2024-09-03T00:00:00");
+
+  const updateCountdown = () => {
+    const now = new Date();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.querySelector(".countdown").innerHTML = "EXPIRED";
+      return;
+    }
+
+    const years = now.getFullYear();
+    const monthsDiff = targetDate.getMonth() - now.getMonth() + (12 * (targetDate.getFullYear() - years));
+
+    let endOfCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+    const currentDays = endOfCurrentMonth - now.getDate();
+    const targetDays = targetDate.getDate();
+    const daysInMonth = endOfCurrentMonth;
+
+    const months = monthsDiff - (currentDays > targetDays ? 1 : 0);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24)) % daysInMonth;
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("months").innerText = months;
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  };
+
+  const timer = setInterval(updateCountdown, 1000);
+</script>
+
+</html>

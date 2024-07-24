@@ -69,150 +69,163 @@
     height: 80px;
   }
 
-.navbar {
-  background-color: #000000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 30px;
-  box-sizing: border-box;
-  z-index: 1000;
-  position: fixed; /* Ensures navbar stays fixed on scroll */
-  top: 0;
-  left: 0;
-  height: 80px;
-  width: 100%;
-  animation: textReveal 2s;
-}
+  .navbar {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    z-index: 1000;
+    position: fixed;
+    /* Ensures navbar stays fixed on scroll */
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    animation: textReveal 2s;
+  }
 
-@keyframes textReveal {
-  0% {
+  @keyframes textReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    font-size: 15px;
+  }
+
+  .navigation__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    /* Ensures menu items are inline */
+    align-items: center;
+    /* Aligns items vertically */
+  }
+
+  .navigation__menu>li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Ensures the arrow aligns with text */
+    margin-right: 10px;
+    /* Reduces gap between menu items */
+  }
+
+  .navigation__menu>li>a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    /* Adjust padding for consistency */
+    display: flex;
+    /* Use flexbox to align items */
+    align-items: center;
+    /* Aligns text and arrow vertically */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 10px;
+  }
+
+  .navigation__menu>li>a:hover {
+    background-color: #b22049;
+    color: #ffffff;
+  }
+
+  .navarrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #ffffff;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  .navigation__menu>li:hover .navarrow {
+    transform: rotate(180deg);
+  }
+
+  .navigation__submenu {
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    /* Aligns submenu directly below parent item */
+    width: max-content;
+    /* Fit submenu to content width */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #000000;
+    border: 1px solid #b22049;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     opacity: 0;
-    transform: translateY(-100px);
+    max-height: 0;
+    border-radius: 4px;
+    z-index: 1000;
+    transform: translateY(-10px);
   }
-  100% {
+
+  .navigation__menu>li:hover .navigation__submenu {
     opacity: 1;
-    transform: translateY(0px);
+    max-height: 300px;
+    /* Adjust based on content */
+    transform: translateY(0);
   }
-}
 
-.logo img {
-  height: 80px;
-}
+  .navigation__submenu>li>a {
+    padding: 10px 15px;
+    /* Consistent padding with submenu */
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-.navigation {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  font-size: 15px;
-}
+  .navigation__submenu>li>a:hover {
+    background-color: #000000;
+    color: #b22049;
+  }
 
-.navigation__menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  display: flex; /* Ensures menu items are inline */
-  align-items: center; /* Aligns items vertically */
-}
+  .navigation__submenu .submenu-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
 
-.navigation__menu > li {
-  position: relative;
-  display: flex;
-  align-items: center; /* Ensures the arrow aligns with text */
-  margin-right: 10px; /* Reduces gap between menu items */
-}
+  .navigation__submenu .submenu-button button {
+    background-color: #b22049;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
 
-.navigation__menu > li > a {
-  text-decoration: none;
-  color: #ffffff;
-  padding: 10px 15px; /* Adjust padding for consistency */
-  display: flex; /* Use flexbox to align items */
-  align-items: center; /* Aligns text and arrow vertically */
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border-radius: 10px;
-}
-
-.navigation__menu > li > a:hover {
-  background-color: #b22049;
-  color: #ffffff;
-}
-
-.navarrow {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #ffffff;
-  margin-left: 5px;
-  transition: transform 0.3s ease;
-}
-
-.navigation__menu > li:hover .navarrow {
-  transform: rotate(180deg);
-}
-
-.navigation__submenu {
-  position: absolute;
-  top: 100%;
-  left: 10%; /* Aligns submenu directly below parent item */
-  width: max-content; /* Fit submenu to content width */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background-color: #000000;
-  border: 1px solid #b22049;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 0;
-  max-height: 0;
-  border-radius: 4px;
-  z-index: 1000;
-  transform: translateY(-10px);
-}
-
-.navigation__menu > li:hover .navigation__submenu {
-  opacity: 1;
-  max-height: 300px; /* Adjust based on content */
-  transform: translateY(0);
-}
-
-.navigation__submenu > li > a {
-  padding: 10px 15px; /* Consistent padding with submenu */
-  display: block;
-  text-decoration: none;
-  color: #ffffff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navigation__submenu > li > a:hover {
-  background-color: #000000;
-  color: #b22049;
-}
-
-.navigation__submenu .submenu-button {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.navigation__submenu .submenu-button button {
-  background-color: #b22049;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.navigation__submenu .submenu-button button:hover {
-  background-color: #ffffff;
-  color: #b22049;
-  transform: scale(1.05);
-}
+  .navigation__submenu .submenu-button button:hover {
+    background-color: #ffffff;
+    color: #b22049;
+    transform: scale(1.05);
+  }
 
 
   body {
@@ -325,34 +338,46 @@
     margin: 0 10px;
   }
 
-  .container {
-    max-width: 1300px;
-    height: 450px;
-    margin: 20px auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+  .container-flex {
     display: flex;
+    width: 100%;
     align-items: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    justify-content: space-between;
+    padding: 20px 20px 20px 20px;
+    margin-top: 5%;
   }
 
-  .container.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .text {
+    width: 60%;
+    /* Adjust this value to change text width */
+    margin-left: 5%;
+    margin-right: 4%;
+  }
+
+  .video {
+    max-width: 40%;
+    /* Adjust this value to change video width */
+    margin-right: 80px;
+  }
+
+  .video video {
+    width: 100%;
+    border-radius: 16px;
   }
 
   .container .text {
     flex: 1;
-    text-align: left; /* Ensure text is aligned to the left */
-    padding-right: 20px; /* Add some space between text and video */
-}
+    text-align: left;
+    /* Ensure text is aligned to the left */
+    padding-right: 20px;
+    /* Add some space between text and video */
+  }
 
   .container .image {
     flex: 1;
     text-align: right;
-    margin: 0%;
+    margin-left: 10%;
+    margin-right: 4%;
   }
 
   .container img {
@@ -376,6 +401,9 @@
     opacity: 0;
     margin-top: 100px;
     position: relative;
+    /* Ensure correct positioning of the arrow */
+    padding-right: 4rem;
+    /* Add extra space for the arrow */
   }
 
   .galleries.visible {
@@ -429,34 +457,42 @@
   .arrow {
     position: absolute;
     top: 50%;
+    right: 1rem;
+    /* Adjust this value to position it inside the container */
     transform: translateY(-50%);
-    font-size: 2rem;
-    /* Smaller font size */
-    color: rgba(255, 255, 255, 0.7);
-    /* Mostly transparent color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* No background */
+    background: white;
+    /* Gradient background */
     border: none;
     cursor: pointer;
-    z-index: 10;
-    padding: 8px;
-    /* Reduced padding */
+    z-index: 1000;
+    /* Ensure it is above other elements */
+    padding: 12px;
     border-radius: 50%;
-    transition: color 0.3s, box-shadow 0.3s, transform 0.3s;
+    /* Circular background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .arrow img {
+    width: 2.5rem;
+    /* Slightly larger arrow */
+    height: 2.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
   }
 
   .arrow:hover {
-    color: rgba(255, 255, 255, 0.9);
-    /* Darker color on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Subtle shadow on hover */
     transform: translateY(-50%) scale(1.1);
     /* Slightly enlarge on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Enhanced shadow on hover */
   }
 
-  .right-arrow {
-    right: 15px;
-    /* Adjusted for smaller size */
+  .arrow:hover img {
+    opacity: 1;
+    transform: rotate(51eg);
+    /* Rotate the arrow slightly on hover for effect */
   }
 
   .animated-button {
@@ -952,7 +988,7 @@
 
   /* Logos container */
   .logo-sponsor-logos {
-
+    padding-top: 3px;
     border-top: 2px solid #333;
     overflow: hidden;
     background: white;
@@ -1186,18 +1222,21 @@
     font-size: 18px;
     color: #000000;
   }
+
   .video {
-    width: 60%;  /* Adjust as needed */
-    height: 90%; /* Adjust as needed */
+    width: 60%;
+    /* Adjust as needed */
+    height: 90%;
+    /* Adjust as needed */
     overflow: hidden;
     border-radius: 30px;
-}
+  }
 
-.video video {
+  .video video {
     width: 100%;
     height: auto;
     display: block;
-}
+  }
 </style>
 <header>
   <section id="home" class="section">
@@ -1247,8 +1286,8 @@
             <a href="index.html#home">Sponsors<span></span></a>
           </li>
         </ul>
-        
-        
+
+
         <ul class="navigation__menu">
           <li>
             <a href="#">Gallery<span class="navarrow"></span></a>
@@ -1273,11 +1312,11 @@
   <section id="backimage">
     <div class="backimage-container" data-duration="5000">
       <img class="ACN" style="z-index: 1;" src="image/1st edition.png" draggable="false" />
-      <img class="backimage" src="image/2Z2A1194.JPG" />
+      <img class="backimage" src="2Z2A1194.JPG" />
     </div>
     <div class="backimage-container" data-duration="5000">
       <img class="ACN" style="z-index: 1;" src="image/2nd edition.png" draggable="false" />
-      <img class="backimage" src="image/abc.JPG" />
+      <img class="backimage" src="abc.JPG" />
     </div>
     <div class="backimage-container" data-duration="20000"> <!-- Different duration -->
       <img class="ACN" style="z-index: 1;" src="image/3rd edition.png" draggable="false" />
@@ -1314,19 +1353,18 @@
       <span class="dot" data-index="2"></span>
     </div>
   </div>
-  <div class="container">
-    <div class="text" id="aboutacn">
-      <h2>ABOUT ACN</h2>
+  <div class="container visible">
+    <div class="container-flex">
       <div class="text" id="aboutacn">
+        <h2>ABOUT ACN</h2>
         <p>Amrita CyberNation is an annual event dedicated to promoting cyber awareness and education among
           students. Held every October in conjunction with Cyber Awareness Month, our event aims to foster a
           deeper understanding of cybersecurity through a series of engaging and educational activities. </p>
       </div>
+      <div class="video">
+        <video src="image/0713(6).mp4" alt="Events video" autoplay loop muted></video>
+      </div>
     </div>
-    <div class="video">
-      <video src="image/0713(6).mp4" alt="Events video" autoplay loop muted>
-      </video>
-  </div>
   </div>
   <h1 style="margin-left: 35%;">Our Chief-Guests</h1>
   <div class="chief-guest-section">
@@ -1545,15 +1583,13 @@
         <div class="events">
           <a href="2022.html" class="event-link">
             <div class="event">
-              <img src="image/e21.jpg" alt="Event 2022"
-                class="event-image event-image-2022">
+              <img src="image/e21.jpg" alt="Event 2022" class="event-image event-image-2022">
               <div class="event-title">Event 2022</div>
             </div>
           </a>
           <a href="2023.html" class="event-link">
             <div class="event">
-              <img src="image/e31.jpg" alt="Event 2023"
-                class="event-image event-image-2023">
+              <img src="image/e31.jpg" alt="Event 2023" class="event-image event-image-2023">
               <div class="event-title">Event 2023</div>
             </div>
           </a>
@@ -1568,14 +1604,11 @@
 
     <div class="logo-sponsor-logos">
       <div class="logo-sponsor-slide">
-        <img src="image/innspark.jpg" />
-        <img src="image/barstool-store.svg" />
-        <img src="image/budweiser.svg" />
-        <img src="image/buzzfeed.svg" />
-        <img src="image/forbes.svg" />
-        <img src="image/macys.svg" />
-        <img src="image/menshealth.svg" />
-        <img src="image/mrbeast.svg" />
+        <img src="image/insp.png" />
+        <img src="image/cisai.jpg" />
+        <img src="image/htb.png" />
+        <img src="image/skill.png" />
+        <img src="image/certin.jpg" />
       </div>
     </div>
 
@@ -1586,20 +1619,22 @@
       <div class="gallery-text">Gallery
         <br>
         <br>
-          <button class="animated-button"><span>view more</span></button>
+        <button class="animated-button"><span>view more</span></button>
       </div>
       <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-          <img class="image" src="image/a.jpeg" draggable="false" />
-          <img class="image" src="image/b.jpeg" draggable="false" />
-          <img class="image" src="image/c.jpeg" draggable="false" />
-          <img class="image" src="image/d.jpeg" draggable="false" />
-          <img class="image" src="image/e.jpeg" draggable="false" />
-          <img class="image" src="image/f.jpeg" draggable="false" />
-          <img class="image" src="image/c.jpeg" draggable="false" />
-          <img class="image" src="image/h.jpeg" draggable="false" />
+        <img class="image" src="image/a.jpeg" draggable="false" />
+        <img class="image" src="image/b.jpeg" draggable="false" />
+        <img class="image" src="image/c.jpeg" draggable="false" />
+        <img class="image" src="image/d.jpeg" draggable="false" />
+        <img class="image" src="image/e.jpeg" draggable="false" />
+        <img class="image" src="image/f.jpeg" draggable="false" />
+        <img class="image" src="image/c.jpeg" draggable="false" />
+        <img class="image" src="image/h.jpeg" draggable="false" />
       </div>
-      <button class="arrow right-arrow" id="right-arrow">&#9654;</button>
-  </div>
+      <button class="arrow right-arrow" id="right-arrow">
+        <img src="image/arrow.png" alt="Right Arrow">
+      </button>
+    </div>
   </div>
 </body>
 <footer>
@@ -1859,14 +1894,14 @@
 
     // Image cycling script
     const images2022 = [
-      'image/e21.jpg',
-      'image/e22.jpg',
-      'image/e23.jpg'
+      'e21.jpg',
+      'e22.jpg',
+      'e23.jpg'
     ];
     const images2023 = [
-      'image/e31.jpg',
-      'image/e32.jpg',
-      'image/e33.jpg'
+      'e31.jpg',
+      'e32.jpg',
+      'e33.jpg'
     ];
 
     const eventImages2022 = document.querySelectorAll('.event-image-2022');

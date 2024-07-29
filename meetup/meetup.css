@@ -863,52 +863,62 @@ p {
   }
 
 
-  footer {
-    background-color: #000000;
-    /* Set text color */
-    width: 100%;
-    /* Full width of the viewport */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: whitesmoke;
+    margin: 0;
     padding: 0;
-    margin: 0;
-    /* Add padding for spacing */
-    box-sizing: border-box;
-    /* Include padding and border in element's total width and height */
   }
-
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    /* Limit content width */
-    margin: 0 auto;
-    /* Center the content horizontally */
-    padding: 0 20px;
-    /* Adjust padding as needed */
-  }
-
-  .footer-left,
-  .footer-right {
-    flex: 1;
-    /* Take up remaining space */
-  }
-  .footer-right img{
-    width:35px;
-    height:35px;
-    vertical-align:middle;
-    margin-right: 20px;
-  }
-
-  .footer-divider {
-    width: 1px;
-    height: 50px;
-    /* Adjust based on your design */
-    background-color: #ccc;
-  }
-
-  footer p {
-    margin: 0;
-    /* Remove default margin for paragraphs */
-    font-size: 14px;
-    /* Adjust font size */
-  }
+  
+  footer {
+      background-color: #000000;
+      /* Set background color */
+      color: #00ff08;
+      /* Set text color */
+      width: 100%;
+      /* Full width of the viewport */
+      padding: 20px 0;
+      /* Add padding for spacing */
+      box-sizing: border-box;
+      /* Include padding and border in element's total width and height */
+    }
+  
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      /* Limit content width */
+      margin: 0 auto;
+      /* Center the content horizontally */
+      padding: 0 20px;
+      /* Adjust padding as needed */
+    }
+  
+    .footer-left,
+    .footer-right {
+      flex: 1;
+      /* Take up remaining space */
+    }
+    .footer-right img{
+      width:35px;
+      height:35px;
+      vertical-align:middle;
+      margin-right: 10px;
+    }
+  
+    .footer-divider {
+      width: 1px;
+      height: 50px;
+      /* Adjust based on your design */
+      background-color: #ccc;
+      margin: 0 20px;
+    }
+  
+    footer p {
+      margin: 0;
+      /* Remove default margin for paragraphs */
+      font-size: 14px;
+      /* Adjust font size */
+    }
+  

@@ -1693,21 +1693,12 @@
   function closeContactPopup() {
     document.getElementById('contactPopup').style.display = 'none';
   }
-  window.onload = function () {
-    var nav = document.getElementById("myNav");
-    nav.style.transform = "translateY(0)";
-  }
-  window.onload = function () {
-    var nav = document.getElementById("myNav");
-    nav.classList.add("nav-dropdown"); // Add a class to trigger dropdown
-  }
 
-
-
-  function navigateTo(hash) {
-    window.location.hash = hash;
-  }
   document.addEventListener("DOMContentLoaded", () => {
+    const nav = document.getElementById("myNav");
+    nav.style.transform = "translateY(0)";
+    nav.classList.add("nav-dropdown");
+
     const containers = document.querySelectorAll('.container');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -1721,23 +1712,9 @@
     containers.forEach(container => {
       observer.observe(container);
     });
-  });
 
-
-  function navigateTo(url) {
-    window.location.href = url;
-  }
-
-  function openContactPopup() {
-    document.getElementById('contactPopup').style.display = 'block';
-  }
-
-  function closeContactPopup() {
-    document.getElementById('contactPopup').style.display = 'none';
-  }
-  document.addEventListener("DOMContentLoaded", () => {
     const gallery = document.querySelectorAll('.galleries');
-    const observer = new IntersectionObserver(entries => {
+    const galleryObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
@@ -1747,7 +1724,7 @@
       });
     }, { threshold: 0.1 });
     gallery.forEach(galleries => {
-      observer.observe(galleries);
+      galleryObserver.observe(galleries);
     });
 
     const track = document.getElementById("image-track");
@@ -1772,7 +1749,7 @@
     const handleOnUp = () => {
       mouseDownAt = 0;
       prevPercentage = parseFloat(track.dataset.percentage) || 0;
-      clearInterval(autoScrollInterval); // Stop auto-scroll when mouse is released
+      clearInterval(autoScrollInterval);
     };
 
     const handleOnMove = e => {
@@ -1824,7 +1801,7 @@
         track.dataset.percentage = nextPercentage;
 
         handleInfiniteScroll();
-      }, 10); // Adjust the interval for speed and smoothness
+      }, 10);
     };
 
     rightArrow.addEventListener("click", () => startScroll('left'));
@@ -1835,9 +1812,8 @@
     window.addEventListener("touchend", handleOnUp);
     window.addEventListener("mousemove", e => handleOnMove(e));
     window.addEventListener("touchmove", e => handleOnMove(e.touches[0]));
-  });
-  document.addEventListener("DOMContentLoaded", function () {
-    var navbar = document.querySelector(".navbar"); // Selects element with class "navbar"
+
+    const navbar = document.querySelector(".navbar");
 
     window.addEventListener("scroll", function () {
       if (window.scrollY > 50) {
@@ -1847,84 +1823,54 @@
         navbar.classList.remove("scrolled");
       }
     });
-  });
-  document.addEventListener('DOMContentLoaded', function () {
+
     const guestSection = document.querySelector('.chief-guest-section');
     const guestContainer = document.querySelector('.chief-guest-container');
     const clonedContainer = guestContainer.cloneNode(true);
     guestSection.appendChild(clonedContainer);
-  });
-  const containers = document.querySelectorAll('.backimage-container');
-  const dots = document.querySelectorAll('.dot');
-  let currentIndex = 0;
-  let slideInterval;
 
-  // Function to show a specific slide
-  function showSlide(index) {
-    const offset = -index * 100; // Move the slide container
-    document.querySelector('#backimage').style.transform = `translateX(${offset}vw)`;
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
+    const backImageContainers = document.querySelectorAll('.backimage-container');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+    let slideInterval;
 
-    // Clear the existing interval
-    clearInterval(slideInterval);
-
-    // Set a new interval based on the duration of the current slide
-    const duration = parseInt(containers[index].getAttribute('data-duration'), 10);
-    slideInterval = setInterval(nextSlide, duration);
-  }
-
-  // Function to move to the next slide
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % containers.length;
-    showSlide(currentIndex);
-  }
-
-  // Function to move to the previous slide
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + containers.length) % containers.length;
-    showSlide(currentIndex);
-  }
-
-  // Initialize the first slide and set the interval
-  showSlide(currentIndex);
-
-  // Handle dot clicks
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      showSlide(index);
-    });
-  });
-
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var copy = document.querySelector(".logo-sponsor-slide").cloneNode(true);
-    document.querySelector(".logo-sponsor-logos").appendChild(copy);
-  });
-
-  /* moving text*/
-  var textSlide = document.querySelector(".text-slide").cloneNode(true);
-  document.querySelector(".moving-text").appendChild(textSlide);
-
-
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const containers = document.querySelectorAll('.container');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
-        }
+    function showSlide(index) {
+      const offset = -index * 100;
+      document.querySelector('#backimage').style.transform = `translateX(${offset}vw)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
       });
-    }, { threshold: 0.1 });
-    containers.forEach(container => {
-      observer.observe(container);
+
+      clearInterval(slideInterval);
+
+      const duration = parseInt(backImageContainers[index].getAttribute('data-duration'), 10);
+      slideInterval = setInterval(nextSlide, duration);
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % backImageContainers.length;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + backImageContainers.length) % backImageContainers.length;
+      showSlide(currentIndex);
+    }
+
+    showSlide(currentIndex);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+      });
     });
 
-    // Image cycling script
+    const sponsorCopy = document.querySelector(".logo-sponsor-slide").cloneNode(true);
+    document.querySelector(".logo-sponsor-logos").appendChild(sponsorCopy);
+
+    const textSlide = document.querySelector(".text-slide").cloneNode(true);
+    document.querySelector(".moving-text").appendChild(textSlide);
+
     const images2022 = [
       'image/e21.jpg',
       'image/e22.jpg',
@@ -1954,9 +1900,9 @@
       currentImageIndex2023 = (currentImageIndex2023 + 1) % images2023.length;
     }
 
-    // Change images every 3 seconds
     setInterval(cycleImages, 3000);
   });
+
   const targetDate = new Date("2024-09-03T00:00:00");
 
   const updateCountdown = () => {
@@ -1991,6 +1937,8 @@
   };
 
   const timer = setInterval(updateCountdown, 1000);
+  updateCountdown();
 </script>
+
 
 </html>

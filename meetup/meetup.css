@@ -896,7 +896,7 @@ p {
     width:35px;
     height:35px;
     vertical-align:middle;
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
   .footer-divider {
@@ -904,7 +904,6 @@ p {
     height: 50px;
     /* Adjust based on your design */
     background-color: #ccc;
-    margin: 0 20px;
   }
 
   footer p {

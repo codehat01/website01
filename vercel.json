@@ -1,5 +1,23 @@
 {
-  "rewrites":[
-    {"source":"/(.*)","destination":"/"}
-  ]
+  "hosting": {
+    "public": "public",
+    "rewrites": [
+      {
+        "source": "/meetup/**",
+        "destination": "/meetup/meetup.html"
+      },
+      {
+        "source": "/sponsors/**",
+        "destination": "/sponsors/sponsors.html"
+      },
+      {
+        "source": "/contact/**",
+        "destination": "/contact/contact.html"
+      },
+      {
+        "source": "/",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }

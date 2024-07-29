@@ -52,10 +52,6 @@ body {
     padding: 0;
     background-color: whitesmoke;
     text-align: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
     scroll-behavior: smooth;
 }
 
@@ -458,6 +454,14 @@ p {
     height: 80px;
   }
 
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+  }
+  
+
   .navbar {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
@@ -488,9 +492,7 @@ p {
     }
   }
 
-  .logo img {
-    height: 80px;
-  }
+
 
   .navigation {
     display: flex;

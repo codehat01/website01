@@ -632,6 +632,104 @@
     }
 
     setInterval(cycleImages, 3000);
+
+    const backimageContainers = document.querySelectorAll('.backimage-container');
+    const dots = document.querySelectorAll('.dot');
+
+    let currentIndex = 0;
+    let intervalId;
+
+    const showBackImage = (index) => {
+      backimageContainers.forEach((container, i) => {
+        container.style.display = (i === index) ? 'block' : 'none';
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      currentIndex = index;
+    };
+
+    const startRotation = () => {
+      const duration = parseInt(backimageContainers[currentIndex].dataset.duration, 10) || 5000;
+      intervalId = setTimeout(() => {
+        const nextIndex = (currentIndex + 1) % backimageContainers.length;
+        showBackImage(nextIndex);
+        startRotation();
+      }, duration);
+    };
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearTimeout(intervalId);
+        const index = parseInt(dot.dataset.index, 10);
+        showBackImage(index);
+        startRotation();
+      });
+    });
+
+    showBackImage(currentIndex);
+    startRotation();
+
+    // IntersectionObserver for containers and galleries
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+
+    const handleIntersect = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    document.querySelectorAll('.container, .galleries').forEach(el => observer.observe(el));
+
+    // Image track functionality
+    const track = document.getElementById('image-track');
+
+    const handleMouseMove = (e) => {
+      if (track.dataset.mouseDownAt === '0') return;
+
+      const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
+      const maxDelta = window.innerWidth / 2;
+
+      const percentage = (mouseDelta / maxDelta) * -100;
+      const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
+      const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+      track.dataset.prevPercentage = nextPercentage;
+
+      track.animate({
+        transform: `translate(${nextPercentage}%, -50%)`
+      }, { duration: 1200, fill: 'forwards' });
+
+      track.querySelectorAll('.image').forEach(image => {
+        image.animate({
+          objectPosition: `${100 + nextPercentage}% center`
+        }, { duration: 1200, fill: 'forwards' });
+      });
+    };
+
+    track.addEventListener('mousedown', (e) => {
+      track.dataset.mouseDownAt = e.clientX;
+    });
+
+    track.addEventListener('mouseup', () => {
+      track.dataset.mouseDownAt = '0';
+    });
+
+    track.addEventListener('mousemove', handleMouseMove);
+    track.addEventListener('mouseleave', () => {
+      track.dataset.mouseDownAt = '0';
+    });
   });
 
   const targetDate = new Date("2024-09-03T00:00:00");
@@ -685,6 +783,7 @@
 
   const timer = setInterval(updateCountdown, 1000);
 </script>
+
 
 
 </html>

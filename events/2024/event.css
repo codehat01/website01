@@ -216,13 +216,13 @@ ul li a:hover {
 .card-text h2{
     font-family:'Poppins';
     text-align: center;
-    margin-top: 20px; 
+    margin-bottom:-15px;
 
 }
 .card-text p{
     font-family:'Poppins';
     text-align:center;
-    margin-bottom: 30px;
+
 }
 .buttons button:hover {
     background-color: #cbd5e0;
@@ -243,7 +243,7 @@ button {
 }
 
 .learn-more-btn {
-    margin-left: 120px;
+    margin-left: 90px;
     margin-top: 450px;
     background-color: #ecc94b;
     color: black;
@@ -342,7 +342,7 @@ button {
 }
 .animated-button1 {
     margin-left:122px;
-    margin-top: 20px;
+   
     width: 120px;
     height: 37px;
     background-color: white;

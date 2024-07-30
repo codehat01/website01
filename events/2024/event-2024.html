@@ -9,24 +9,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
-        <div class="bg"></div>
-        <nav>
-            <div class="brand">
+        <section id="home" class="section">
+          <nav class="navbar" id="myNav">
+            <a href="/index.html#home" class="logo">
+              <img src="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo">
+            </a>
+            <div class="moving-text">
+              <div class="text-slide">
+                <span>ACN 3rd edition</span>
+                <span>|</span>
+                <button class="animated-button"><span>Register Now</span></button>
+                <span>|</span>
+                <span>ACN 3rd edition</span>
+                <span>|</span>
+                <button class="animated-button"><span>Register Now</span></button>
+                <span>|</span>
+                <span>ACN 3rd edition</span>
+                <span>|</span>
+                <button class="animated-button"><span>Register Now</span></button>
+                <span>|</span>
+              </div>
             </div>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="index.html">Gallery</a></li>
-                <li><a href="#">Sponsors</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="buttons">
-                
-                <button class="get-demo">Register</button>
+            <div class="navigation">
+              <ul class="navigation__menu">
+                <li>
+                  <a href="/index.html#home">Home<span></span></a>
+                </li>
+              </ul>
+              <ul class="navigation__menu">
+                <li>
+                  <a href="/index.html#aboutacn">About<span></span></a>
+                </li>
+              </ul>
+              <ul class="navigation__menu">
+                <li>
+                  <a href="#">Editions<span class="navarrow"></span></a>
+                  <ul class="navigation__submenu">
+                    <li><a href="#">2022</a></li>
+                    <li><a href="#">2023</a></li>
+                    <li><a href="/events/2024/event-2024.html">2024></a></li>
+      
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navigation__menu">
+                <li>
+                  <a href="sponsors/spon.html">Sponsors<span></span></a>
+                </li>
+              </ul>
+      
+      
+              <ul class="navigation__menu">
+                <li>
+                  <a href="#">Gallery<span class="navarrow"></span></a>
+                  <ul class="navigation__submenu">
+                    <li><a href="/gallery-by-year/2022/2022.html">2022</a></li>
+                    <li><a href="/gallery-by-year/2023/2023.html">2023</a></li>
+      
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navigation__menu">
+                <li>
+                  <a href="meetup/meetup.html">Team<span></span></a>
+                </li>
+              </ul>
             </div>
-        </nav>
-    </header>
+          </nav>
+        </section>
+      </header>
 
     <div>
         <h1 style="font-family: Poppins; font-size: 60px; text-align: center;" class="heading">Events</h1>
@@ -184,6 +237,33 @@
     <script src="script.js"></script>
     <script src="firebase.js"></script>
     <script src="events.js"></script>
+    <script>
+        window.onload = function () {
+          var nav = document.getElementById("myNav");
+          nav.style.transform = "translateY(0)";
+        }
+        window.onload = function () {
+          var nav = document.getElementById("myNav");
+          nav.classList.add("nav-dropdown"); // Add a class to trigger dropdown
+        }
+      
+        document.addEventListener("DOMContentLoaded", function () {
+          var navbar = document.querySelector(".navbar"); // Selects element with class "navbar"
+      
+          window.addEventListener("scroll", function () {
+            if (window.scrollY > 50) {
+              navbar.classList.add("scrolled");
+            } else {
+              navbar.classList.add("scrolledup");
+              navbar.classList.remove("scrolled");
+            }
+          });
+        });
+      
+          /* moving text*/
+          var textSlide = document.querySelector(".text-slide").cloneNode(true);
+        document.querySelector(".moving-text").appendChild(textSlide);
+      </script>
     
 
     

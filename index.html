@@ -1903,7 +1903,7 @@
     setInterval(cycleImages, 3000);
   });
 
-  const targetDate = new Date("2024-09-03T00:00:00");
+  const targetDate = new Date("2024-09-09T00:00:00");
 
   const updateCountdown = () => {
     const now = new Date();
@@ -1915,29 +1915,44 @@
       return;
     }
 
-    const years = now.getFullYear();
-    const monthsDiff = targetDate.getMonth() - now.getMonth() + (12 * (targetDate.getFullYear() - years));
+    const years = targetDate.getFullYear() - now.getFullYear();
+    const months = targetDate.getMonth() - now.getMonth() + (years * 12);
+    const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const targetDays = new Date(targetDate.getFullYear(), targetDate.getMonth(), 0).getDate();
 
-    let endOfCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-    const currentDays = endOfCurrentMonth - now.getDate();
-    const targetDays = targetDate.getDate();
-    const daysInMonth = endOfCurrentMonth;
+    let monthsDifference = months;
+    let daysDifference = days;
 
-    const months = monthsDiff - (currentDays > targetDays ? 1 : 0);
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24)) % daysInMonth;
+    if (now.getDate() > targetDate.getDate()) {
+      monthsDifference -= 1;
+      daysDifference = daysInCurrentMonth - now.getDate() + targetDate.getDate();
+    } else {
+      daysDifference = targetDate.getDate() - now.getDate();
+    }
+
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("months").innerText = months;
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
+    updateElement("months", monthsDifference);
+    updateElement("days", daysDifference);
+    updateElement("hours", hours);
+    updateElement("minutes", minutes);
+    updateElement("seconds", seconds);
+  };
+
+  const updateElement = (id, value) => {
+    const element = document.getElementById(id);
+    if (element.innerText != value) {
+      element.classList.remove("slideIn");
+      void element.offsetWidth; // Trigger reflow
+      element.classList.add("slideIn");
+      element.innerText = value;
+    }
   };
 
   const timer = setInterval(updateCountdown, 1000);
-  updateCountdown();
 </script>
 
 

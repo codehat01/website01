@@ -63,11 +63,7 @@ nav.scrolled {
 .po{
     margin-right: 20px;
 }
-#card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
+
 .card-images { /* Container styles */
     width: 720px; /* Replace with your desired container width */
     height: 620px; /* Replace with your desired container height */

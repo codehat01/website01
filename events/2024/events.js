@@ -7,9 +7,6 @@ async function fetchAndDisplayImages() {
         const querySnapshot = await collectionRef.get();
         const docs = querySnapshot.docs;
 
-        const cardContainer = document.getElementById('card-container');
-        cardContainer.innerHTML = ''; // Clear existing content
-
         docs.forEach(async (doc, i) => {
             const imagePath = doc.data().image;
             const imageRef = storage.refFromURL(imagePath);
@@ -17,24 +14,15 @@ async function fetchAndDisplayImages() {
             const text = doc.data().about;
             const header = doc.data().name;
 
-            const card = createCard(i + 1, imageUrl, header, text);
-            cardContainer.appendChild(card);
+
+            displayImage(`day${i + 1}Image`, imageUrl);
+            displayText(`card-text${i + 1}`, text);
+            displayHeader(`header${i + 1}`, header);
         });
 
     } catch (error) {
         console.error('Error fetching and displaying images:', error);
     }
-}
-
-function createCard(index, imageUrl, header, text) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-        <img id="day${index}Image" src="${imageUrl}" alt="Image for day ${index}">
-        <h2 id="header${index}">${header}</h2>
-        <p id="card-text${index}">${text}</p>
-    `;
-    return card;
 }
 
 function displayImage(imgElementId, imageUrl) {

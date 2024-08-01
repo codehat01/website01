@@ -404,7 +404,6 @@ button {
 
 .animated-button1 span {
     position: relative;
-    z-index: 2;
     transition: color 0.3s;
 }
 

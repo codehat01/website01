@@ -328,6 +328,8 @@ button {
 }
 #a2::before{
     background-color: rgb(0,78,114);
+    z-index: 0;
+
 }
 #a1{
     color: rgb(210,18,23);
@@ -338,6 +340,7 @@ button {
 }
 #a1::before{
     background-color: rgb(210,18,23);
+    z-index: 0;
 }
 #a3{
     color: rgb(73,151,43);
@@ -348,6 +351,7 @@ button {
 }
 #a3::before{
     background-color: rgb(73,151,43);
+    z-index: 0;
 }
 #a4{
     color: rgb(15,175,199);
@@ -358,6 +362,7 @@ button {
 }
 #a4::before{
     background-color: rgb(15,175,199);
+    z-index: 0;
 }
 #a5{
     color: rgb(30,191,165);
@@ -368,6 +373,7 @@ button {
 }
 #a5::before{
     background-color: rgb(30,191,165);
+    z-index: 0;
 }
 #a6{
     color: rgb(115,189,233);
@@ -378,6 +384,7 @@ button {
 }
 #a6::before{
     background-color: rgb(115,189,233);
+    z-index: 0;
 }
 .animated-button1::before {
     content: '';
@@ -386,7 +393,6 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    
     z-index: 1;
     transition: top 0.3s;
     top: 100%;

@@ -71,11 +71,18 @@
   width: 51%;
 }
 
-.moving-text:before,
-.moving-text:after {
+.moving-text:before{
   position: absolute;
   top: 0;
   width: 50px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+.moving-text:after {
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: 100%;
   content: "";
   z-index: 2;

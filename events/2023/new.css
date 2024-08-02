@@ -756,7 +756,7 @@ html {
 
     .card-text {
         width: 27%;
-        height: calc(90vh - 124px);
+        height: calc(95vh - 124px);
         /* Ensure the remaining height is taken by card text */
         text-align: center;
         padding: 20px;
@@ -791,7 +791,7 @@ html {
 
     .card-text {
         width: 100%;
-        height: 100%;
+        height:auto;
         padding: 20px;
     }
 

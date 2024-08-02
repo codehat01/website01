@@ -700,7 +700,7 @@ html {
         top: var(--cardMargin);
         margin-left: 0px;
         flex-direction: column;
-        height: 60vh;
+        height: 70vh;
     }
 
     .card-body {
@@ -790,7 +790,7 @@ html {
     }
 
     .card-text {
-        width: 100%;
+        width: 95%;
         height:auto;
         padding: 20px;
     }

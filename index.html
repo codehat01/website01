@@ -243,8 +243,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#home">Home<span></span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#aboutacn">About<span></span></a>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events 3.0</a>
+                      <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                          <a class="dropdown-item" href="#">ACN Cyber conclave</a>
+                          <a class="dropdown-item" href="#">ACN Cyber Workshop</a>
+                          <a class="dropdown-item" href="#">ACN Cyber Tech Fest</a>
+                          <a class="dropdown-item" href="#">ACN Cyber Awareness</a>
+                      </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button"
@@ -270,7 +277,7 @@
                         </li>
                     </ul>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" id="expandButton" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
@@ -922,5 +929,15 @@
         lastScrollTop = scrollTop;
       });
     });
+  </script>
+  <script>
+    document.getElementById('expandButton').addEventListener('click', function() {
+    const movingText = document.querySelector('.moving-text');
+    if (movingText.style.width === '90%') {
+      movingText.style.width = '51%';
+    } else {
+      movingText.style.width = '90%';
+    }
+  });
   </script>
 </html>

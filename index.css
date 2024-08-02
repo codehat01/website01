@@ -4,16 +4,204 @@ img[src="/image/2nd edition.png"]
 img[src="/image/abc.JPG"]
 img[src="/image/3rd edition.png"]
 .navbar {
-    /* Existing styles */
-    transform: translateY(-100%);
-    transition: transform 1.5s ease;
-    height: 100px;
-    width: 100%;
+  background-color: #000000;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  transition: transform 1.5s ease, width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
+  animation: textReveal 2s;
   }
 
-  .navbar.nav-dropdown {
-    transform: translateY(0);
+  @keyframes textReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
+
+.navbar.shrink {
+  height: 60px;
+  width: 90%;
+  margin-left: calc((100vw - 90vw) / 2);
+  margin-top: 20px;
+  border-radius: 70px;
+}
+
+.navbar.scrolledup {
+  transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: white;
+  padding: 7px 7px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: #b22049;
+  color: #ffffff;
+}
+
+/* Moving text */
+.moving-text {
+  white-space: nowrap;
+  position: relative;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  overflow: hidden;
+  width: 51%;
+}
+
+.moving-text:before,
+.moving-text:after {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.text-slide {
+  display: inline-flex;
+  align-items: center;
+  
+  animation: 10s slide infinite linear;
+}
+
+.animated-button {
+  width: 130px;
+  height: 35px;
+  background-color: #b22049;
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s, background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  margin: 0 10px;
+}
+
+.animated-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+  transition: top 0.3s;
+  top: 100%;
+}
+
+.animated-button:hover::before {
+  top: 0;
+}
+
+.animated-button span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s;
+}
+
+.animated-button:hover {
+  background-color: black;
+}
+
+.animated-button:hover span {
+  color: #b22049;
+}
+
+.text-slide span {
+  margin: 0 10px;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.moving-text:hover .text-slide {
+  animation-play-state: paused;
+}
+
+.navbar-toggler {
+  margin-left: auto;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.7); /* Black with transparency */
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #fff; /* White text color */
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Slight white hover effect */
+}
+ 
+/* Styles for the collapsed navbar menu */
+.navbar-collapse {
+  background-color: rgba(0, 0, 0, 0.8); /* Black with some transparency */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for the dropdown menu items */
+.navbar-nav .nav-item .nav-link {
+  color: #ffffff; /* White text color */
+  padding: 10px 15px; /* Add padding for better spacing */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Slight white hover effect */
+  color: #ffffff; /* Ensure text color remains white */
+}
+
+.navbar-toggler {
+  border: none; /* Remove border */
+  background: transparent; /* Ensure background is transparent */
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" d="M5 7h20M5 15h20M5 23h20"/></svg>');
+}
+
+/* Adjust the dropdown menu visibility on mobile */
+.navbar-collapse.show {
+  display: block; /* Ensure menu displays when toggled */
+}
 
   body,
   html {
@@ -39,21 +227,7 @@ img[src="/image/3rd edition.png"]
   }
 
   /* Navigation bar */
-  .navbar {
-    background-color: #000000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    box-sizing: border-box;
-    z-index: 1000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 80px;
-    animation: textReveal 2s;
-    width: 100%;
-  }
+  
 
  
 
@@ -61,22 +235,7 @@ img[src="/image/3rd edition.png"]
     height: 80px;
   }
 
-  .navbar {
-    background-color: #000000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    box-sizing: border-box;
-    z-index: 1000;
-    position: fixed;
-    /* Ensures navbar stays fixed on scroll */
-    top: 0;
-    left: 0;
-    height: 80px;
-    width: 100%;
-    animation: textReveal 2s;
-  }
+  
 
   @keyframes textReveal {
     0% {
@@ -95,132 +254,7 @@ img[src="/image/3rd edition.png"]
     height: 80px;
   }
 
-  .navigation {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    font-size: 15px;
-  }
-
-  .navigation__menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    display: flex;
-    /* Ensures menu items are inline */
-    align-items: center;
-    /* Aligns items vertically */
-  }
-
-  .navigation__menu>li {
-    position: relative;
-    display: flex;
-    align-items: center;
-    /* Ensures the arrow aligns with text */
-    margin-right: 10px;
-    /* Reduces gap between menu items */
-  }
-
-  .navigation__menu>li>a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 10px 15px;
-    /* Adjust padding for consistency */
-    display: flex;
-    /* Use flexbox to align items */
-    align-items: center;
-    /* Aligns text and arrow vertically */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: 10px;
-  }
-
-  .navigation__menu>li>a:hover {
-    background-color: #b22049;
-    color: #ffffff;
-  }
-
-  .navarrow {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #ffffff;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-  }
-
-  .navigation__menu>li:hover .navarrow {
-    transform: rotate(180deg);
-  }
-
-  .navigation__submenu {
-    position: absolute;
-    top: 100%;
-    left: 10%;
-    /* Aligns submenu directly below parent item */
-    width: max-content;
-    /* Fit submenu to content width */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #000000;
-    border: 1px solid #b22049;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 0;
-    max-height: 0;
-    border-radius: 4px;
-    z-index: 1000;
-    transform: translateY(-10px);
-  }
-
-  .navigation__menu>li:hover .navigation__submenu {
-    opacity: 1;
-    max-height: 300px;
-    /* Adjust based on content */
-    transform: translateY(0);
-  }
-
-  .navigation__submenu>li>a {
-    padding: 10px 15px;
-    /* Consistent padding with submenu */
-    display: block;
-    text-decoration: none;
-    color: #ffffff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  .navigation__submenu>li>a:hover {
-    background-color: #000000;
-    color: #b22049;
-  }
-
-  .navigation__submenu .submenu-button {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-  }
-
-  .navigation__submenu .submenu-button button {
-    background-color: #b22049;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-
-  .navigation__submenu .submenu-button button:hover {
-    background-color: #ffffff;
-    color: #b22049;
-    transform: scale(1.05);
-  }
-
-
+  
   body {
     margin: 0;
     /* Remove default margin */
@@ -493,49 +527,7 @@ img[src="/image/3rd edition.png"]
     /* Rotate the arrow slightly on hover for effect */
   }
 
-  .animated-button {
-    width: 150px;
-    height: 50px;
-    background-color: #b22049;
-    color: white;
-    border: 5px solid #b22049;
-    font-size: 20px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s;
-    border-radius: 40px;
-    margin-top: 20px;
-    text-decoration: none;
-  }
-
-  .animated-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 1;
-    transition: top 0.3s;
-    top: 100%;
-  }
-
-  .animated-button:hover::before {
-    top: 0;
-  }
-
-  .animated-button span {
-    position: relative;
-    z-index: 2;
-    transition: color 0.3s;
-  }
-
-  .animated-button:hover span {
-    color: #b22049;
-  }
-
+  
   html,
   body {
     margin: 0;
@@ -821,36 +813,7 @@ img[src="/image/3rd edition.png"]
 
 
 
-  .navbar.scrolled {
-    width: 90%;
-    /* Adjust width as needed */
-    margin-left: calc((100vw - 90vw) / 2);
-    /* Center horizontally */
-    margin-top: 20px;
-    /* Adjust top margin as needed */
-    border-radius: 70px;
-    /* Rounded corners */
-    transition: width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
-    /* Smooth transitions */
-    position: fixed;
-    /* Fixed positioning */
-    left: 0;
-    /* Ensure it sticks to the left */
-    right: 0;
-    /* Ensure it stretches to the right */
-    display: flex;
-    /* Ensure flex layout */
-    justify-content: center;
-    /* Center horizontally */
-    align-items: center;
-    /* Center vertically */
-  }
-
-  .navbar.scrolledup {
-    transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
-    /* Smooth transitions with ease-out */
-  }
-
+  
   .ACN {
     width: 1000px;
     height: 900px;
@@ -1035,123 +998,7 @@ img[src="/image/3rd edition.png"]
 
 
   /*moving text*/
-  .moving-text {
-    background: black;
-    white-space: nowrap;
-    position: relative;
-    font-size: 20px;
-    /* Increased by 5px */
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    /* Increased by 5px */
-    overflow: hidden;
-    width: 51%;
-  }
-
-
-  .moving-text:before,
-  .moving-text:after {
-    position: absolute;
-    top: 0;
-    width: 50px;
-    /* Increased by 5px */
-    height: 100%;
-    content: "";
-    z-index: 2;
-  }
-
-  .moving-text:before {
-    left: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0), black);
-  }
-
-  .moving-text:after {
-    right: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), black);
-  }
-
-  .text-slide {
-    display: inline-flex;
-    align-items: center;
-    animation: 10s slide infinite linear;
-  }
-
-  .animated-button {
-    width: 130px;
-    height: 35px;
-    /* Decreased height */
-    background-color: #b22049;
-    color: white;
-    border: none;
-    font-size: 15px;
-    /* Optional: Adjust font size if needed */
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s, background-color 0.3s;
-    /* Added transition for background-color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 40px;
-    margin: 0 10px;
-    /* Added margin for spacing around "X" */
-  }
-
-
-  .animated-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 1;
-    transition: top 0.3s;
-    top: 100%;
-  }
-
-  .animated-button:hover::before {
-    top: 0;
-  }
-
-  .animated-button span {
-    position: relative;
-    z-index: 2;
-    transition: color 0.3s;
-  }
-
-  .animated-button:hover {
-    background-color: black;
-    /* Changed hover color to black */
-  }
-
-  .animated-button:hover span {
-    color: #b22049;
-  }
-
-  .text-slide span {
-    margin: 0 10px;
-    /* Added margin for spacing around "X" */
-  }
-
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-100%);
-    }
-  }
-
-  .moving-text:hover .text-slide {
-    animation-play-state: paused;
-  }
-
+  
   .container {
     text-align: center;
   }

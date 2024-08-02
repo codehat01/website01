@@ -700,7 +700,7 @@ html {
         top: var(--cardMargin);
         margin-left: 0px;
         flex-direction: column;
-        height: 70vh;
+        height: 80vh;
     }
 
     .card-body {
@@ -761,6 +761,7 @@ html {
         text-align: center;
         padding: 20px;
         border-bottom-right-radius: 40px;
+        margin-left:-10px;
     }
 
     .card-images img:nth-child(2):hover {
@@ -804,7 +805,8 @@ html {
     }
 
     .card-text p {
-        max-width: 100%;
+        max-width: 90%;
+        font-size: 16px;
     }
 
     nav.scrolled {

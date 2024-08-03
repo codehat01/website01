@@ -444,14 +444,14 @@ html {
         margin-block-start: 0.1em;
     }
 
-    #item1 .box-body1,
-    #item2 .box-body1,
-    #item3 .box-body1,
-    #item4 .box-body1,
-    #item5 .box-body1,
-    #item6 .box-body1,
-    #item7 .box-body1,
-    #item8 .box-body1 {
+    #item1 .box-body,
+    #item2 .box-body,
+    #item3 .box-body,
+    #item4 .box-body,
+    #item5 .box-body,
+    #item6 .box-body,
+    #item7 .box-body,
+    #item8 .box-body {
         position: sticky;
         top: var(--boxMargin);
         margin-left: 0px;
@@ -459,29 +459,29 @@ html {
         height: 80vh;
     }
 
-    .box-body1 {
+    .box-body {
         width: 90%;
         height: 80%;
         margin-top: 20px;
     }
 
-    #item1 .box-body1,
-    #item3 .box-body1 {
+    #item1 .box-body,
+    #item3 .box-body {
         flex-direction: column;
     }
 
-    #item2 .box-body1,
-    #item4 .box-body1 {
+    #item2 .box-body,
+    #item4 .box-body {
         flex-direction: column-reverse;
     }
 
-    #item5 .box-body1,
-    #item7 .box-body1 {
+    #item5 .box-body,
+    #item7 .box-body {
         flex-direction: column;
     }
 
-    #item6 .box-body1,
-    #item8 .box-body1 {
+    #item6 .box-body,
+    #item8 .box-body {
         flex-direction: column-reverse;
     }
 

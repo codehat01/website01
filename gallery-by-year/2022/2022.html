@@ -250,462 +250,220 @@
         }
 
         .navbar {
-            /* Existing styles */
-            transform: translateY(-100%);
-            transition: transform 1.5s ease;
-            height: 100px;
-            width: 100%;
-        }
+      background-color: #000000;
+      height: 80px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      transition: transform 1.5s ease, width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
+      animation: textReveal 2s;
+    }
 
-        .navbar.nav-dropdown {
-            transform: translateY(0);
-        }
+    @keyframes textReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
 
-        /* Navigation bar */
-        .navbar {
-            background-color: #000000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-            box-sizing: border-box;
-            z-index: 1000;
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 80px;
-            animation: textReveal 2s;
-            width: 100%;
-        }
+    .navbar.shrink {
+      height: 80px;
+      width: 90%;
+      margin-left: calc((100vw - 90vw) / 2);
+      margin-top: 20px;
+      border-radius: 70px;
+    }
 
-        @keyframes textReval {
-            0% {
-                opacity: 1;
-                transform: translateY(-100px);
-            }
+    
 
-            100% {
-                opacity: 1;
-                transform: translateY(0px);
-            }
+    .navbar.scrolledup {
+      transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
+    }
 
-        }
+    .navbar-brand img {
+      height: 90px;
+    }
 
-        .logo img {
-            height: 80px;
-        }
+    .moving-text {
+      white-space: nowrap;
+      position: relative;
+      font-size: 20px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      overflow: hidden;
+      width: 51%;
+    }
 
-        .navbar {
-            background-color: #000000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-            box-sizing: border-box;
-            z-index: 1000;
-            position: fixed;
-            /* Ensures navbar stays fixed on scroll */
-            top: 0;
-            left: 0;
-            height: 80px;
-            width: 100%;
-            animation: textReveal 2s;
-        }
+    .text-slide {
+      display: inline-flex;
+      align-items: center;
+      animation: 10s slide infinite linear;
+    }
 
-        @keyframes textReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(-100px);
-            }
+    @keyframes slide {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-50%); }
+    }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
+    .animated-button {
+      width: 130px;
+      height: 35px;
+      background-color: #b22049;
+      color: white;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s, background-color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 40px;
+      margin: 0 10px;
+    }
 
-        .logo img {
-            height: 80px;
-        }
+    .animated-button:hover {
+      background-color: white;
+    }
 
-        .navigation {
-            display: flex;
-            align-items: center;
-            margin-left: auto;
-            font-size: 15px;
-        }
+    .animated-button:hover span {
+      color: #b22049;
+    }
 
-        .navigation__menu {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            display: flex;
-            /* Ensures menu items are inline */
-            align-items: center;
-            /* Aligns items vertically */
-        }
+    .navbar-nav .nav-item .nav-link {
+      color: white;
+      padding: 7px 7px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        .navigation__menu>li {
-            position: relative;
-            display: flex;
-            align-items: center;
-            /* Ensures the arrow aligns with text */
-            margin-right: 10px;
-            /* Reduces gap between menu items */
-        }
+    .navbar-nav .nav-item .nav-link:hover {
+      background-color: #b22049;
+      color: #ffffff;
+    }
 
-        .navigation__menu>li>a {
-            text-decoration: none;
-            color: #ffffff;
-            padding: 7px 7px;
-            /* Adjust padding for consistency */
-            display: flex;
-            /* Use flexbox to align items */
-            align-items: center;
-            /* Aligns text and arrow vertically */
-            transition: background-color 0.3s ease, color 0.3s ease;
-            border-radius: 10px;
-        }
+    .navbar-toggler {
+      margin-left: auto;
+      border: none;
+      background: transparent;
+      margin-bottom: 3%;
+      width: 50px;
+      height: 50px;
+    }
 
-        .navigation__menu>li>a:hover {
-            background-color: #b22049;
-            color: #ffffff;
-        }
+    .navbar-toggler-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+      
+    }
+    .navigation__menu{
+      font-size: 20px;
+      gap: 12px;
+      
+}
 
-        .navarrow {
-            display: inline-block;
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid #ffffff;
-            margin-left: 5px;
-            transition: transform 0.3s ease;
-        }
+.dropdown-menu.navigation__submenu,
+.dropdown-menu.navigation__submenu.show {
+  background-color: #000000;
+}
 
-        .navigation__menu>li:hover .navarrow {
-            transform: rotate(180deg);
-        }
+.dropdown-menu.navigation__submenu .dropdown-item {
+  color: white;
+}
 
-        .navigation__submenu {
-            position: absolute;
-            top: 100%;
-            left: 10%;
-            /* Aligns submenu directly below parent item */
-            width: max-content;
-            /* Fit submenu to content width */
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            background-color: #000000;
-            border: 1px solid #b22049;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            opacity: 0;
-            max-height: 0;
-            border-radius: 4px;
-            z-index: 1000;
-            transform: translateY(-10px);
-        }
+.dropdown-menu.navigation__submenu .dropdown-item:hover,
+.dropdown-menu.navigation__submenu .dropdown-item:focus {
+  background-color: #b22049;
+  color: white;
+  display: block;
+  margin-left:5px;
+}
 
-        .navigation__menu>li:hover .navigation__submenu {
-            opacity: 1;
-            max-height: 300px;
-            /* Adjust based on content */
-            transform: translateY(0);
-        }
+.navbar-nav .dropdown {
+  position: relative;
+}
 
-        .navigation__submenu>li>a {
-            padding: 10px 15px;
-            /* Consistent padding with submenu */
-            display: block;
-            text-decoration: none;
-            color: #ffffff;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+.navbar-nav .dropdown-menu {
+  margin-top: 0;
+}
 
-        .navigation__submenu>li>a:hover {
-            background-color: #000000;
-            color: #b22049;
-        }
+.navbar-nav .dropdown:hover .dropdown-menu,
+.navbar-nav .dropdown .dropdown-menu:hover {
+  display: block;
+}
 
-        .navigation__submenu .submenu-button {
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-        }
+.navbar-nav .dropdown-menu {
+  top: 100%;
+  left: 0;
+}
 
-        .navigation__submenu .submenu-button button {
-            background-color: #b22049;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    @media (max-width: 992px) {
+      .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem;
+        font-size: 20px !important;
+      }
+      .moving-text {
+        margin-bottom: 20px;
+        width: 80%;
+        font-size: 16px;
+      }
+      .animated-button {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+      }
+      .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+    }
+    @media (max-width: 768px) {
+      .moving-text {
+        width: 75%;
+        margin-bottom: 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      .moving-text {
+        width: 51%;
+        margin-bottom: 20px;
+      }
+    }
+    .dropdown-toggle::after {
+  transition: transform 0.3s ease;
+}
 
-        .navigation__submenu .submenu-button button:hover {
-            background-color: #ffffff;
-            color: #b22049;
-            transform: scale(1.05);
-        }
+.nav-item.dropdown:hover .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
 
+.navbar-nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
 
-
-
-        .logo img {
-            height: 90px;
-            /* Adjust the height of the logo */
-        }
-
-        .logo2 img {
-            height: 100px;
-            /* Adjust the height of the logo */
-        }
-
-        #new {
-            background-color: black;
-            color: white;
-            display: flex;
-            width: 1050px;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 40px;
-            margin-left: 200px;
-            margin-top: 20px;
-            /* Add margin-top to move it down from the top */
-            position: fixed;
-            z-index: 1000;
-            height: 90px;
-            padding: 15px;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        #new.visible {
-            opacity: 1;
-            /* Fade in */
-            transform: translateY(0);
-            /* Slide in */
-            transition: opacity 3s ease, transform 3s ease;
-        }
-
-        #new {
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #fff;
-            height: 50px;
-        }
-
-        .navbar a,
-        #new a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .animated-button {
-            width: 150px;
-            height: 50px;
-            background-color: #b22049;
-            color: white;
-            border: 5px solid #b22049;
-            font-size: 20px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: color 0.3s;
-            border-radius: 40px;
-            margin-top: 20px;
-        }
-
-        .animated-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            z-index: 1;
-            transition: top 0.3s;
-            top: 100%;
-        }
-
-        .animated-button:hover::before {
-            top: 0;
-        }
-
-        .animated-button span {
-            position: relative;
-            z-index: 2;
-            transition: color 0.3s;
-        }
-
-        .animated-button:hover span {
-            color: #b22049;
-        }
-
-
-
-        .navbar.scrolled {
-            width: 90%;
-            /* Adjust width as needed */
-            margin-left: calc((100vw - 90vw) / 2);
-            /* Center horizontally */
-            margin-top: 20px;
-            /* Adjust top margin as needed */
-            border-radius: 70px;
-            /* Rounded corners */
-            transition: width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
-            /* Smooth transitions */
-            position: fixed;
-            /* Fixed positioning */
-            left: 0;
-            /* Ensure it sticks to the left */
-            right: 0;
-            /* Ensure it stretches to the right */
-            display: flex;
-            /* Ensure flex layout */
-            justify-content: center;
-            /* Center horizontally */
-            align-items: center;
-            /* Center vertically */
-        }
-
-        .navbar.scrolledup {
-            transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
-            /* Smooth transitions with ease-out */
-        }
-
-        .ACN {
-            width: 1000px;
-            height: 900px;
-            margin-bottom: 105px;
-        }
-
-        /*moving text*/
-        .moving-text {
-            background: black;
-            white-space: nowrap;
-            position: relative;
-            font-size: 20px;
-            /* Increased by 5px */
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            /* Increased by 5px */
-            overflow: hidden;
-            width: 51%;
-        }
-
-
-        .moving-text:before,
-        .moving-text:after {
-            position: absolute;
-            top: 0;
-            width: 50px;
-            /* Increased by 5px */
-            height: 100%;
-            content: "";
-            z-index: 2;
-        }
-
-        .moving-text:before {
-            left: 0;
-            background: linear-gradient(to left, rgba(0, 0, 0, 0), black);
-        }
-
-        .moving-text:after {
-            right: 0;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0), black);
-        }
-
-        .text-slide {
-            display: inline-flex;
-            align-items: center;
-            animation: 10s slide infinite linear;
-        }
-
-        .animated-button {
-            width: 130px;
-            height: 35px;
-            /* Decreased height */
-            background-color: #b22049;
-            color: white;
-            border: none;
-            font-size: 15px;
-            /* Optional: Adjust font size if needed */
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: color 0.3s, background-color 0.3s;
-            /* Added transition for background-color */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 40px;
-            margin: 0 10px;
-            /* Added margin for spacing around "X" */
-        }
-
-
-        .animated-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            z-index: 1;
-            transition: top 0.3s;
-            top: 100%;
-        }
-
-        .animated-button:hover::before {
-            top: 0;
-        }
-
-        .animated-button span {
-            position: relative;
-            z-index: 2;
-            transition: color 0.3s;
-        }
-
-        .animated-button:hover {
-            background-color: black;
-            /* Changed hover color to black */
-        }
-
-        .animated-button:hover span {
-            color: #b22049;
-        }
-
-        .text-slide span {
-            margin: 0 10px;
-            /* Added margin for spacing around "X" */
-        }
-
-        @keyframes slide {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-100%);
-            }
-        }
-
-        .moving-text:hover .text-slide {
-            animation-play-state: paused;
-        }
-
+@media (max-width: 992px) {
+  .navbar-nav .dropdown-menu {
+    position: static;
+    float: none;
+  }
+}     
 
         /*footer*/
         footer {
@@ -765,74 +523,81 @@
 </head>
 <header>
     <section id="home" class="section">
-        <nav class="navbar" id="myNav">
-            <a href="/index.html#home" class="logo">
-                <img src="Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo">
-            </a>
-            <div class="moving-text">
-                <div class="text-slide">
-                    <span>ACN 3rd edition</span>
-                    <span>|</span>
-                    <button class="animated-button"><span>Register Now</span></button>
-                    <span>|</span>
-                    <span>ACN 3rd edition</span>
-                    <span>|</span>
-                    <button class="animated-button"><span>Register Now</span></button>
-                    <span>|</span>
-                    <span>ACN 3rd edition</span>
-                    <span>|</span>
-                    <button class="animated-button"><span>Register Now</span></button>
-                    <span>|</span>
-                </div>
-            </div>
-            <div class="navigation">
-                <ul class="navigation__menu">
-                    <li>
-                        <a href="/index.html#home">Home<span></span></a>
-                    </li>
-                </ul>
-                <ul class="navigation__menu">
-                    <li>
-                        <a href="/index.html#aboutacn">About<span></span></a>
-                    </li>
-                </ul>
-                <ul class="navigation__menu">
-                    <li>
-                        <a href="#">Editions<span class="navarrow"></span></a>
-                        <ul class="navigation__submenu">
-                            <li><a href="/events/2022/event-2022.html">2022</a></li>
-                            <li><a href="/events/2023/event-2023.html">2023</a></li>
-                            <li><a href="/events/2024/event-2024.html">2024</a></li>
+      <nav class="navbar navbar-expand-lg" id="myNav">
+        <a href="index.html#home" class="logo navbar-brand">
+          <img src="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo" style="height: 90px;">
+        </a>
 
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="navigation__menu">
-                    <li>
-                        <a href="/sponsors/spon.html">Sponsors<span></span></a>
-                    </li>
-                </ul>
-
-
-                <ul class="navigation__menu">
-                    <li>
-                        <a href="#">Gallery<span class="navarrow"></span></a>
-                        <ul class="navigation__submenu">
-                            <li><a href="#">2022</a></li>
-                            <li><a href="/gallery-by-year/2023/2023.html">2023</a></li>
-
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="navigation__menu">
-                    <li>
-                        <a href="/meetup/meetup.html">Team<span></span></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div class="moving-text" style="width: 80%;">
+          <div class="text-slide">
+            <span>ACN 3rd edition</span>
+            <span>|</span>
+            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                  Now</span></button></a>
+            <span>|</span>
+            <span>ACN 3rd edition</span>
+            <span>|</span>
+            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                  Now</span></button></a>
+            <span>|</span>
+            <span>ACN 3rd edition</span>
+            <span>|</span>
+            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                  Now</span></button></a>
+            <span>|</span>
+            <span>ACN 3rd edition</span>
+            <span>|</span>
+            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                  Now</span></button></a>
+            <span>|</span>
+          </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navigation" id="navbarNav">
+          <ul class="navbar-nav ml-auto navigation__menu">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#home">Home<span></span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Events 3.0</a>
+              <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                <a class="dropdown-item" href="#">ACN Cyber conclave</a>
+                <a class="dropdown-item" href="#">ACN Cyber Workshop</a>
+                <a class="dropdown-item" href="#">ACN Cyber Tech Fest</a>
+                <a class="dropdown-item" href="#">ACN Cyber Awareness</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Editions</a>
+              <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                <a class="dropdown-item" href="/events/2022/event-2022.html">2022</a>
+                <a class="dropdown-item" href="/events/2023/event-2023.html">2023</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sponsors/spon.html">Sponsors<span></span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Gallery</a>
+              <div class="dropdown-menu navigation__submenu" aria-labelledby="galleryDropdown">
+                <a class="dropdown-item" href="/gallery-by-year/2022/2022.html">2022</a>
+                <a class="dropdown-item" href="/gallery-by-year/2023/2023.html">2023</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/meetup/meetup.html">Team<span></span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </section>
-</header>
+  </header>
 
 <body>
     <canvas id="world"></canvas>
@@ -953,24 +718,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Dropdown Navigation
-            var nav = document.getElementById("myNav");
-            nav.classList.add("nav-dropdown");
-
-            // Scroll Event for Navbar
-            var navbar = document.querySelector(".navbar");
-            window.addEventListener("scroll", function () {
-                if (window.scrollY > 50) {
-                    navbar.classList.add("scrolled");
-                } else {
-                    navbar.classList.add("scrolledup");
-                    navbar.classList.remove("scrolled");
-                }
-            });
-
-            // Moving Text
-            var textSlide = document.querySelector(".text-slide").cloneNode(true);
-            document.querySelector(".moving-text").appendChild(textSlide);
 
             // Image Modal
             var modal = document.getElementById("myModal");
@@ -1108,6 +855,70 @@
             }
         });
     </script>
+      <script>
+        $(document).ready(function(){
+          $('.navbar-toggler').on('click', function() {
+            $(this).find('.navbar-toggler-icon').toggleClass('active');
+            if ($('.navbar-toggler-icon').hasClass('active')) {
+              $('.navbar-toggler-icon').html('&times;');
+            } else {
+              $('.navbar-toggler-icon').html('');
+              $('.navbar-toggler-icon').addClass('navbar-toggler-icon');
+            }
+          });
+      
+          $(window).on('scroll', function() {
+            var navbar = $('#myNav');
+            var scrollTop = $(this).scrollTop();
+            var lastScrollTop = 0;
+            
+            if (scrollTop > 0) {
+              navbar.addClass('shrink');
+            } else {
+              navbar.removeClass('shrink');
+            }
+      
+            if (scrollTop > lastScrollTop) {
+              navbar.addClass('scrolledup');
+            } else {
+              navbar.removeClass('scrolledup');
+            }
+      
+            lastScrollTop = scrollTop;
+          });
+      
+          // New dropdown hover functionality
+          var dropdownTimeout;
+          $('.navbar-nav .dropdown').hover(
+            function() {
+              var $this = $(this);
+              clearTimeout(dropdownTimeout);
+              $this.addClass('show');
+              $this.find('.dropdown-menu').addClass('show');
+            },
+            function() {
+              var $this = $(this);
+              dropdownTimeout = setTimeout(function() {
+                $this.removeClass('show');
+                $this.find('.dropdown-menu').removeClass('show');
+              }, 200); // 200ms delay before closing
+            }
+          );
+      
+          $('.navbar-nav .dropdown-menu').hover(
+            function() {
+              clearTimeout(dropdownTimeout);
+            },
+            function() {
+              var $dropdown = $(this).closest('.dropdown');
+              dropdownTimeout = setTimeout(function() {
+                $dropdown.removeClass('show');
+                $dropdown.find('.dropdown-menu').removeClass('show');
+              }, 200); // 200ms delay before closing
+            }
+          );
+        });
+      </script>
 </body>
 
 </html>

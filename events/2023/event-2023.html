@@ -16,68 +16,75 @@
     <div id="main-content" style="display: none;">
         <header>
             <section id="home" class="section">
-              <nav class="navbar" id="myNav">
-                <a href="/index.html#home" class="logo">
-                  <img src="Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo">
+              <nav class="navbar navbar-expand-lg" id="myNav">
+                <a href="index.html#home" class="logo navbar-brand">
+                  <img src="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo" style="height: 90px;">
                 </a>
-                <div class="moving-text">
+        
+                <div class="moving-text" style="width: 80%;">
                   <div class="text-slide">
                     <span>ACN 3rd edition</span>
                     <span>|</span>
-                    <button class="animated-button"><span>Register Now</span></button>
+                    <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                          Now</span></button></a>
                     <span>|</span>
                     <span>ACN 3rd edition</span>
                     <span>|</span>
-                    <button class="animated-button"><span>Register Now</span></button>
+                    <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                          Now</span></button></a>
                     <span>|</span>
                     <span>ACN 3rd edition</span>
                     <span>|</span>
-                    <button class="animated-button"><span>Register Now</span></button>
+                    <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                          Now</span></button></a>
+                    <span>|</span>
+                    <span>ACN 3rd edition</span>
+                    <span>|</span>
+                    <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                          Now</span></button></a>
                     <span>|</span>
                   </div>
                 </div>
-                <div class="navigation">
-                  <ul class="navigation__menu">
-                    <li>
-                      <a href="/index.html#home">Home<span></span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse navigation" id="navbarNav">
+                  <ul class="navbar-nav ml-auto navigation__menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.html#home">Home<span></span></a>
                     </li>
-                  </ul>
-                  <ul class="navigation__menu">
-                    <li>
-                      <a href="/index.html#aboutacn">About<span></span></a>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Events 3.0</a>
+                      <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                        <a class="dropdown-item" href="#">ACN Cyber conclave</a>
+                        <a class="dropdown-item" href="#">ACN Cyber Workshop</a>
+                        <a class="dropdown-item" href="#">ACN Cyber Tech Fest</a>
+                        <a class="dropdown-item" href="#">ACN Cyber Awareness</a>
+                      </div>
                     </li>
-                  </ul>
-                  <ul class="navigation__menu">
-                    <li>
-                      <a href="#">Editions<span class="navarrow"></span></a>
-                      <ul class="navigation__submenu">
-                        <li><a href="/events/2022/event-2022.html">2022</a></li>
-                        <li><a href="#">2023</a></li>
-                        <li><a href="/events/2024/event-2024.html">2024</a></li>
-          
-                      </ul>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Editions</a>
+                      <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                        <a class="dropdown-item" href="/events/2022/event-2022.html">2022</a>
+                        <a class="dropdown-item" href="/events/2023/event-2023.html">2023</a>
+                      </div>
                     </li>
-                  </ul>
-                  <ul class="navigation__menu">
-                    <li>
-                      <a href="/sponsors/spon.html">Sponsors<span></span></a>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/sponsors/spon.html">Sponsors<span></span></a>
                     </li>
-                  </ul>
-          
-          
-                  <ul class="navigation__menu">
-                    <li>
-                      <a href="#">Gallery<span class="navarrow"></span></a>
-                      <ul class="navigation__submenu">
-                        <li><a href="/gallery-by-year/2022/2022.html">2022</a></li>
-                        <li><a href="/gallery-by-year/2023/2023.html">2023</a></li>
-          
-                      </ul>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Gallery</a>
+                      <div class="dropdown-menu navigation__submenu" aria-labelledby="galleryDropdown">
+                        <a class="dropdown-item" href="/gallery-by-year/2022/2022.html">2022</a>
+                        <a class="dropdown-item" href="/gallery-by-year/2023/2023.html">2023</a>
+                      </div>
                     </li>
-                  </ul>
-                  <ul class="navigation__menu">
-                    <li>
-                      <a href="/meetup/meetup.html">Team<span></span></a>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/meetup/meetup.html">Team<span></span></a>
                     </li>
                   </ul>
                 </div>
@@ -246,6 +253,71 @@
 <script defer src="script.js"></script>
 <script defer src="firebase.js"></script>
 <script defer src="img.js"></script>
+
+<script>
+    $(document).ready(function(){
+      $('.navbar-toggler').on('click', function() {
+        $(this).find('.navbar-toggler-icon').toggleClass('active');
+        if ($('.navbar-toggler-icon').hasClass('active')) {
+          $('.navbar-toggler-icon').html('&times;');
+        } else {
+          $('.navbar-toggler-icon').html('');
+          $('.navbar-toggler-icon').addClass('navbar-toggler-icon');
+        }
+      });
+  
+      $(window).on('scroll', function() {
+        var navbar = $('#myNav');
+        var scrollTop = $(this).scrollTop();
+        var lastScrollTop = 0;
+        
+        if (scrollTop > 0) {
+          navbar.addClass('shrink');
+        } else {
+          navbar.removeClass('shrink');
+        }
+  
+        if (scrollTop > lastScrollTop) {
+          navbar.addClass('scrolledup');
+        } else {
+          navbar.removeClass('scrolledup');
+        }
+  
+        lastScrollTop = scrollTop;
+      });
+  
+      // New dropdown hover functionality
+      var dropdownTimeout;
+      $('.navbar-nav .dropdown').hover(
+        function() {
+          var $this = $(this);
+          clearTimeout(dropdownTimeout);
+          $this.addClass('show');
+          $this.find('.dropdown-menu').addClass('show');
+        },
+        function() {
+          var $this = $(this);
+          dropdownTimeout = setTimeout(function() {
+            $this.removeClass('show');
+            $this.find('.dropdown-menu').removeClass('show');
+          }, 200); // 200ms delay before closing
+        }
+      );
+  
+      $('.navbar-nav .dropdown-menu').hover(
+        function() {
+          clearTimeout(dropdownTimeout);
+        },
+        function() {
+          var $dropdown = $(this).closest('.dropdown');
+          dropdownTimeout = setTimeout(function() {
+            $dropdown.removeClass('show');
+            $dropdown.find('.dropdown-menu').removeClass('show');
+          }, 200); // 200ms delay before closing
+        }
+      );
+    });
+  </script>
 
 
 

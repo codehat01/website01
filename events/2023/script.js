@@ -15,29 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cardsContainer.style.scrollBehavior = 'smooth';
     }
 
-    // Navbar dropdown on load
-    window.onload = function() {
-        var nav = document.getElementById("myNav");
-        nav.classList.add("nav-dropdown"); // Add a class to trigger dropdown
-    };
 
-    // Navbar scroll effect
-    var navbar = document.querySelector(".navbar");
-    if (navbar) {
-        window.addEventListener("scroll", function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-                navbar.classList.remove("scrolledup");
-            } else {
-                navbar.classList.add("scrolledup");
-                navbar.classList.remove("scrolled");
-            }
-        });
-    }
-
-    // Moving text
-    var textSlide = document.querySelector(".text-slide").cloneNode(true);
-    document.querySelector(".moving-text").appendChild(textSlide);
 
     // Loading screen functionality
     const loadingScreen = document.getElementById("loading-screen");
@@ -59,3 +37,5 @@ document.addEventListener('DOMContentLoaded', function() {
 function showText(text) {
     document.getElementById('card-text1').innerText = text;
 }
+
+

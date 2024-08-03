@@ -4,7 +4,7 @@
   <title>ACN</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" href="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" type="image/icon type">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="/index.css">
   <style>
     .navbar {
   background-color: #000000;
@@ -97,6 +97,9 @@
 }
 
 .animated-button {
+  display: inline-flex; /* Use inline-flex to make it behave like an inline element but with flex properties */
+  justify-content: center;
+  align-items: center;
   width: 130px;
   height: 35px;
   background-color: #b22049;
@@ -107,11 +110,9 @@
   position: relative;
   overflow: hidden;
   transition: color 0.3s, background-color 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 40px;
   margin: 0 10px;
+  text-decoration: none; /* Remove underline from the link */
 }
 
 .animated-button::before {
@@ -144,6 +145,7 @@
 .animated-button:hover span {
   color: #b22049;
 }
+
 
 .text-slide span {
   margin: 0 10px;
@@ -228,21 +230,20 @@
                     <div class="text-slide">
                         <span>ACN 3rd edition</span>
                         <span>|</span>
-                        <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register Now</span></button></a>
+                        <a class="animated-button" href="/events/2024/event-2024.html"><span>Register Now</span></a>
                         <span>|</span>
                         <span>ACN 3rd edition</span>
                         <span>|</span>
-                        <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register Now</span></button></a>
+                        <a class="animated-button" href="/events/2024/event-2024.html"><span>Register Now</span></a>
                         <span>|</span>
                         <span>ACN 3rd edition</span>
                         <span>|</span>
-                        <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register Now</span></button></a>
+                        <a class="animated-button" href="/events/2024/event-2024.html"><span>Register Now</span></a>
                         <span>|</span>
                         <span>ACN 3rd edition</span>
                         <span>|</span>
-                        <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register Now</span></button></a>
-                        <span>|</span>
-                        
+                        <a class="animated-button" href="/events/2024/event-2024.html"><span>Register Now</span></a>
+                        <span>|</span> 
                     </div>
                 </div>
                 <div class="collapse navbar-collapse navigation" id="navbarNav">

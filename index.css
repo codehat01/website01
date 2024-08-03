@@ -886,19 +886,17 @@ img[src="/image/3rd edition.png"]
     font-size: large;
     text-shadow: 2px 2px 4px rgba(179, 32, 73, 0.6);
     margin: 0;
-    /* Remove default margin */
   }
-
+  
   .chief-guest-info p {
     margin: 2px 0;
     font-size: medium;
-    opacity: 0;
-    transition: opacity 0.3s;
+    padding-bottom: 5%;
+    text-shadow: 2px 2px 4px rgba(179, 32, 73, 0.6);
   }
-
-
-  .chief-guest:hover .chief-guest-info p {
-    opacity: 1;
+  
+  .chief-guest:hover  {
+    opacity:1;
   }
 
   .chief-guest:hover {

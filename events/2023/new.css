@@ -237,54 +237,56 @@ position: static;
 float: none;
 }
 }
-/* Cards */
+
+/* Boxes */
 :root {
-    --cards: 2;
-    --cards1: 5;
-    --cardHeight: calc(75vh + 20px);
-    --cardMargin: 17vh;
+    --boxes: 2;
+    --boxes1: 5;
+    --boxHeight: calc(75vh + 20px);
+    --boxMargin: 17vh;
     margin-top: 0px;
 }
 
-.container1 {
+.custom-container {
     width: 90%;
     margin: 0 auto;
 }
 
-#cards{
+#list {
     list-style: none;
     padding-left: 0;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(var(--cards), var(--cardHeight));
-    gap: var(--cardMargin);
-}
-#cards1 {
-    list-style: none;
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(var(--cards1), var(--cardHeight));
-    gap: var(--cardMargin);
+    grid-template-rows: repeat(var(--boxes), var(--boxHeight));
+    gap: var(--boxMargin);
 }
 
-#card1,
-#card2,
-#card3,
-#card4,
-#card5,
-#card6,
-#card7,
-#card8 {
+#list1 {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--boxes1), var(--boxHeight));
+    gap: var(--boxMargin);
+}
+
+#item1,
+#item2,
+#item3,
+#item4,
+#item5,
+#item6,
+#item7,
+#item8 {
     position: sticky;
-    top: var(--cardMargin);
+    top: var(--boxMargin);
 }
 
-.card-body1 {
+.box-body1 {
     justify-content: center;
     box-sizing: border-box;
     box-shadow: 0 0 30px 0 rgb(255, 255, 255);
-    height: var(--cardHeight);
+    height: var(--boxHeight);
     display: flex;
     transition: all 0.5s;
     border-radius: 50px;
@@ -294,7 +296,7 @@ float: none;
     width: 1280px;
 }
 
-.card-images {
+.box-images {
     width: 58%;
     position: relative;
     display: grid;
@@ -304,7 +306,7 @@ float: none;
     background-color: black;
 }
 
-.card-images img {
+.box-images img {
     width: 372px;
     height: 247.5px;
     object-fit: fill;
@@ -312,27 +314,27 @@ float: none;
     z-index: 0;
 }
 
-.card-images img:nth-child(1):hover {
+.box-images img:nth-child(1):hover {
     z-index: 1;
     transform: translate(50%, 50%) scale(2.05);
 }
 
-.card-images img:nth-child(2):hover {
+.box-images img:nth-child(2):hover {
     z-index: 2;
     transform: translate(-50%, 50%) scale(2.05);
 }
 
-.card-images img:nth-child(3):hover {
+.box-images img:nth-child(3):hover {
     z-index: 3;
     transform: translate(50%, -50%) scale(2.05);
 }
 
-.card-images img:nth-child(4):hover {
+.box-images img:nth-child(4):hover {
     z-index: 4;
     transform: translate(-50%, -50%) scale(2.05);
 }
 
-.card-text1 {
+.box-text1 {
     flex: 1;
     background-color: rgb(0, 0, 0);
     display: flex;
@@ -342,14 +344,14 @@ float: none;
     width: 20%;
 }
 
-.card-text1 h2 {
+.box-text1 h2 {
     font-size: 2.5em;
     margin: 0 0 10px 0;
     font-family: 'Montserrat', sans-serif;
     color: white;
 }
 
-.card-text1 h3 {
+.box-text1 h3 {
     text-align: center;
     font-size: 1.1em;
     margin: 0 0 10px 0;
@@ -357,7 +359,7 @@ float: none;
     color: white;
 }
 
-.card-text1 p {
+.box-text1 p {
     text-align: center;
     max-width: 350px;
     margin: 0;
@@ -366,10 +368,10 @@ float: none;
     font-family: 'Montserrat', sans-serif;
 }
 
-#card1 .card-body1,
-#card3 .card-body1,
-#card5 .card-body1,
-#card7 .card-body1 {
+#item1 .box-body1,
+#item3 .box-body1,
+#item5 .box-body1,
+#item7 .box-body1 {
     flex-direction: row-reverse;
 }
 
@@ -442,83 +444,83 @@ html {
         margin-block-start: 0.1em;
     }
 
-    #card1 .card-body1,
-    #card2 .card-body1,
-    #card3 .card-body1,
-    #card4 .card-body1,
-    #card5 .card-body1,
-    #card6 .card-body1,
-    #card7 .card-body1,
-    #card8 .card-body1 {
+    #item1 .box-body1,
+    #item2 .box-body1,
+    #item3 .box-body1,
+    #item4 .box-body1,
+    #item5 .box-body1,
+    #item6 .box-body1,
+    #item7 .box-body1,
+    #item8 .box-body1 {
         position: sticky;
-        top: var(--cardMargin);
+        top: var(--boxMargin);
         margin-left: 0px;
         flex-direction: column;
         height: 80vh;
     }
 
-    .card-body1 {
+    .box-body1 {
         width: 90%;
         height: 80%;
         margin-top: 20px;
     }
 
-    #card1 .card-body1,
-    #card3 .card-body1 {
+    #item1 .box-body1,
+    #item3 .box-body1 {
         flex-direction: column;
     }
 
-    #card2 .card-body1,
-    #card4 .card-body1 {
+    #item2 .box-body1,
+    #item4 .box-body1 {
         flex-direction: column-reverse;
     }
 
-    #card5 .card-body1,
-    #card7 .card-body1 {
+    #item5 .box-body1,
+    #item7 .box-body1 {
         flex-direction: column;
     }
 
-    #card6 .card-body1,
-    #card8 .card-body1 {
+    #item6 .box-body1,
+    #item8 .box-body1 {
         flex-direction: column-reverse;
     }
 
-    li#card1,
-    li#card2,
-    li#card3,
-    li#card4,
-    li#card5,
-    li#card6,
-    li#card7,
-    li#card8 {
+    li#item1,
+    li#item2,
+    li#item3,
+    li#item4,
+    li#item5,
+    li#item6,
+    li#item7,
+    li#item8 {
         margin-left: 0px;
     }
 
-    .card-images {
+    .box-images {
         width: 30%;
         border-top-right-radius: 40px;
     }
 
-    .card-images img {
+    .box-images img {
         width: 190px;
         height: 174px;
     }
 
-    .card-images img:nth-child(2) {
+    .box-images img:nth-child(2) {
         border-top-right-radius: 40px;
     }
 
-    .card-text1 {
+    .box-text1 {
         width: 27%;
         height: calc(95vh - 124px);
-        /* Ensure the remaining height is taken by card text */
+        /* Ensure the remaining height is taken by box text */
         text-align: center;
         padding: 20px;
         border-bottom-right-radius: 40px;
         margin-left:-10px;
     }
 
-    .card-images img:nth-child(2):hover {
+    .box-images img:nth-child(2):hover {
         z-index: 2;
         transform: translate(-52%, 50%) scale(2.03);
         /* Scales the image on hover (adjust as needed) */
@@ -526,7 +528,7 @@ html {
         border-top-right-radius: 20px;
     }
 
-    .card-images img:nth-child(4):hover {
+    .box-images img:nth-child(4):hover {
         z-index: 4;
         transform: translate(-50%, -52%) scale(2.02);
         /* Scales the image on hover (adjust as needed) */
@@ -534,31 +536,31 @@ html {
         border-top-right-radius: 20px;
     }
 
-    .card-images {
+    .box-images {
         width: 100%;
         gap: 2px;
     }
 
-    .card-images img {
+    .box-images img {
         width: 100%;
         height: auto;
     }
 
-    .card-text1 {
+    .box-text1 {
         width: 95%;
         height:auto;
         padding: 20px;
     }
 
-    .card-text1 h2 {
+    .box-text1 h2 {
         font-size: 1.5em;
     }
 
-    .card-text1 h3 {
+    .box-text1 h3 {
         font-size: 1em;
     }
 
-    .card-text1 p {
+    .box-text1 p {
         max-width: 90%;
         font-size: 16px;
     }

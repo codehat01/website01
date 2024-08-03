@@ -246,7 +246,7 @@ float: none;
     margin-top: 0px;
 }
 
-.container {
+.container1 {
     width: 90%;
     margin: 0 auto;
 }
@@ -280,7 +280,7 @@ float: none;
     top: var(--cardMargin);
 }
 
-.card-body {
+.card-body1 {
     justify-content: center;
     box-sizing: border-box;
     box-shadow: 0 0 30px 0 rgb(255, 255, 255);
@@ -332,7 +332,7 @@ float: none;
     transform: translate(-50%, -50%) scale(2.05);
 }
 
-.card-text {
+.card-text1 {
     flex: 1;
     background-color: rgb(0, 0, 0);
     display: flex;
@@ -342,14 +342,14 @@ float: none;
     width: 20%;
 }
 
-.card-text h2 {
+.card-text1 h2 {
     font-size: 2.5em;
     margin: 0 0 10px 0;
     font-family: 'Montserrat', sans-serif;
     color: white;
 }
 
-.card-text h3 {
+.card-text1 h3 {
     text-align: center;
     font-size: 1.1em;
     margin: 0 0 10px 0;
@@ -357,7 +357,7 @@ float: none;
     color: white;
 }
 
-.card-text p {
+.card-text1 p {
     text-align: center;
     max-width: 350px;
     margin: 0;
@@ -366,10 +366,10 @@ float: none;
     font-family: 'Montserrat', sans-serif;
 }
 
-#card1 .card-body,
-#card3 .card-body,
-#card5 .card-body,
-#card7 .card-body {
+#card1 .card-body1,
+#card3 .card-body1,
+#card5 .card-body1,
+#card7 .card-body1 {
     flex-direction: row-reverse;
 }
 
@@ -442,14 +442,14 @@ html {
         margin-block-start: 0.1em;
     }
 
-    #card1 .card-body,
-    #card2 .card-body,
-    #card3 .card-body,
-    #card4 .card-body,
-    #card5 .card-body,
-    #card6 .card-body,
-    #card7 .card-body,
-    #card8 .card-body {
+    #card1 .card-body1,
+    #card2 .card-body1,
+    #card3 .card-body1,
+    #card4 .card-body1,
+    #card5 .card-body1,
+    #card6 .card-body1,
+    #card7 .card-body1,
+    #card8 .card-body1 {
         position: sticky;
         top: var(--cardMargin);
         margin-left: 0px;
@@ -457,29 +457,29 @@ html {
         height: 80vh;
     }
 
-    .card-body {
+    .card-body1 {
         width: 90%;
         height: 80%;
         margin-top: 20px;
     }
 
-    #card1 .card-body,
-    #card3 .card-body {
+    #card1 .card-body1,
+    #card3 .card-body1 {
         flex-direction: column;
     }
 
-    #card2 .card-body,
-    #card4 .card-body {
+    #card2 .card-body1,
+    #card4 .card-body1 {
         flex-direction: column-reverse;
     }
 
-    #card5 .card-body,
-    #card7 .card-body {
+    #card5 .card-body1,
+    #card7 .card-body1 {
         flex-direction: column;
     }
 
-    #card6 .card-body,
-    #card8 .card-body {
+    #card6 .card-body1,
+    #card8 .card-body1 {
         flex-direction: column-reverse;
     }
 
@@ -508,7 +508,7 @@ html {
         border-top-right-radius: 40px;
     }
 
-    .card-text {
+    .card-text1 {
         width: 27%;
         height: calc(95vh - 124px);
         /* Ensure the remaining height is taken by card text */
@@ -544,21 +544,21 @@ html {
         height: auto;
     }
 
-    .card-text {
+    .card-text1 {
         width: 95%;
         height:auto;
         padding: 20px;
     }
 
-    .card-text h2 {
+    .card-text1 h2 {
         font-size: 1.5em;
     }
 
-    .card-text h3 {
+    .card-text1 h3 {
         font-size: 1em;
     }
 
-    .card-text p {
+    .card-text1 p {
         max-width: 90%;
         font-size: 16px;
     }

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <link rel="stylesheet" href="event.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-
-
-        .navbar {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="event.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .navbar {
       background-color: #000000;
       height: 80px;
       width: 100%;
@@ -32,6 +31,7 @@
         opacity: 0;
         transform: translateY(-100px);
       }
+
       100% {
         opacity: 1;
         transform: translateY(0px);
@@ -46,7 +46,7 @@
       border-radius: 70px;
     }
 
-    
+
 
     .navbar.scrolledup {
       transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
@@ -75,8 +75,13 @@
     }
 
     @keyframes slide {
-      from { transform: translateX(0%); }
-      to { transform: translateX(-50%); }
+      from {
+        transform: translateX(0%);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
 
     .animated-button {
@@ -128,48 +133,49 @@
 
     .navbar-toggler-icon {
       background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>');
-      
+
     }
-    .navigation__menu{
+
+    .navigation__menu {
       font-size: 20px;
       gap: 12px;
-      
-}
 
-.dropdown-menu.navigation__submenu,
-.dropdown-menu.navigation__submenu.show {
-  background-color: #000000;
-}
+    }
 
-.dropdown-menu.navigation__submenu .dropdown-item {
-  color: white;
-}
+    .dropdown-menu.navigation__submenu,
+    .dropdown-menu.navigation__submenu.show {
+      background-color: #000000;
+    }
 
-.dropdown-menu.navigation__submenu .dropdown-item:hover,
-.dropdown-menu.navigation__submenu .dropdown-item:focus {
-  background-color: #b22049;
-  color: white;
-  display: block;
-  margin-left:5px;
-}
+    .dropdown-menu.navigation__submenu .dropdown-item {
+      color: white;
+    }
 
-.navbar-nav .dropdown {
-  position: relative;
-}
+    .dropdown-menu.navigation__submenu .dropdown-item:hover,
+    .dropdown-menu.navigation__submenu .dropdown-item:focus {
+      background-color: #b22049;
+      color: white;
+      display: block;
+      margin-left: 5px;
+    }
 
-.navbar-nav .dropdown-menu {
-  margin-top: 0;
-}
+    .navbar-nav .dropdown {
+      position: relative;
+    }
 
-.navbar-nav .dropdown:hover .dropdown-menu,
-.navbar-nav .dropdown .dropdown-menu:hover {
-  display: block;
-}
+    .navbar-nav .dropdown-menu {
+      margin-top: 0;
+    }
 
-.navbar-nav .dropdown-menu {
-  top: 100%;
-  left: 0;
-}
+    .navbar-nav .dropdown:hover .dropdown-menu,
+    .navbar-nav .dropdown .dropdown-menu:hover {
+      display: block;
+    }
+
+    .navbar-nav .dropdown-menu {
+      top: 100%;
+      left: 0;
+    }
 
     @media (max-width: 992px) {
       .navbar-expand-lg .navbar-nav .nav-link {
@@ -177,16 +183,19 @@
         padding-left: .5rem;
         font-size: 20px !important;
       }
+
       .moving-text {
         margin-bottom: 20px;
         width: 80%;
         font-size: 16px;
       }
+
       .animated-button {
         width: 100px;
         height: 30px;
         font-size: 12px;
       }
+
       .navbar-collapse {
         background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
@@ -196,41 +205,42 @@
         z-index: 1000;
       }
     }
+
     @media (max-width: 768px) {
       .moving-text {
         width: 75%;
         margin-bottom: 20px;
       }
     }
+
     @media (max-width: 480px) {
       .moving-text {
         width: 51%;
         margin-bottom: 20px;
       }
     }
+
     .dropdown-toggle::after {
-  transition: transform 0.3s ease;
-}
+      transition: transform 0.3s ease;
+    }
 
-.nav-item.dropdown:hover .dropdown-toggle::after {
-  transform: rotate(180deg);
-}
+    .nav-item.dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
 
-.navbar-nav .dropdown:hover .dropdown-menu {
-  display: block;
-}
+    .navbar-nav .dropdown:hover .dropdown-menu {
+      display: block;
+    }
 
-@media (max-width: 992px) {
-  .navbar-nav .dropdown-menu {
-    position: static;
-    float: none;
-  }
-}
-      
-
-      
-</style>
+    @media (max-width: 992px) {
+      .navbar-nav .dropdown-menu {
+        position: static;
+        float: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <section id="home" class="section">
@@ -310,229 +320,243 @@
     </section>
   </header>
 
-    <div>
-        <h1 style="font-family: Poppins; font-size: 60px; text-align: center;" class="heading">Events</h1>
-        <h2 style="font-family: Poppins; font-size: 30px; text-align: center;">These are events that are going to happens in Amrita Cyber Nation 2024 (3rd edition) </h2>
-    </div>   
+  <div>
+    <h1 style="font-family: Poppins; font-size: 60px; text-align: center;" class="heading">Events</h1>
+    <h2 style="font-family: Poppins; font-size: 30px; text-align: center;">These are events that are going to happens in
+      Amrita Cyber Nation 2024 (3rd edition) </h2>
+  </div>
 
-    <div class="container">
-        <ul class="ul" id="cards">
-            <li class="li" id="card1" class="card">
-                <div class="card-body">
-                    <div class="card-image">
-                        <img id="day1Image" src="" alt="Image 1">
-                    </div>
-                    <div class="card-text">
-                        <h2 id="header1">Card 1</h2>
-                        <p id="card-text1"></p>
-                        <label for="popup-toggle1" class="learn-more-btn">Learn More</label>
-                        <input type="checkbox" id="popup-toggle1" class="popup-toggle">
-                        <label for="popup-toggle1" class="overlay"></label>
-                        <div class="box">
-                            <div class="box-content">
-                                <h2 id="events1"></h2>
-                                <strong><p id="eventdetails1">Additional information about Card 1.</p></strong>  
-                            </div>
-                        </div>
-                        <button class="animated-button1" id="a1"><span>Register</span></button>
-                    </div>
-                </div>
-            </li>
-            <li class="li" id="card2" class="card">
-                <div class="card-body">
-                    <div class="card-image">
-                        <img id="day2Image" src="" alt="Image 2">
-                    </div>
-                    <div class="card-text">
-                        <h2 id="header2">Card 2</h2>
-                        <p id="card-text2"></p>
-                        <a class="learn-more-btn" href="/cryptoshield-2024.html">Learn More</a>
-                        <div class="box">
-                            <div class="box-content">
-                                <h2 id="events2">Popup Card 2</h2>
-                                <strong><p id="eventdetails2">Additional information about Card 2.</p></strong>  
-                            </div>
-                           
-                        </div>
-                        <button class="animated-button1" id="a2"><span>Register</span></button>
-                    </div>
+  <div class="container">
+    <ul class="ul" id="cards">
+      <li class="li" id="card1" class="card">
+        <div class="card-body">
+          <div class="card-image">
+            <img id="day1Image" src="" alt="Image 1">
+          </div>
+          <div class="card-text">
+            <h2 id="header1">Card 1</h2>
+            <p id="card-text1"></p>
+            <label for="popup-toggle1" class="learn-more-btn">Learn More</label>
+            <input type="checkbox" id="popup-toggle1" class="popup-toggle">
+            <label for="popup-toggle1" class="overlay"></label>
+            <div class="box">
+              <div class="box-content">
+                <h2 id="events1"></h2>
+                <strong>
+                  <p id="eventdetails1">Additional information about Card 1.</p>
+                </strong>
+              </div>
+            </div>
+            <button class="animated-button1" id="a1"><span>Register</span></button>
+          </div>
+        </div>
+      </li>
+      <li class="li" id="card2" class="card">
+        <div class="card-body">
+          <div class="card-image">
+            <img id="day2Image" src="" alt="Image 2">
+          </div>
+          <div class="card-text">
+            <h2 id="header2">Card 2</h2>
+            <p id="card-text2"></p>
+            <a class="learn-more-btn" href="/cryptoshield-2024.html">Learn More</a>
+            <div class="box">
+              <div class="box-content">
+                <h2 id="events2">Popup Card 2</h2>
+                <strong>
+                  <p id="eventdetails2">Additional information about Card 2.</p>
+                </strong>
+              </div>
 
-                </div>
-            </li>
-            <li class="li" id="card3" class="card">
-                <div class="card-body">
-                    <div class="card-image">
-                        <img id="day3Image" src="" alt="Image 3">
-                    </div>
-                    <div class="card-text">
-                        <h2 id="header3"></h2>
-                        <p id="card-text3"></p>
-                        <label for="popup-toggle3" class="learn-more-btn">Learn More</label>
-                        <input type="checkbox" id="popup-toggle3" class="popup-toggle">
-                        <label for="popup-toggle3" class="overlay"></label>
-                        <div class="box">
-                            <div class="box-content">
-                                <h2 id="events3">Popup Card 3</h2>
-                                <strong><p id="eventdetails3">Additional information about Card 3.</p></strong>   
-                            </div>
-                        </div>
-                        <button class="animated-button1" id="a3"><span>Register</span></button>
-                    </div>
-                </div>
-            </li>
-            
-        </ul>
-    </div>
+            </div>
+            <button class="animated-button1" id="a2"><span>Register</span></button>
+          </div>
 
-    <div class="container">
-        <ul class="ul" id="cards">
-            <li id="card4" class="card">
-                <div class="card-body">
-                    <div class="card-image">
-                        <img id="day4Image" src="" alt="Image 4">
-                    </div>
-                    <div class="card-text">
-                        <h2 id="header4"></h2>
-                        <p id="card-text4"></p>
-                        <label for="popup-toggle4" class="learn-more-btn">Learn More</label>
-                        <input type="checkbox" id="popup-toggle4" class="popup-toggle">
-                        <label for="popup-toggle4" class="overlay"></label>
-                        <div class="box">
-                            <div class="box-content">
-                                <h2 id="events4">Popup Card 4</h2>
-                                <strong><p id="eventdetails4">Additional information about Card 4.</p></strong>   
-                            </div>
-                        </div>
-                        <button class="animated-button1" id="a4"><span>Register</span></button>
-                    </div>
+        </div>
+      </li>
+      <li class="li" id="card3" class="card">
+        <div class="card-body">
+          <div class="card-image">
+            <img id="day3Image" src="" alt="Image 3">
+          </div>
+          <div class="card-text">
+            <h2 id="header3"></h2>
+            <p id="card-text3"></p>
+            <label for="popup-toggle3" class="learn-more-btn">Learn More</label>
+            <input type="checkbox" id="popup-toggle3" class="popup-toggle">
+            <label for="popup-toggle3" class="overlay"></label>
+            <div class="box">
+              <div class="box-content">
+                <h2 id="events3">Popup Card 3</h2>
+                <strong>
+                  <p id="eventdetails3">Additional information about Card 3.</p>
+                </strong>
+              </div>
+            </div>
+            <button class="animated-button1" id="a3"><span>Register</span></button>
+          </div>
+        </div>
+      </li>
 
-                </div>
-            </li>
-            <li class="li" id="card1" class="card">
-                <div class="card-body">
-                    <div class="card-image">
-                        <img id="day5Image" src="" alt="Image 1">
-                    </div>
-                    <div class="card-text">
-                        <h2 id="header5"></h2>
-                        <p id="card-text5"></p>
-                        <label for="popup-toggle4" class="learn-more-btn">Learn More</label>
-                        <input type="checkbox" id="popup-toggle4" class="popup-toggle">
-                        <label for="popup-toggle4" class="overlay"></label>
-                        <div class="box">
-                            <div class="box-content">
-                                <h2 id="events5">Popup Card 5</h2>
-                                <strong><p id="eventdetails5">Additional information about Card 5.</p></strong>
-                                
-                            </div>
-                        </div>
-                        <button class="animated-button1" id="a5"><span>Register</span></button>
-                    </div>
-                </div>
-            </li>
-            <li class="li" id="card2" class="card">
-                <div class="card-body">
-                    <div class="card-image">
-                        <img id="day6Image" src="" alt="Image 2">
-                    </div>
-                    <div class="card-text">
-                        <h2 id="header6">Card 6</h2>
-                        <p id="card-text6">This is the text for card 6.</p>
-                        <label for="popup-toggle6" class="learn-more-btn">Learn More</label>
-                        <input type="checkbox" id="popup-toggle6" class="popup-toggle">
-                        <label for="popup-toggle6" class="overlay"></label>
-                        <div class="box">
-                            <div class="box-content">
-                                <h2 id="events6">Popup Card 6</h2>
-                                <strong><p id="eventdetails6">Additional information about Card 6.</p></strong>
-                                
-                            </div>
-                        </div>
-                        <button class="animated-button1" id="a6"><span>Register</span></button>
-                    </div>
+    </ul>
+  </div>
 
-                </div>
-            </li>
+  <div class="container">
+    <ul class="ul" id="cards">
+      <li id="card4" class="card">
+        <div class="card-body">
+          <div class="card-image">
+            <img id="day4Image" src="" alt="Image 4">
+          </div>
+          <div class="card-text">
+            <h2 id="header4"></h2>
+            <p id="card-text4"></p>
+            <label for="popup-toggle4" class="learn-more-btn">Learn More</label>
+            <input type="checkbox" id="popup-toggle4" class="popup-toggle">
+            <label for="popup-toggle4" class="overlay"></label>
+            <div class="box">
+              <div class="box-content">
+                <h2 id="events4">Popup Card 4</h2>
+                <strong>
+                  <p id="eventdetails4">Additional information about Card 4.</p>
+                </strong>
+              </div>
+            </div>
+            <button class="animated-button1" id="a4"><span>Register</span></button>
+          </div>
+
+        </div>
+      </li>
+      <li class="li" id="card1" class="card">
+        <div class="card-body">
+          <div class="card-image">
+            <img id="day5Image" src="" alt="Image 1">
+          </div>
+          <div class="card-text">
+            <h2 id="header5"></h2>
+            <p id="card-text5"></p>
+            <label for="popup-toggle4" class="learn-more-btn">Learn More</label>
+            <input type="checkbox" id="popup-toggle4" class="popup-toggle">
+            <label for="popup-toggle4" class="overlay"></label>
+            <div class="box">
+              <div class="box-content">
+                <h2 id="events5">Popup Card 5</h2>
+                <strong>
+                  <p id="eventdetails5">Additional information about Card 5.</p>
+                </strong>
+
+              </div>
+            </div>
+            <button class="animated-button1" id="a5"><span>Register</span></button>
+          </div>
+        </div>
+      </li>
+      <li class="li" id="card2" class="card">
+        <div class="card-body">
+          <div class="card-image">
+            <img id="day6Image" src="" alt="Image 2">
+          </div>
+          <div class="card-text">
+            <h2 id="header6">Card 6</h2>
+            <p id="card-text6">This is the text for card 6.</p>
+            <label for="popup-toggle6" class="learn-more-btn">Learn More</label>
+            <input type="checkbox" id="popup-toggle6" class="popup-toggle">
+            <label for="popup-toggle6" class="overlay"></label>
+            <div class="box">
+              <div class="box-content">
+                <h2 id="events6">Popup Card 6</h2>
+                <strong>
+                  <p id="eventdetails6">Additional information about Card 6.</p>
+                </strong>
+
+              </div>
+            </div>
+            <button class="animated-button1" id="a6"><span>Register</span></button>
+          </div>
+
+        </div>
+      </li>
 
 
-        </ul>
-    </div>
+    </ul>
+  </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
-    <script src="script.js"></script>
-    <script src="firebase.js"></script>
-    <script src="events.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+  <script src="script.js"></script>
+  <script src="firebase.js"></script>
+  <script src="events.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-      $(document).ready(function(){
-        $('.navbar-toggler').on('click', function() {
-          $(this).find('.navbar-toggler-icon').toggleClass('active');
-          if ($('.navbar-toggler-icon').hasClass('active')) {
-            $('.navbar-toggler-icon').html('&times;');
-          } else {
-            $('.navbar-toggler-icon').html('');
-            $('.navbar-toggler-icon').addClass('navbar-toggler-icon');
-          }
-        });
-    
-        $(window).on('scroll', function() {
-          var navbar = $('#myNav');
-          var scrollTop = $(this).scrollTop();
-          var lastScrollTop = 0;
-          
-          if (scrollTop > 0) {
-            navbar.addClass('shrink');
-          } else {
-            navbar.removeClass('shrink');
-          }
-    
-          if (scrollTop > lastScrollTop) {
-            navbar.addClass('scrolledup');
-          } else {
-            navbar.removeClass('scrolledup');
-          }
-    
-          lastScrollTop = scrollTop;
-        });
-    
-        // New dropdown hover functionality
-        var dropdownTimeout;
-        $('.navbar-nav .dropdown').hover(
-          function() {
-            var $this = $(this);
-            clearTimeout(dropdownTimeout);
-            $this.addClass('show');
-            $this.find('.dropdown-menu').addClass('show');
-          },
-          function() {
-            var $this = $(this);
-            dropdownTimeout = setTimeout(function() {
-              $this.removeClass('show');
-              $this.find('.dropdown-menu').removeClass('show');
-            }, 200); // 200ms delay before closing
-          }
-        );
-    
-        $('.navbar-nav .dropdown-menu').hover(
-          function() {
-            clearTimeout(dropdownTimeout);
-          },
-          function() {
-            var $dropdown = $(this).closest('.dropdown');
-            dropdownTimeout = setTimeout(function() {
-              $dropdown.removeClass('show');
-              $dropdown.find('.dropdown-menu').removeClass('show');
-            }, 200); // 200ms delay before closing
-          }
-        );
+  <script>
+    $(document).ready(function () {
+      $('.navbar-toggler').on('click', function () {
+        $(this).find('.navbar-toggler-icon').toggleClass('active');
+        if ($('.navbar-toggler-icon').hasClass('active')) {
+          $('.navbar-toggler-icon').html('&times;');
+        } else {
+          $('.navbar-toggler-icon').html('');
+          $('.navbar-toggler-icon').addClass('navbar-toggler-icon');
+        }
       });
-    </script>
 
-    
+      $(window).on('scroll', function () {
+        var navbar = $('#myNav');
+        var scrollTop = $(this).scrollTop();
+        var lastScrollTop = 0;
+
+        if (scrollTop > 0) {
+          navbar.addClass('shrink');
+        } else {
+          navbar.removeClass('shrink');
+        }
+
+        if (scrollTop > lastScrollTop) {
+          navbar.addClass('scrolledup');
+        } else {
+          navbar.removeClass('scrolledup');
+        }
+
+        lastScrollTop = scrollTop;
+      });
+
+      // New dropdown hover functionality
+      var dropdownTimeout;
+      $('.navbar-nav .dropdown').hover(
+        function () {
+          var $this = $(this);
+          clearTimeout(dropdownTimeout);
+          $this.addClass('show');
+          $this.find('.dropdown-menu').addClass('show');
+        },
+        function () {
+          var $this = $(this);
+          dropdownTimeout = setTimeout(function () {
+            $this.removeClass('show');
+            $this.find('.dropdown-menu').removeClass('show');
+          }, 200); // 200ms delay before closing
+        }
+      );
+
+      $('.navbar-nav .dropdown-menu').hover(
+        function () {
+          clearTimeout(dropdownTimeout);
+        },
+        function () {
+          var $dropdown = $(this).closest('.dropdown');
+          dropdownTimeout = setTimeout(function () {
+            $dropdown.removeClass('show');
+            $dropdown.find('.dropdown-menu').removeClass('show');
+          }, 200); // 200ms delay before closing
+        }
+      );
+    });
+  </script>
+
+
 </body>
+
 </html>

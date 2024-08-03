@@ -57,6 +57,7 @@
       padding: 7px 7px;
       border-radius: 10px;
       transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 16px;
     }
 
     .navbar-brand img {
@@ -171,6 +172,7 @@
       padding: 7px 7px;
       border-radius: 10px;
       transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 16px;
     }
 
     .navbar-nav .nav-item .nav-link:hover {
@@ -191,26 +193,27 @@
       background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>');
 
     }
+    .navigation__menu{
+      font-size: 20px;
+      gap: 12px;
+}
 
     @media (max-width: 992px) {
       .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: .5rem;
         padding-left: .5rem;
-        font-size: 18px !important;
+        font-size: 20px !important;
       }
-
       .moving-text {
-        margin-top: 10px;
+        margin-bottom: 20px;
         width: 80%;
         font-size: 16px;
       }
-
       .animated-button {
         width: 100px;
         height: 30px;
         font-size: 12px;
       }
-
       .navbar-collapse {
         background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
@@ -220,10 +223,15 @@
         z-index: 1000;
       }
     }
-
     @media (max-width: 768px) {
       .moving-text {
-        width: 60%;
+        width: 75%;
+        margin-bottom: 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      .moving-text {
+        width: 51%;
         margin-bottom: 20px;
       }
     }

@@ -2,8 +2,6 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f7fafc;
-    margin: 0;
-    padding-top: 20px;
 }
 
 header {
@@ -83,24 +81,24 @@ h2{
     transition: transform 0.5s ease-in-out, z-index 0s;
 
   }
-ul {
+.ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-ul li {
+.ul .li {
     margin-left: 20px;
 }
 
-ul li a {
+.ul .li a {
     color: white;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-ul li a:hover {
+.ul .li a:hover {
     color: #a0aec0;
 }
 

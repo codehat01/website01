@@ -193,10 +193,28 @@
       background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>');
 
     }
-    .navigation__menu{
+
+    .navigation__menu {
       font-size: 20px;
       gap: 12px;
-}
+    }
+
+    .dropdown-menu.navigation__submenu,
+    .dropdown-menu.navigation__submenu.show {
+      background-color: #000000;
+    }
+
+    .dropdown-menu.navigation__submenu .dropdown-item {
+      color: white;
+    }
+
+    .dropdown-menu.navigation__submenu .dropdown-item:hover,
+    .dropdown-menu.navigation__submenu .dropdown-item:focus {
+      background-color: #b22049;
+      color: white;
+      display: block;
+      margin-left: 5px;
+    }
 
     @media (max-width: 992px) {
       .navbar-expand-lg .navbar-nav .nav-link {
@@ -204,16 +222,19 @@
         padding-left: .5rem;
         font-size: 20px !important;
       }
+
       .moving-text {
         margin-bottom: 20px;
         width: 80%;
         font-size: 16px;
       }
+
       .animated-button {
         width: 100px;
         height: 30px;
         font-size: 12px;
       }
+
       .navbar-collapse {
         background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
@@ -223,16 +244,37 @@
         z-index: 1000;
       }
     }
+
     @media (max-width: 768px) {
       .moving-text {
         width: 75%;
         margin-bottom: 20px;
       }
     }
+
     @media (max-width: 480px) {
       .moving-text {
         width: 51%;
         margin-bottom: 20px;
+      }
+    }
+
+    .dropdown-toggle::after {
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item.dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
+    .navbar-nav .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    @media (max-width: 992px) {
+      .navbar-nav .dropdown-menu {
+        position: static;
+        float: none;
       }
     }
   </style>
@@ -250,23 +292,28 @@
           <div class="text-slide">
             <span>ACN 3rd edition</span>
             <span>|</span>
-            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register Now</span></button></a>
+            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                  Now</span></button></a>
             <span>|</span>
             <span>ACN 3rd edition</span>
             <span>|</span>
-            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register Now</span></button></a>
+            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                  Now</span></button></a>
             <span>|</span>
             <span>ACN 3rd edition</span>
             <span>|</span>
-            <a  href="/events/2024/event-2024.html"><button class="animated-button"><span>Register Now</span></button></a>
+            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                  Now</span></button></a>
             <span>|</span>
             <span>ACN 3rd edition</span>
             <span>|</span>
-            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register Now</span></button></a>
+            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                  Now</span></button></a>
             <span>|</span>
           </div>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse navigation" id="navbarNav">
@@ -925,8 +972,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-  $(document).ready(function(){
-    $('.navbar-toggler').on('click', function() {
+  $(document).ready(function () {
+    $('.navbar-toggler').on('click', function () {
       $(this).find('.navbar-toggler-icon').toggleClass('active');
       if ($('.navbar-toggler-icon').hasClass('active')) {
         $('.navbar-toggler-icon').html('&times;');
@@ -936,11 +983,11 @@
       }
     });
 
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
       var navbar = $('#myNav');
       var scrollTop = $(this).scrollTop();
       var lastScrollTop = 0;
-      
+
       if (scrollTop > 0) {
         navbar.addClass('shrink');
       } else {

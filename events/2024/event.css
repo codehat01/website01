@@ -18,7 +18,7 @@ h2{
     margin-bottom:40px;
 }
 
-.card-images { /* Container styles */
+.box-images { /* Container styles */
     width: 720px; /* Replace with your desired container width */
     height: 620px; /* Replace with your desired container height */
     position: relative; /* Needed for absolute positioning of images */
@@ -29,7 +29,7 @@ h2{
     background-color: white;
   }
   
-  .card-images img { /* Image styles */
+  .box-images img { /* Image styles */
     width: 100%; /* Each image is half the width of the container */
     height: 100%; /* Each image is half the height of the container */
     object-fit: cover; /* Ensures images cover their space without cropping */
@@ -37,45 +37,45 @@ h2{
     z-index: 0; /* Initial z-index for all images */
   }
   
-  .card-images img:nth-child(1) { /* Image 1 (Top Left) */
+  .box-images img:nth-child(1) { /* Image 1 (Top Left) */
     top: 0;
     left: 0;
   }
   
-  .card-images img:nth-child(2) { /* Image 2 (Top Right) */
+  .box-images img:nth-child(2) { /* Image 2 (Top Right) */
     top: 0;
     right: 0;
   }
   
-  .card-images img:nth-child(3) { /* Image 3 (Bottom Left) */
+  .box-images img:nth-child(3) { /* Image 3 (Bottom Left) */
     bottom: 0;
     left: 0;
   }
   
-  .card-images img:nth-child(4) { /* Image 4 (Bottom Right) */
+  .box-images img:nth-child(4) { /* Image 4 (Bottom Right) */
     bottom: 0;
     right: 0;
   }
   
-  .card-images img:nth-child(1):hover {
+  .box-images img:nth-child(1):hover {
     z-index: 1;
     transform: translate(50%, 50%) scale(2.05); 
     transition: transform 0.5s ease-in-out, z-index 0s;
 
   }
-  .card-images img:nth-child(2):hover {
+  .box-images img:nth-child(2):hover {
     z-index: 2;
     transform: translate(-50%,50%) scale(2.05); /* Scales the image on hover (adjust as needed) */
     transition: transform 0.5s ease-in-out, z-index 0s;
 
   }
-  .card-images img:nth-child(3):hover {
+  .box-images img:nth-child(3):hover {
     z-index: 3;
     transform: translate(50%,-50%) scale(2.05); /* Scales the image on hover (adjust as needed) */
     transition: transform 0.5s ease-in-out, z-index 0s;
 
   }
-  .card-images img:nth-child(4):hover {
+  .box-images img:nth-child(4):hover {
     z-index: 4;
     transform: translate(-50%,-50%) scale(2.05); /* Scales the image on hover (adjust as needed) */
     transition: transform 0.5s ease-in-out, z-index 0s;
@@ -131,7 +131,7 @@ h2{
     display: flex;
     align-items: center;
 }
-.card-text{
+.box-text {
     align-items: center;
     margin-left: 1.5px;
     background-color: white;
@@ -147,7 +147,7 @@ h2{
 .buttons button:first-child i {
     margin-left: 2.5px;
 }
-.card-body{
+.box-body{
     margin-top:0px;
     padding: 0px;
     background-color: #fafafa;
@@ -156,7 +156,7 @@ h2{
     margin-left: 45px;
     margin-bottom:50px;
 }
-.card-image img{
+.box-images img{
     
     margin-top:0px;
     margin-left: 1px;
@@ -168,13 +168,13 @@ h2{
    
 }
 
-.card-text h2{
+.box-text  h2{
     font-family:'Poppins';
     text-align: center;
     margin: 0px; 
 
 }
-.card-text p{
+.box-text  p{
     font-family:'Poppins';
     text-align:center;
     font-size: 22px;
@@ -485,26 +485,26 @@ button {
         margin-right: 0;
     }
 
-    .card-body {
+    .box-body {
         width: 85%;
         margin-bottom: 30px;
         margin-left: 10px;
     }
 
-    .card-image img {
+    .box-images img {
         width: 100%;
         height: auto;
     }
 
-    .card-text {
+    .box-text  {
         width: 85%;
     }
-    .card-text h2{
+    .box-text  h2{
         margin-left:-10px;
         font-size: 30px;
         text-align: center;
     }
-    .card-text p{
+    .box-text  p{
         margin-left: -10px;
     }
     .learn-more-btn{

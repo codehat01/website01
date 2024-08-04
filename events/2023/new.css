@@ -262,7 +262,6 @@ float: none;
 
 #list1 {
     list-style: none;
-    padding-left: 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(var(--boxes1), var(--boxHeight));

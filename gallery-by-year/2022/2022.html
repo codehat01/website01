@@ -468,128 +468,58 @@
 
         /*footer*/
         footer {
-  background-color: #000000;
-  /* Set background color */
-  width: 100%;
-  /* Full width of the viewport */
-  padding: 20px 0;
-  /* Add padding for spacing */
-  box-sizing: border-box;
-  /* Include padding and border in element's total width and height */
-  z-index: 999;
-    position: relative;
-}
+    background-color: #000000;
+    /* Set background color */
+    color: #00ff08;
+    /* Set text color */
+    width: 100%;
+    /* Full width of the viewport */
+    padding: 20px 0;
+    /* Add padding for spacing */
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
+  }
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  /* Limit content width */
-  margin: 0;
-  /* Center the content horizontally */
-  padding: 0 50px;
-  /* Adjust padding as needed */
-}
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    /* Limit content width */
+    margin: 0 auto;
+    /* Center the content horizontally */
+    padding: 0 20px;
+    /* Adjust padding as needed */
+  }
 
-.footer-left,
-.footer-right {
-  flex: 1;
-  max-width: fit-content;
-  /* Take up remaining space and set max width */
-}
+  .footer-left,
+  .footer-right {
+    flex: 1;
+    z-index: 0;
+    /* Take up remaining space */
+  }
+  .footer-right img{
+    width:35px;
+    height:35px;
+    vertical-align:middle;
+    margin-right: 10px;
+  }
 
-.footer-right {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 20px;
-  /* Increased gap between the icons */
-  margin-top: 20px;
-  /* Adjust spacing as needed */
-}
+  .footer-divider {
+    width: 1px;
+    height: 50px;
+    /* Adjust based on your design */
+    background-color: #ccc;
+    margin: 0 20px;
+    z-index: 0;
+  }
 
-.footer-right img {
-  width: 35px;
-  height: 35px;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-
-.footer-right a {
-  font-size: 40px;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Center the icons inside the grid items */
-}
-
-.footer-right a:hover {
-  color: #b22049;
-  transform: scale(1.2);
-}
-
-.footer-divider {
-  width: 2px;
-  height: 150px;
-  background-color: #ccc;
-  margin: 0 20px;
-}
-
-footer p {
-  margin: 0;
-  /* Remove default margin for paragraphs */
-  font-size: 14px;
-  /* Adjust font size */
-}
-
-.logo2 img {
-  height: auto;
-  width: 45vw;
-  /* Adjust the height of the logo */
-}
-
-
-.footer-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-nav ul li {
-  margin: 10px 0;
-}
-
-.footer-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1em;
-  transition: color 0.3s ease;
-}
-
-.footer-nav ul li a:hover {
-  color: #b22049;
-  transform: translateX(20px);
-  transition: transform 0.3s ease-in;
-}
-
-.address, .social-links {
-  text-align: end;
-}
-
-.address h4, .social-links h4 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
-
-.address p {
-  font-size: 1em;
-  line-height: 1.5;
-  color: #ffffff;
-}
+  footer p {
+    margin: 0;
+    /* Remove default margin for paragraphs */
+    font-size: 14px;
+    /* Adjust font size */
+  }
     </style>
 </head>
 <header>
@@ -765,36 +695,27 @@ footer p {
     </div>
 
     <footer>
-      <div class="footer-content" id="footer">
-        <div class="footer-left">
-          <a href="new.html#home" class="logo2"><img src="Welcome.png" alt="Logo"></a>
-        </div>
-        <div class="footer-divider"></div>
-        <div class="address">
-          <h4>OUR ADDRESS</h4>
-          <p>Amrita Vishwa Vidyapeetham<br>
-            Chennai Campus<br>
-            Vengal<br>
-            Chennai - 601 103<br>
-            Tamilnadu, India</p>
-        </div>
-        <div class="footer-divider"></div>
-        <div class="footer-nav">
-          <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">TEAM</a></li>
-            <li><a href="#">CONTACT</a></li>
-          </ul>
-        </div>
-        <div class="footer-divider"></div>
-        <div class="footer-right">
-          <a href="https://www.instagram.com/amrita_cybernation?igsh=MTVyd3hhcG5tZjJkeQ" target="_blank" class="fab fa-instagram"></a>
-          <a href="https://x.com" target="_blank" class="fab fa-twitter"></a>
-          <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
-          <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
-        </div>
-      </div>
-    </footer>
+        <div class="footer-content" id="footer">
+          <div class="footer-left">
+            <a href="/index.html#home" class="logo2"><img src="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png"
+                alt="Logo"></a>
+          </div>
+          <div class="footer-divider"></div>
+              <div class="footer-right">
+                  <a href="https://www.instagram.com/amrita_cybernation?igsh=MTVyd3hhcG5tZjJkeQ" target="_blank" style="text-decoration: none; color: white;">
+                      <img src="/image/download (3).png" alt="Instagram Logo">
+                  </a>
+                  <a href="https://x.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
+                      <img src="/image/5lY42eHs_400x400.jpg" alt="X.com Logo">
+                  </a>
+                  <a href="https://facebook.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
+                      <img src="/image/download (4).png" alt="facebook.com Logo">
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
+                      <img src="/image/download (5).png" alt="linkedin.com Logo">
+                  </a>
+              </div>
+      </footer>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -909,7 +830,7 @@ footer p {
                     RADIUS_SCALE -= (RADIUS_SCALE - RADIUS_SCALE_MIN) * (0.02);
                 }
                 RADIUS_SCALE = Math.min(RADIUS_SCALE, RADIUS_SCALE_MAX);
-                context.fillStyle = 'rgba(0, 0, 0, 0.1)';
+                context.fillStyle = 'rgba(0, 0, 0, 0.1)';
                 context.fillRect(0, 0, context.canvas.width, context.canvas.height);
                 for (var i = 0, len = particles.length; i < len; i++) {
                     var particle = particles[i];

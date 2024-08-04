@@ -368,10 +368,10 @@ float: none;
     font-family: 'Montserrat', sans-serif;
 }
 
-#item1 .box-body1,
-#item3 .box-body1,
-#item5 .box-body1,
-#item7 .box-body1 {
+#item1 .box-body,
+#item3 .box-body,
+#item5 .box-body,
+#item7 .box-body{
     flex-direction: row-reverse;
 }
 

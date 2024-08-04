@@ -456,7 +456,7 @@ html {
         top: var(--boxMargin);
         margin-left: 0px;
         flex-direction: column;
-        height: 80vh;
+        height: 70vh;
     }
 
     .box-body {
@@ -547,7 +547,7 @@ html {
     }
 
     .box-text {
-        width: 95%;
+        width: 105%;
         height:auto;
         padding: 20px;
     }

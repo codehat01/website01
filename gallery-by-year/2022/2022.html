@@ -914,7 +914,6 @@ footer p {
                 }
                 RADIUS_SCALE = Math.min(RADIUS_SCALE, RADIUS_SCALE_MAX);
                 context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
                 for (var i = 0, len = particles.length; i < len; i++) {
                     var particle = particles[i];
                     var lp = { x: particle.position.x, y: particle.position.y };

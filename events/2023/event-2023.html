@@ -4,11 +4,333 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACN Website</title>
-    <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7fafc;
+        }
+
+        .navbar {
+            background-color: #000000;
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            transition: transform 1.5s ease, width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
+            animation: textReveal 2s;
+        }
+
+        @keyframes textReveal {
+            0% { opacity: 0; transform: translateY(-100px); }
+            100% { opacity: 1; transform: translateY(0px); }
+        }
+
+        .navbar.shrink {
+            height: 80px;
+            width: 90%;
+            margin-left: calc((100vw - 90vw) / 2);
+            margin-top: 20px;
+            border-radius: 70px;
+        }
+
+        .navbar-brand img {
+            height: 90px;
+        }
+
+        .moving-text {
+            white-space: nowrap;
+            position: relative;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            overflow: hidden;
+            width: 51%;
+        }
+
+        .text-slide {
+            display: inline-flex;
+            align-items: center;
+            animation: 10s slide infinite linear;
+        }
+
+        .text-slide:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes slide {
+            from { transform: translateX(0%); }
+            to { transform: translateX(-50%); }
+        }
+
+        .animated-button {
+            width: 130px;
+            height: 35px;
+            background-color: #b22049;
+            color: white;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s, background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 40px;
+            margin: 0 10px;
+        }
+
+        .animated-button:hover {
+            background-color: white;
+        }
+
+        .animated-button:hover span {
+            color: #b22049;
+        }
+
+        .navigation__menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navigation__menu > li {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .navigation__menu > li > a {
+            color: white;
+            text-decoration: none;
+            padding: 7px 7px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navigation__menu > li > a:hover {
+            background-color: #b22049;
+            color: #ffffff;
+        }
+
+        .navigation__submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #000000;
+            min-width: 200px;
+            display: none;
+            z-index: 1;
+        }
+
+        .navigation__menu > li:hover .navigation__submenu {
+            display: block;
+        }
+
+        .navigation__submenu li {
+            padding: 10px;
+        }
+
+        .navigation__submenu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .navigation__submenu li a:hover {
+            color: #b22049;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+        }
+
+        /* Day sections */
+        .day1, .day2 {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 100px;
+        }
+
+        .custom-container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        #list, #list1 {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 17vh;
+        }
+
+        .box {
+            position: sticky;
+            top: 17vh;
+        }
+
+        .box-body {
+            justify-content: center;
+            box-sizing: border-box;
+            box-shadow: 0 0 30px 0 rgb(255, 255, 255);
+            height: 500px;
+            display: flex;
+            transition: all 0.5s;
+            border-radius: 50px;
+            overflow: hidden;
+            margin-top: 15vh;
+            width: 1280px;
+        }
+
+        .box-images {
+            width: 58%;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 5px;
+            background-color: black;
+        }
+
+        .box-images img {
+            width: 372px;
+            height: 247.5px;
+            object-fit: fill;
+            transition: transform 0.5s ease-in-out, z-index 0s 0.5s;
+            z-index: 0;
+        }
+
+        .box-images img:hover {
+            z-index: 1;
+            transform: scale(2.05);
+        }
+
+        .box-text {
+            flex: 1;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            color: white;
+        }
+
+        .box-text h2, .box-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0 0 10px 0;
+        }
+
+        .box-text h2 {
+            font-size: 2.5em;
+        }
+
+        .box-text h3 {
+            font-size: 1.1em;
+        }
+
+        .box-text p {
+            text-align: center;
+            max-width: 350px;
+            margin: 0;
+            animation: fallDown 1s ease-out forwards;
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .moving-text {
+                width: 80%;
+                font-size: 16px;
+            }
+
+            .animated-button {
+                width: 100px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .navigation {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: #000000;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .navigation.active {
+                display: block;
+            }
+
+            .navigation__menu {
+                flex-direction: column;
+            }
+
+            .navigation__menu > li {
+                margin: 10px 0;
+            }
+
+            .navigation__submenu {
+                position: static;
+                display: none;
+                width: 100%;
+            }
+
+            .navigation__submenu.active {
+                display: block;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .box-body {
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+            }
+
+            .box-images, .box-text {
+                width: 100%;
+            }
+
+            .box-images img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <div id="loading-screen">
         <div class="loader"></div>

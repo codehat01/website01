@@ -191,7 +191,7 @@ left: 0;
 }
 .moving-text {
   margin-bottom: 20px;
-  width: 15%;
+  width: 50% !important;
   font-size: 16px;
 }
 .animated-button {
@@ -210,13 +210,13 @@ left: 0;
 }
 @media (max-width: 768px) {
 .moving-text {
-  width: 15%;
+  width: 75%;
   margin-bottom: 20px;
 }
 }
 @media (max-width: 480px) {
 .moving-text {
-  width: 11%;
+  width: 51%;
   margin-bottom: 20px;
 }
 }

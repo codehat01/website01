@@ -254,6 +254,7 @@ float: none;
 
 #list {
     list-style: none;
+    padding-left: 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(var(--boxes), var(--boxHeight));
@@ -262,6 +263,7 @@ float: none;
 
 #list1 {
     list-style: none;
+    padding-left: 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(var(--boxes1), var(--boxHeight));
@@ -366,10 +368,10 @@ float: none;
     font-family: 'Montserrat', sans-serif;
 }
 
-#item1 .box-body,
-#item3 .box-body,
-#item5 .box-body,
-#item7 .box-body{
+#item1 .box-body1,
+#item3 .box-body1,
+#item5 .box-body1,
+#item7 .box-body1 {
     flex-direction: row-reverse;
 }
 
@@ -454,7 +456,7 @@ html {
         top: var(--boxMargin);
         margin-left: 0px;
         flex-direction: column;
-        height: 80vh;
+        height: 70vh;
     }
 
     .box-body {
@@ -510,7 +512,7 @@ html {
 
     .box-text {
         width: 27%;
-        height: calc(95vh - 124px);
+        
         /* Ensure the remaining height is taken by box text */
         text-align: center;
         padding: 20px;
@@ -541,26 +543,29 @@ html {
 
     .box-images img {
         width: 100%;
-        height: auto;
+        height: 100%;
     }
 
     .box-text {
-        width: 105%;
-        height:auto;
+        width: 103%;
         padding: 20px;
     }
 
     .box-text h2 {
         font-size: 1.5em;
+        margin-top: -30px;
     }
 
     .box-text h3 {
-        font-size: 1em;
+        font-size: 18px;
+        
+
     }
 
     .box-text p {
-        max-width: 90%;
-        font-size: 16px;
+        max-width: 95%;
+        font-size: 14px;
+     
     }
 
     nav.scrolled {

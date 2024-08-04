@@ -369,6 +369,10 @@ img[src="/image/3rd edition.png"]
     text-decoration: none;
     margin: 0 0px;
   }
+  
+  containervisible{
+    width: 100%;
+  }
   .container-flex {
     display: flex;
     width: 100%;

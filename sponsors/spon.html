@@ -138,10 +138,21 @@
       border-radius: 70px;
     }
 
-
-
     .navbar.scrolledup {
       transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+      background-color: #b22049;
+      color: #ffffff;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: white;
+      padding: 7px 7px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 16px;
     }
 
     .navbar-brand img {
@@ -160,10 +171,28 @@
       width: 51%;
     }
 
+    .moving-text:before,
+    .moving-text:after {
+      position: absolute;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      content: "";
+      z-index: 2;
+    }
+
+    .moving-text:hover .text-slide {
+      animation-play-state: paused;
+    }
+
     .text-slide {
       display: inline-flex;
       align-items: center;
       animation: 10s slide infinite linear;
+    }
+
+    .text-slide span {
+      margin: 0 10px;
     }
 
     @keyframes slide {
@@ -177,6 +206,9 @@
     }
 
     .animated-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
       width: 130px;
       height: 35px;
       background-color: #b22049;
@@ -187,15 +219,43 @@
       position: relative;
       overflow: hidden;
       transition: color 0.3s, background-color 0.3s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       border-radius: 40px;
       margin: 0 10px;
+      text-decoration: none;
+      /* Remove underline from the link */
+      box-sizing: border-box;
+      /* Include padding and border in the element's total width and height */
+    }
+
+    .animated-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 1;
+      transition: top 0.3s;
+      top: 100%;
+      box-sizing: border-box;
+      /* Ensure pseudo-element respects padding */
+    }
+
+    .animated-button:hover::before {
+      top: 0;
+    }
+
+    .animated-button span {
+      position: relative;
+      z-index: 2;
+      transition: color 0.3s;
+      white-space: nowrap;
+      /* Prevent text from wrapping */
     }
 
     .animated-button:hover {
-      background-color: white;
+      background-color: black;
     }
 
     .animated-button:hover span {
@@ -207,6 +267,7 @@
       padding: 7px 7px;
       border-radius: 10px;
       transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 16px;
     }
 
     .navbar-nav .nav-item .nav-link:hover {
@@ -231,7 +292,6 @@
     .navigation__menu {
       font-size: 20px;
       gap: 12px;
-
     }
 
     .dropdown-menu.navigation__submenu,
@@ -331,57 +391,136 @@
       }
     }
 
-    footer {
-      background-color: #000000;
-      /* Set background color */
-      /* Set text color */
-      width: 100%;
-      /* Full width of the viewport */
-      padding: 20px 0;
-      /* Add padding for spacing */
-      box-sizing: border-box;
-      /* Include padding and border in element's total width and height */
-    }
+    footer{
+  position: relative;
+}
 
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      /* Limit content width */
-      margin: 0 auto;
-      /* Center the content horizontally */
-      padding: 0 20px;
-      /* Adjust padding as needed */
-    }
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* Limit content width */
+  margin: 0;
+  /* Center the content horizontally */
+  padding: 0 50px;
+  z-index: 10;
+  /* Adjust padding as needed */
+}
 
-    .footer-left,
-    .footer-right {
-      flex: 1;
-      /* Take up remaining space */
-    }
+.footer-left,
+.footer-right {
+  flex: 1;
+  max-width: fit-content;
+  z-index: 0;
+  /* Take up remaining space and set max width */
+}
 
-    .footer-right img {
-      width: 35px;
-      height: 35px;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
+.footer-right {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  /* Increased gap between the icons */
+  margin-top: 20px;
+  /* Adjust spacing as needed */
+  z-index: 0;
+}
 
-    .footer-divider {
-      width: 1px;
-      height: 50px;
-      /* Adjust based on your design */
-      background-color: #ccc;
-      margin: 0 20px;
-    }
+.footer-right img {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  margin-right: 10px;
+  z-index: 0;
+}
 
-    footer p {
-      margin: 0;
-      /* Remove default margin for paragraphs */
-      font-size: 14px;
-      /* Adjust font size */
-    }
+.footer-right a {
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  /* Center the icons inside the grid items */
+}
+
+.footer-right a:hover {
+  color: #b22049;
+  transform: scale(1.2);
+  z-index: 0;
+}
+
+.footer-divider {
+  width: 2px;
+  height: 150px;
+  background-color: #ccc;
+  margin: 0 20px;
+  z-index: 0;
+}
+
+footer p {
+  margin: 0;
+  /* Remove default margin for paragraphs */
+  font-size: 14px;
+  /* Adjust font size */
+  z-index: 0;
+}
+
+.logo2 img {
+  height: auto;
+  width: 45vw;
+  /* Adjust the height of the logo */
+  z-index: 0;
+}
+
+
+.footer-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+}
+
+.footer-nav ul li {
+  margin: 10px 0;
+  z-index: 0;
+}
+
+.footer-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+  z-index: 0;
+}
+
+.footer-nav ul li a:hover {
+  color: #b22049;
+  transform: translateX(20px);
+  transition: transform 0.3s ease-in;
+  z-index: 0;
+}
+
+.address, .social-links {
+  text-align: end;
+  z-index: 0;
+}
+
+.address h4, .social-links h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #ffffff;
+  z-index: 0;
+}
+
+.address p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #ffffff;
+  z-index: 0;
+}
   </style>
   <header>
     <section id="home" class="section">
@@ -623,29 +762,37 @@
     });
   </script>
 
-  <footer>
-    <div class="footer-content" id="footer">
-      <div class="footer-left">
-        <a href="/index.html" class="logo2"><img src="IMAGES/Amrita_CyberNation_Logo___1_-removebg-preview (1).png"
-            alt="Logo"></a>
-      </div>
-      <div class="footer-divider"></div>
-      <div class="footer-right">
-        <a href="https://www.instagram.com/amrita_cybernation?igsh=MTVyd3hhcG5tZjJkeQ" target="_blank"
-          style="text-decoration: none; color: white;">
-          <img src="/image//download (3).png" alt="Instagram Logo">
-        </a>
-        <a href="https://x.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
-          <img src="/image/5lY42eHs_400x400.jpg" alt="X.com Logo">
-        </a>
-        <a href="https://facebook.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
-          <img src="/image/download (4).png" alt="facebook.com Logo">
-        </a>
-        <a href="https://linkedin.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
-          <img src="/image/download (5).png" alt="linkedin.com Logo">
-        </a>
-      </div>
-  </footer>
+<footer>
+  <div class="footer-content" id="footer">
+    <div class="footer-left">
+      <a href="/index.html" class="logo2"><img src="Welcome.png" alt="Logo"></a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="address">
+      <h4>OUR ADDRESS</h4>
+      <p>Amrita Vishwa Vidyapeetham<br>
+        Chennai Campus<br>
+        Vengal<br>
+        Chennai - 601 103<br>
+        Tamilnadu, India</p>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-nav">
+      <ul>
+        <li><a href="/index.html">HOME</a></li>
+        <li><a href="/meetup/meetup.html">TEAM</a></li>
+        <li><a href="/events/2024/event-2024.html">EVENTS 3.0</a></li>
+      </ul>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-right">
+      <a href="https://www.instagram.com/amrita_cybernation?igsh=MTVyd3hhcG5tZjJkeQ" target="_blank" class="fab fa-instagram"></a>
+      <a href="https://x.com" target="_blank" class="fab fa-twitter"></a>
+      <a href="https://www.facebook.com/chennaicampus/" target="_blank" class="fab fa-facebook-f"></a>
+      <a href="https://www.linkedin.com/company/amrita-cybernation/" target="_blank" class="fab fa-linkedin-in"></a>
+    </div>
+  </div>
+</footer>
 
   </body>
 

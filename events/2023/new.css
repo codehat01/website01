@@ -456,7 +456,7 @@ html {
         top: var(--boxMargin);
         margin-left: 0px;
         flex-direction: column;
-        height: 70vh;
+        height: 73vh;
     }
 
     .box-body {

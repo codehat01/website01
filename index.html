@@ -796,7 +796,7 @@
       const diff = currentX - startX; // Note the change here
       const percentage = (diff / window.innerWidth) * 100;
 
-      currentPercentage = Math.max(Math.min(currentPercentage - percentage, 0), -100); // Note the change here
+      currentPercentage = Math.max(Math.min(currentPercentage - percentage, 0), -100);
       startX = currentX;
     };
 

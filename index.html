@@ -723,7 +723,7 @@
     const nav = document.getElementById("myNav");
     nav.style.transform = "translateY(0)";
     nav.classList.add("nav-dropdown");
-
+  
     const containers = document.querySelectorAll('.container');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -737,7 +737,7 @@
     containers.forEach(container => {
       observer.observe(container);
     });
-
+  
     const gallery = document.querySelectorAll('.galleries');
     const galleryObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -751,95 +751,94 @@
     gallery.forEach(galleries => {
       galleryObserver.observe(galleries);
     });
-
+  
     const track = document.getElementById("image-track");
     const galleries = track.getElementsByClassName("image");
     const rightArrow = document.getElementById("right-arrow");
-
-    track.style.transform = "translate(0%, -50%)";
-
-    for (const image of galleries) {
-      image.style.objectPosition = "100% center";
-    }
-
-    let mouseDownAt = 0;
-    let prevPercentage = 0;
+  
+    let currentPercentage = 0;
+    let isMouseDown = false;
+    let startX;
+    let animationId;
     let autoScrollInterval;
-
-    const handleOnDown = e => {
-      clearInterval(autoScrollInterval);
-      mouseDownAt = e.clientX || e.touches[0].clientX;
-    };
-
-    const handleOnUp = () => {
-      mouseDownAt = 0;
-      prevPercentage = parseFloat(track.dataset.percentage) || 0;
-      clearInterval(autoScrollInterval);
-    };
-
-    const handleOnMove = e => {
-      if (mouseDownAt === 0) return;
-
-      const mouseDelta = (e.clientX || e.touches[0].clientX) - mouseDownAt;
-      const maxDelta = window.innerWidth / 2;
-
-      let percentage = (mouseDelta / maxDelta) * 100;
-      let nextPercentage = prevPercentage + percentage;
-
-      nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
-
-      track.style.transform = `translate(${nextPercentage}%, -50%)`;
-
-      for (const image of galleries) {
-        image.style.objectPosition = `${100 + nextPercentage}% center`;
+  
+    const lerp = (start, end, t) => start * (1 - t) + end * t;
+  
+    const animate = () => {
+      if (!isMouseDown) {
+        currentPercentage = lerp(currentPercentage, Math.round(currentPercentage), 0.1);
       }
-
-      track.dataset.percentage = nextPercentage;
-
+      
+      track.style.transform = `translate(${currentPercentage}%, -50%)`;
+      
+      for (const image of galleries) {
+        image.style.objectPosition = `${100 + currentPercentage}% center`;
+      }
+      
       handleInfiniteScroll();
+      animationId = requestAnimationFrame(animate);
     };
-
+  
+    const handleOnDown = e => {
+      isMouseDown = true;
+      startX = e.clientX || e.touches[0].clientX;
+      clearInterval(autoScrollInterval);
+    };
+  
+    const handleOnUp = () => {
+      isMouseDown = false;
+    };
+  
+    const handleOnMove = e => {
+      if (!isMouseDown) return;
+      
+      const currentX = e.clientX || e.touches[0].clientX;
+      const diff = startX - currentX;
+      const percentage = (diff / window.innerWidth) * 100;
+      
+      currentPercentage = Math.max(Math.min(currentPercentage - percentage, 0), -100);
+      startX = currentX;
+    };
+  
     const handleInfiniteScroll = () => {
       const trackRect = track.getBoundingClientRect();
       const firstImageRect = galleries[0].getBoundingClientRect();
       const lastImageRect = galleries[galleries.length - 1].getBoundingClientRect();
-
+  
       if (firstImageRect.right < trackRect.left) {
         track.appendChild(galleries[0]);
       } else if (lastImageRect.left > trackRect.right) {
         track.insertBefore(galleries[galleries.length - 1], galleries[0]);
       }
     };
-
+  
     const startScroll = (direction = 'left') => {
-      clearInterval(autoScrollInterval);
-      autoScrollInterval = setInterval(() => {
-        let nextPercentage = (parseFloat(track.dataset.percentage) || 0) + (direction === 'left' ? -0.05 : 0.05);
-        nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
-
-        track.style.transform = `translate(${nextPercentage}%, -50%)`;
-
-        for (const image of galleries) {
-          image.style.objectPosition = `${100 + nextPercentage}% center`;
+      const scrollSpeed = direction === 'left' ? -0.1 : 0.1;
+      
+      const autoScroll = () => {
+        if (!isMouseDown) {
+          currentPercentage += scrollSpeed;
+          currentPercentage = Math.max(Math.min(currentPercentage, 0), -100);
         }
-
-        track.dataset.percentage = nextPercentage;
-
-        handleInfiniteScroll();
-      }, 10);
+      };
+      
+      clearInterval(autoScrollInterval);
+      autoScrollInterval = setInterval(autoScroll, 16); // ~60fps
     };
-
+  
     rightArrow.addEventListener("click", () => startScroll('left'));
-
-    window.addEventListener("mousedown", e => handleOnDown(e));
-    window.addEventListener("touchstart", e => handleOnDown(e.touches[0]));
+  
+    window.addEventListener("mousedown", handleOnDown);
+    window.addEventListener("touchstart", handleOnDown);
     window.addEventListener("mouseup", handleOnUp);
     window.addEventListener("touchend", handleOnUp);
-    window.addEventListener("mousemove", e => handleOnMove(e));
-    window.addEventListener("touchmove", e => handleOnMove(e.touches[0]));
-
+    window.addEventListener("mousemove", handleOnMove);
+    window.addEventListener("touchmove", handleOnMove);
+  
+    animate(); // Start the animation loop
+  
     const navbar = document.querySelector(".navbar");
-
+  
     window.addEventListener("scroll", function () {
       if (window.scrollY > 50) {
         navbar.classList.add("scrolled");
@@ -848,54 +847,54 @@
         navbar.classList.remove("scrolled");
       }
     });
-
+  
     const guestSection = document.querySelector('.chief-guest-section');
     const guestContainer = document.querySelector('.chief-guest-container');
     const clonedContainer = guestContainer.cloneNode(true);
     guestSection.appendChild(clonedContainer);
-
+  
     const backImageContainers = document.querySelectorAll('.backimage-container');
     const dots = document.querySelectorAll('.dot');
     let currentIndex = 0;
     let slideInterval;
-
+  
     function showSlide(index) {
       const offset = -index * 100;
       document.querySelector('#backimage').style.transform = `translateX(${offset}vw)`;
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
       });
-
+  
       clearInterval(slideInterval);
-
+  
       const duration = parseInt(backImageContainers[index].getAttribute('data-duration'), 10);
       slideInterval = setInterval(nextSlide, duration);
     }
-
+  
     function nextSlide() {
       currentIndex = (currentIndex + 1) % backImageContainers.length;
       showSlide(currentIndex);
     }
-
+  
     function prevSlide() {
       currentIndex = (currentIndex - 1 + backImageContainers.length) % backImageContainers.length;
       showSlide(currentIndex);
     }
-
+  
     showSlide(currentIndex);
-
+  
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
         showSlide(index);
       });
     });
-
+  
     const sponsorCopy = document.querySelector(".logo-sponsor-slide").cloneNode(true);
     document.querySelector(".logo-sponsor-logos").appendChild(sponsorCopy);
-
+  
     const textSlide = document.querySelector(".text-slide").cloneNode(true);
     document.querySelector(".moving-text").appendChild(textSlide);
-
+  
     const images2022 = [
       'image/e21.jpg',
       'image/e22.jpg',
@@ -906,13 +905,13 @@
       'image/e32.jpg',
       'image/e33.jpg'
     ];
-
+  
     const eventImages2022 = document.querySelectorAll('.event-image-2022');
     const eventImages2023 = document.querySelectorAll('.event-image-2023');
-
+  
     let currentImageIndex2022 = 0;
     let currentImageIndex2023 = 0;
-
+  
     function cycleImages() {
       eventImages2022.forEach(img => {
         img.src = images2022[currentImageIndex2022];
@@ -920,53 +919,53 @@
       eventImages2023.forEach(img => {
         img.src = images2023[currentImageIndex2023];
       });
-
+  
       currentImageIndex2022 = (currentImageIndex2022 + 1) % images2022.length;
       currentImageIndex2023 = (currentImageIndex2023 + 1) % images2023.length;
     }
-
+  
     setInterval(cycleImages, 3000);
   });
-
+  
   const targetDate = new Date("2024-09-03T00:00:00");
-
+  
   const updateCountdown = () => {
     const now = new Date();
     const distance = targetDate - now;
-
+  
     if (distance < 0) {
       clearInterval(timer);
       document.querySelector(".countdown").innerHTML = "EXPIRED";
       return;
     }
-
+  
     const years = targetDate.getFullYear() - now.getFullYear();
     const months = targetDate.getMonth() - now.getMonth() + (years * 12);
     const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const targetDays = new Date(targetDate.getFullYear(), targetDate.getMonth(), 0).getDate();
-
+  
     let monthsDifference = months;
     let daysDifference = days;
-
+  
     if (now.getDate() > targetDate.getDate()) {
       monthsDifference -= 1;
       daysDifference = daysInCurrentMonth - now.getDate() + targetDate.getDate();
     } else {
       daysDifference = targetDate.getDate() - now.getDate();
     }
-
+  
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+  
     updateElement("months", monthsDifference);
     updateElement("days", daysDifference);
     updateElement("hours", hours);
     updateElement("minutes", minutes);
     updateElement("seconds", seconds);
   };
-
+  
   const updateElement = (id, value) => {
     const element = document.getElementById(id);
     if (element.innerText != value) {
@@ -976,9 +975,9 @@
       element.innerText = value;
     }
   };
-
+  
   const timer = setInterval(updateCountdown, 1000);
-</script>
+  </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

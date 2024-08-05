@@ -1024,37 +1024,29 @@
 /*footer*/
     footer{
   position: relative;
+  background-color: #000000;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  /* Limit content width */
+  width: 95%;
   margin: 0;
-  /* Center the content horizontally */
-  padding: 0 50px;
-  z-index: 10;
-  /* Adjust padding as needed */
+  padding-left: 30px;
 }
 
 .footer-left,
 .footer-right {
   flex: 1;
   max-width: fit-content;
-  z-index: 0;
-  /* Take up remaining space and set max width */
 }
 
 .footer-right {
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 20px;
-  /* Increased gap between the icons */
   margin-top: 20px;
-  /* Adjust spacing as needed */
-  z-index: 0;
 }
 
 .footer-right img {
@@ -1062,7 +1054,7 @@
   height: 35px;
   vertical-align: middle;
   margin-right: 10px;
-  z-index: 0;
+  
 }
 
 .footer-right a {
@@ -1073,14 +1065,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
-  /* Center the icons inside the grid items */
+  
 }
 
 .footer-right a:hover {
   color: #b22049;
   transform: scale(1.2);
-  z-index: 0;
+  
 }
 
 .footer-divider {
@@ -1088,22 +1079,18 @@
   height: 150px;
   background-color: #ccc;
   margin: 0 20px;
-  z-index: 0;
 }
 
 footer p {
   margin: 0;
-  /* Remove default margin for paragraphs */
   font-size: 14px;
-  /* Adjust font size */
-  z-index: 0;
 }
 
 .logo2 img {
   height: auto;
   width: 45vw;
   /* Adjust the height of the logo */
-  z-index: 0;
+  
 }
 
 
@@ -1111,12 +1098,12 @@ footer p {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  z-index: 0;
+  
 }
 
 .footer-nav ul li {
   margin: 10px 0;
-  z-index: 0;
+  
 }
 
 .footer-nav ul li a {
@@ -1124,33 +1111,33 @@ footer p {
   text-decoration: none;
   font-size: 1em;
   transition: color 0.3s ease;
-  z-index: 0;
+  
 }
 
 .footer-nav ul li a:hover {
   color: #b22049;
   transform: translateX(20px);
   transition: transform 0.3s ease-in;
-  z-index: 0;
+  
 }
 
 .address, .social-links {
   text-align: end;
-  z-index: 0;
+  
 }
 
 .address h4, .social-links h4 {
   font-size: 1.2em;
   margin-bottom: 10px;
   color: #ffffff;
-  z-index: 0;
+  
 }
 
 .address p {
   font-size: 1em;
   line-height: 1.5;
   color: #ffffff;
-  z-index: 0;
+  
 }
 
   </style>

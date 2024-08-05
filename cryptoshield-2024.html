@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>CryptoShield24</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     /* Navbar*/
 
@@ -584,59 +585,7 @@
       text-decoration: none;
     }
 
-    footer {
-      background-color: #000000;
-      /* Set background color */
-      color: #00ff08;
-      /* Set text color */
-      width: 100%;
-      /* Full width of the viewport */
-      padding: 20px 0;
-      /* Add padding for spacing */
-      box-sizing: border-box;
-      /* Include padding and border in element's total width and height */
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      /* Limit content width */
-      margin: 0 auto;
-      /* Center the content horizontally */
-      padding: 0 20px;
-      /* Adjust padding as needed */
-    }
-
-    .footer-left,
-    .footer-right {
-      flex: 1;
-      /* Take up remaining space */
-    }
-
-    .footer-right img {
-      width: 35px;
-      height: 35px;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-
-    .footer-divider {
-      width: 1px;
-      height: 50px;
-      /* Adjust based on your design */
-      background-color: #ccc;
-      margin: 0 20px;
-    }
-
-    footer p {
-      margin: 0;
-      /* Remove default margin for paragraphs */
-      font-size: 14px;
-      /* Adjust font size */
-    }
-
+    
 
     /*landing*/
     .container {
@@ -1017,6 +966,12 @@
 
 
 /*sponsors*/
+.sponsors{
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
 .sponsors span {
     font-size: 2.5em;
     font-family: sans-serif;
@@ -1024,11 +979,176 @@
     font-weight: lighter;
     font-weight: 700;
 }
-.sponsors{
-  text-align: center;
-  justify-content: center;
+.sponsor-images {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: auto auto; 
+  gap: 130px; 
+  justify-content: center; 
+  max-width: 500px; 
+  margin: 0 auto; 
   margin-bottom: 10%;
 }
+
+.sponsor-images img {
+  width: 400px;
+  height: auto;
+}
+
+.sponsor-images img:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.sponsor-images img:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.sponsor-images img:nth-child(3) {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  justify-self: center;
+}
+
+.sponsor-images img:hover {
+  transform: translateY(-10px);
+}
+
+
+
+/*footer*/
+    footer{
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* Limit content width */
+  margin: 0;
+  /* Center the content horizontally */
+  padding: 0 50px;
+  z-index: 10;
+  /* Adjust padding as needed */
+}
+
+.footer-left,
+.footer-right {
+  flex: 1;
+  max-width: fit-content;
+  z-index: 0;
+  /* Take up remaining space and set max width */
+}
+
+.footer-right {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  /* Increased gap between the icons */
+  margin-top: 20px;
+  /* Adjust spacing as needed */
+  z-index: 0;
+}
+
+.footer-right img {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  margin-right: 10px;
+  z-index: 0;
+}
+
+.footer-right a {
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  /* Center the icons inside the grid items */
+}
+
+.footer-right a:hover {
+  color: #b22049;
+  transform: scale(1.2);
+  z-index: 0;
+}
+
+.footer-divider {
+  width: 2px;
+  height: 150px;
+  background-color: #ccc;
+  margin: 0 20px;
+  z-index: 0;
+}
+
+footer p {
+  margin: 0;
+  /* Remove default margin for paragraphs */
+  font-size: 14px;
+  /* Adjust font size */
+  z-index: 0;
+}
+
+.logo2 img {
+  height: auto;
+  width: 45vw;
+  /* Adjust the height of the logo */
+  z-index: 0;
+}
+
+
+.footer-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+}
+
+.footer-nav ul li {
+  margin: 10px 0;
+  z-index: 0;
+}
+
+.footer-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+  z-index: 0;
+}
+
+.footer-nav ul li a:hover {
+  color: #b22049;
+  transform: translateX(20px);
+  transition: transform 0.3s ease-in;
+  z-index: 0;
+}
+
+.address, .social-links {
+  text-align: end;
+  z-index: 0;
+}
+
+.address h4, .social-links h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #ffffff;
+  z-index: 0;
+}
+
+.address p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #ffffff;
+  z-index: 0;
+}
+
   </style>
 </head>
 
@@ -1215,6 +1335,81 @@
   <div class="award-prizes">
     <span>Awards and Prizes</span>
     <div class="prize-items">
+      
+      <div class="prize-item">
+        <!-- Trophy SVG Icon -->
+        <svg width="100px" height="100px" viewBox="0 0 120 120" id="Layer_1" version="1.1" xml:space="preserve"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <style type="text/css">
+              .st0 {
+                fill: #FFC54D;
+              }
+
+              .st1 {
+                fill: #F46262;
+              }
+
+              .st2 {
+                fill: #FFFFFF;
+              }
+
+              .st3 {
+                fill: #285FFF;
+              }
+            </style>
+            <g>
+              <circle class="st0" cx="60.1" cy="81.5" r="22.5"></circle>
+              <path class="st1" d="M76.2,59.9H44c-2.5,0-4.5-2-4.5-4.5v-5.3h41.1v5.3C80.6,57.9,78.6,59.9,76.2,59.9z">
+              </path>
+              <path class="st1" d="M76.2,16H44c-2.5,0-4.5,2-4.5,4.5v28.3h41.1V20.5C80.6,18,78.6,16,76.2,16z"></path>
+              <path class="st2"
+                d="M61.1,69l3.4,6.8c0.2,0.3,0.5,0.6,0.8,0.6l7.5,1.1c0.9,0.2,1.3,1.2,0.6,1.9L68,84.8c-0.2,0.2-0.4,0.6-0.3,1 l1.3,7.5c0.2,0.9-0.8,1.6-1.6,1.1l-6.7-3.5c-0.3-0.2-0.7-0.2-1,0l-6.8,3.5c-0.8,0.4-1.8-0.2-1.6-1.1l1.3-7.5c0.1-0.3-0.1-0.7-0.3-1 l-5.4-5.3c-0.6-0.6-0.3-1.8,0.6-1.9l7.5-1.1c0.3-0.1,0.6-0.2,0.8-0.6l3.4-6.8C59.5,68.2,60.7,68.2,61.1,69z">
+              </path>
+              <rect class="st0" height="35.5" width="17.2" x="51.5" y="16"></rect>
+              <path class="st3"
+                d="M82.9,51.5H37.1c-0.7,0-1.2-0.5-1.2-1.2v-0.3c0-0.7,0.5-1.2,1.2-1.2h45.9c0.7,0,1.2,0.5,1.2,1.2v0.3 C84.1,50.9,83.6,51.5,82.9,51.5z">
+              </path>
+            </g>
+          </g>
+        </svg>
+        <div class="prize-text">
+          <p>Grand Prize Pool of 2,300$.</p>
+        </div>
+      </div>
+      <div class="prize-item">
+        <!-- Excellence SVG Icon -->
+        <svg height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <circle style="fill:#FFF59B;" cx="256" cy="256" r="256"></circle>
+            <path style="fill:#3C69BE;"
+              d="M220.69,194.207h61.793l95.684-163.228c-15.662-8.521-32.337-15.396-49.76-20.526L220.69,194.207z"></path>
+            <path style="fill:#6496E1;"
+              d="M176.127,12.777c-17.175,5.638-33.54,13.039-48.897,21.999l93.46,159.431h61.793L176.127,12.777z"></path>
+            <path style="fill:#9B9BA0;"
+              d="M300.138,238.345c-4.875,0-8.828-3.948-8.828-8.828v-35.31c0-4.871-3.961-8.828-8.828-8.828h-52.966 c-4.866,0-8.828,3.957-8.828,8.828v35.31c0,4.879-3.953,8.828-8.828,8.828c-4.875,0-8.828-3.948-8.828-8.828v-35.31 c0-14.603,11.88-26.483,26.483-26.483h52.966c14.603,0,26.483,11.88,26.483,26.483v35.31 C308.966,234.397,305.013,238.345,300.138,238.345z">
+            </path>
+            <path style="fill:#4678D2;"
+              d="M160.982,92.353l59.708,101.854h61.793L178.814,17.359C171.418,32.32,164.362,55.775,160.982,92.353z ">
+            </path>
+            <path style="fill:#6496E1;"
+              d="M328.408,10.453L315.795,31.97c3.705,22.336,9.715,46.791,19.147,72.75l43.227-73.74 C362.506,22.46,345.832,15.584,328.408,10.453z">
+            </path>
+            <circle style="fill:#FFD75F;" cx="256" cy="326.621" r="123.586"></circle>
+            <path style="fill:#DCB464;"
+              d="M256,220.69c-58.41,0-105.931,47.518-105.931,105.931S197.59,432.552,256,432.552 s105.931-47.518,105.931-105.931S314.41,220.69,256,220.69z M256,238.345c7.415,0,14.616,0.93,21.502,2.66 c-53.685,10.68-96.278,52.588-107.116,107.123c-1.73-6.888-2.661-14.09-2.661-21.507C167.724,277.949,207.324,238.345,256,238.345z M292.825,256.568c-20.175,10.037-26.846,20.497-34.282,32.181c-4.461,7.009-9.078,14.268-17.612,22.802 c-4.522,4.518-13.354,8.104-22.702,11.905c-8.343,3.388-17.889,7.274-26.422,12.876 C206.706,292.679,245.898,261.114,292.825,256.568z M256,414.897c-28.845,0-54.5-13.91-70.62-35.371 c0.029-22.031,15.659-30.035,39.49-39.715c11.052-4.483,21.495-8.724,28.543-15.776c9.906-9.906,15.285-18.354,20.025-25.811 c8.674-13.635,14.474-22.718,45.591-33.324c15.602,15.932,25.246,37.717,25.246,61.721C344.276,375.293,304.676,414.897,256,414.897 z">
+            </path>
+          </g>
+        </svg>
+        <div class="prize-text">
+          <p>A Certificate of Excellence and Participation will be given</p>
+        </div>
+      </div>
       <div class="prize-item">
         <!-- Certificate SVG Icon -->
         <svg height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -1290,90 +1485,22 @@
           <p>All participants will receive a Certificate of Participation.</p>
         </div>
       </div>
-      <div class="prize-item">
-        <!-- Trophy SVG Icon -->
-        <svg width="100px" height="100px" viewBox="0 0 120 120" id="Layer_1" version="1.1" xml:space="preserve"
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-          <g id="SVGRepo_iconCarrier">
-            <style type="text/css">
-              .st0 {
-                fill: #FFC54D;
-              }
-
-              .st1 {
-                fill: #F46262;
-              }
-
-              .st2 {
-                fill: #FFFFFF;
-              }
-
-              .st3 {
-                fill: #285FFF;
-              }
-            </style>
-            <g>
-              <circle class="st0" cx="60.1" cy="81.5" r="22.5"></circle>
-              <path class="st1" d="M76.2,59.9H44c-2.5,0-4.5-2-4.5-4.5v-5.3h41.1v5.3C80.6,57.9,78.6,59.9,76.2,59.9z">
-              </path>
-              <path class="st1" d="M76.2,16H44c-2.5,0-4.5,2-4.5,4.5v28.3h41.1V20.5C80.6,18,78.6,16,76.2,16z"></path>
-              <path class="st2"
-                d="M61.1,69l3.4,6.8c0.2,0.3,0.5,0.6,0.8,0.6l7.5,1.1c0.9,0.2,1.3,1.2,0.6,1.9L68,84.8c-0.2,0.2-0.4,0.6-0.3,1 l1.3,7.5c0.2,0.9-0.8,1.6-1.6,1.1l-6.7-3.5c-0.3-0.2-0.7-0.2-1,0l-6.8,3.5c-0.8,0.4-1.8-0.2-1.6-1.1l1.3-7.5c0.1-0.3-0.1-0.7-0.3-1 l-5.4-5.3c-0.6-0.6-0.3-1.8,0.6-1.9l7.5-1.1c0.3-0.1,0.6-0.2,0.8-0.6l3.4-6.8C59.5,68.2,60.7,68.2,61.1,69z">
-              </path>
-              <rect class="st0" height="35.5" width="17.2" x="51.5" y="16"></rect>
-              <path class="st3"
-                d="M82.9,51.5H37.1c-0.7,0-1.2-0.5-1.2-1.2v-0.3c0-0.7,0.5-1.2,1.2-1.2h45.9c0.7,0,1.2,0.5,1.2,1.2v0.3 C84.1,50.9,83.6,51.5,82.9,51.5z">
-              </path>
-            </g>
-          </g>
-        </svg>
-        <div class="prize-text">
-          <p>The Top 3 winning teams will be awarded a Grand Prize Pool, along with exciting goodies and rewards for the
-            best projects.</p>
-        </div>
-      </div>
-      <div class="prize-item">
-        <!-- Excellence SVG Icon -->
-        <svg height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-          <g id="SVGRepo_iconCarrier">
-            <circle style="fill:#FFF59B;" cx="256" cy="256" r="256"></circle>
-            <path style="fill:#3C69BE;"
-              d="M220.69,194.207h61.793l95.684-163.228c-15.662-8.521-32.337-15.396-49.76-20.526L220.69,194.207z"></path>
-            <path style="fill:#6496E1;"
-              d="M176.127,12.777c-17.175,5.638-33.54,13.039-48.897,21.999l93.46,159.431h61.793L176.127,12.777z"></path>
-            <path style="fill:#9B9BA0;"
-              d="M300.138,238.345c-4.875,0-8.828-3.948-8.828-8.828v-35.31c0-4.871-3.961-8.828-8.828-8.828h-52.966 c-4.866,0-8.828,3.957-8.828,8.828v35.31c0,4.879-3.953,8.828-8.828,8.828c-4.875,0-8.828-3.948-8.828-8.828v-35.31 c0-14.603,11.88-26.483,26.483-26.483h52.966c14.603,0,26.483,11.88,26.483,26.483v35.31 C308.966,234.397,305.013,238.345,300.138,238.345z">
-            </path>
-            <path style="fill:#4678D2;"
-              d="M160.982,92.353l59.708,101.854h61.793L178.814,17.359C171.418,32.32,164.362,55.775,160.982,92.353z ">
-            </path>
-            <path style="fill:#6496E1;"
-              d="M328.408,10.453L315.795,31.97c3.705,22.336,9.715,46.791,19.147,72.75l43.227-73.74 C362.506,22.46,345.832,15.584,328.408,10.453z">
-            </path>
-            <circle style="fill:#FFD75F;" cx="256" cy="326.621" r="123.586"></circle>
-            <path style="fill:#DCB464;"
-              d="M256,220.69c-58.41,0-105.931,47.518-105.931,105.931S197.59,432.552,256,432.552 s105.931-47.518,105.931-105.931S314.41,220.69,256,220.69z M256,238.345c7.415,0,14.616,0.93,21.502,2.66 c-53.685,10.68-96.278,52.588-107.116,107.123c-1.73-6.888-2.661-14.09-2.661-21.507C167.724,277.949,207.324,238.345,256,238.345z M292.825,256.568c-20.175,10.037-26.846,20.497-34.282,32.181c-4.461,7.009-9.078,14.268-17.612,22.802 c-4.522,4.518-13.354,8.104-22.702,11.905c-8.343,3.388-17.889,7.274-26.422,12.876 C206.706,292.679,245.898,261.114,292.825,256.568z M256,414.897c-28.845,0-54.5-13.91-70.62-35.371 c0.029-22.031,15.659-30.035,39.49-39.715c11.052-4.483,21.495-8.724,28.543-15.776c9.906-9.906,15.285-18.354,20.025-25.811 c8.674-13.635,14.474-22.718,45.591-33.324c15.602,15.932,25.246,37.717,25.246,61.721C344.276,375.293,304.676,414.897,256,414.897 z">
-            </path>
-          </g>
-        </svg>
-        <div class="prize-text">
-          <p>A Certificate of Excellence will be given to CryptoShield Hackathon'24 participants.</p>
-        </div>
-      </div>
     </div>
   </div>
 
+
+  
   <div id="sponsor"></div>
   <br><br>
   <br><br>
   <br><br>
   <div class="sponsors">
     <span>SPONSORS</span>
+  </div>
+  <div class="sponsor-images">
+    <img src="ETH.png" alt="Sponsor 1">
+    <img src="Polygen.png" alt="Sponsor 2">
+    <img src="QuillAudits_Web3_Security_Logo_(White_-_Horizontal).png" alt="Sponsor 3">
   </div>
 
 

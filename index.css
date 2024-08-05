@@ -997,8 +997,11 @@ img[src="/image/3rd edition.png"]
 
   .logo-sponsor-text {
     text-align: center;
-    font-size: 30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    font-family: "Signika", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin-top:100px;
     color: #333;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1025,6 +1028,8 @@ img[src="/image/3rd edition.png"]
     white-space: nowrap;
     position: relative;
     border-bottom: 3px solid #333;
+    margin-bottom: 100px;
+    margin-top: 50px;
   }
 
   /* Gradient overlays */

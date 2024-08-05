@@ -759,8 +759,7 @@
     let currentPercentage = 0;
     let isMouseDown = false;
     let startX;
-    let animationId;
-    let autoScrollInterval;
+    let autoScrollActive = false;
   
     const lerp = (start, end, t) => start * (1 - t) + end * t;
   
@@ -768,21 +767,21 @@
       if (!isMouseDown) {
         currentPercentage = lerp(currentPercentage, Math.round(currentPercentage), 0.1);
       }
-      
+  
       track.style.transform = `translate(${currentPercentage}%, -50%)`;
-      
+  
       for (const image of galleries) {
         image.style.objectPosition = `${100 + currentPercentage}% center`;
       }
-      
+  
       handleInfiniteScroll();
-      animationId = requestAnimationFrame(animate);
+      requestAnimationFrame(animate);
     };
   
     const handleOnDown = e => {
       isMouseDown = true;
       startX = e.clientX || e.touches[0].clientX;
-      clearInterval(autoScrollInterval);
+      autoScrollActive = false; // Stop auto-scroll when the user interacts
     };
   
     const handleOnUp = () => {
@@ -791,11 +790,12 @@
   
     const handleOnMove = e => {
       if (!isMouseDown) return;
-      
+  
       const currentX = e.clientX || e.touches[0].clientX;
       const diff = startX - currentX;
       const percentage = (diff / window.innerWidth) * 100;
-      
+  
+      // Reverse the sign of the percentage to move in the expected direction
       currentPercentage = Math.max(Math.min(currentPercentage - percentage, 0), -100);
       startX = currentX;
     };
@@ -812,21 +812,19 @@
       }
     };
   
-    const startScroll = (direction = 'left') => {
-      const scrollSpeed = direction === 'left' ? -0.1 : 0.1;
-      
-      const autoScroll = () => {
-        if (!isMouseDown) {
-          currentPercentage += scrollSpeed;
-          currentPercentage = Math.max(Math.min(currentPercentage, 0), -100);
-        }
-      };
-      
-      clearInterval(autoScrollInterval);
-      autoScrollInterval = setInterval(autoScroll, 16); // ~60fps
+    const autoScroll = () => {
+      if (!autoScrollActive) return;
+  
+      currentPercentage -= 0.1;
+      currentPercentage = Math.max(Math.min(currentPercentage, 0), -100);
+  
+      requestAnimationFrame(autoScroll);
     };
   
-    rightArrow.addEventListener("click", () => startScroll('left'));
+    rightArrow.addEventListener("click", () => {
+      autoScrollActive = true;
+      autoScroll();
+    });
   
     window.addEventListener("mousedown", handleOnDown);
     window.addEventListener("touchstart", handleOnDown);

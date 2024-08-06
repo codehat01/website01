@@ -55,7 +55,7 @@ h2 {
     border-top-right-radius: 40px;
     height: 250px;
     width:400px;
-    object-fit: fill;
+    object-fit: cover;
    
 }
 

@@ -387,7 +387,7 @@ img[src="/image/3rd edition.png"]
   
   .address, .social-links {
     text-align: end;
-    z-index: 0;
+    font-size: 15px;
   }
   
   .address h4, .social-links h4 {

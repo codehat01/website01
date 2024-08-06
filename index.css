@@ -459,10 +459,9 @@ img[src="/image/3rd edition.png"]
   }
 
   .text {
-    width: 60%;
+    width: 100%;
     /* Adjust this value to change text width */
-    margin-left: 5%;
-    margin-right: 4%;
+    text-align:centre;
   }
 
 .container .text {

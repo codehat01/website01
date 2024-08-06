@@ -895,6 +895,7 @@ img[src="/image/3rd edition.png"]
     height: 560px;
     overflow: hidden;
     margin: 20px auto;
+    margin-top:0px;
     white-space: nowrap;
   }
 

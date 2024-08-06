@@ -479,7 +479,7 @@ button {
         list-style: none;
     }
 
-    .card {
+    .box {
         flex: 0 0 100%;
         scroll-snap-align: center;
         margin-right: 0;

@@ -1018,12 +1018,10 @@ img[src="/image/3rd edition.png"]
   /* Logos container */
   .logo-sponsor-logos {
     padding-top: 3px;
-    border-top: 2px solid #333;
     overflow: hidden;
     background: white;
     white-space: nowrap;
     position: relative;
-    border-bottom: 3px solid #333;
     margin-bottom: 100px;
     margin-top: 50px;
   }

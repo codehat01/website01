@@ -467,7 +467,6 @@ img[src="/image/3rd edition.png"]
 .container .text {
     flex: 1;
     /* Ensure text is aligned to the left */
-    padding-right: 20px;
     /* Add some space between text and video */
     padding-top: 5%;
 }

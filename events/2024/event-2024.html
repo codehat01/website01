@@ -239,46 +239,6 @@
       }
     }
 
-    .box-body {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto 50px;
-  border-radius: 40px;
-  overflow: hidden;
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
-}
-
-.box-images img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.box-text {
-  padding: 20px;
-  background-color: white;
-}
-
-.box-text h2 {
-  text-align: center;
-  margin: 0 0 10px;
-}
-
-.box-text p {
-  text-align: center;
-  font-size: 18px;
-  margin: 0 0 20px;
-}
-
-.learn-more-btn,
-.animated-button1 {
-  display: block;
-  width: 120px;
-  margin: 10px auto;
-  text-align: center;
-}
   </style>
 </head>
 
@@ -367,9 +327,9 @@
       Amrita Cyber Nation 2024 (3rd edition) </h2>
   </div>
 
-  <div class="custom-container">
-    <ul class="ul" id="cards">
-      <li class="li" id="card1" class="box">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
         <div class="box-body">
           <div class="box-images">
             <img id="day1Image" src="" alt="Image 1">
@@ -391,8 +351,8 @@
             <button class="animated-button1" id="a1"><span>Register</span></button>
           </div>
         </div>
-      </li>
-      <li class="li" id="card2" class="box">
+      </div>
+      <div class="col-12 col-md-4">
         <div class="box-body">
           <div class="box-images">
             <img id="day2Image" src="" alt="Image 2">
@@ -408,14 +368,12 @@
                   <p id="eventdetails2">Additional information about Card 2.</p>
                 </strong>
               </div>
-
             </div>
             <button class="animated-button1" id="a2"><span>Register</span></button>
           </div>
-
         </div>
-      </li>
-      <li class="li" id="card3" class="box">
+      </div>
+      <div class="col-12 col-md-4">
         <div class="box-body">
           <div class="box-images">
             <img id="day3Image" src="" alt="Image 3">
@@ -437,14 +395,11 @@
             <button class="animated-button1" id="a3"><span>Register</span></button>
           </div>
         </div>
-      </li>
-
-    </ul>
-  </div>
-
-  <div class="custom-container">
-    <ul class="ul" id="cards">
-      <li id="card4" class="box">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 col-md-4">
         <div class="box-body">
           <div class="box-images">
             <img id="day4Image" src="" alt="Image 4">
@@ -465,41 +420,38 @@
             </div>
             <button class="animated-button1" id="a4"><span>Register</span></button>
           </div>
-
         </div>
-      </li>
-      <li class="li" id="card1" class="box">
+      </div>
+      <div class="col-12 col-md-4">
         <div class="box-body">
           <div class="box-images">
-            <img id="day5Image" src="" alt="Image 1">
+            <img id="day5Image" src="" alt="Image 5">
           </div>
           <div class="box-text">
             <h2 id="header5"></h2>
             <p id="box-text5"></p>
-            <label for="popup-toggle4" class="learn-more-btn">Learn More</label>
-            <input type="checkbox" id="popup-toggle4" class="popup-toggle">
-            <label for="popup-toggle4" class="overlay"></label>
+            <label for="popup-toggle5" class="learn-more-btn">Learn More</label>
+            <input type="checkbox" id="popup-toggle5" class="popup-toggle">
+            <label for="popup-toggle5" class="overlay"></label>
             <div class="box">
               <div class="box-content">
                 <h2 id="events5">Popup Card 5</h2>
                 <strong>
                   <p id="eventdetails5">Additional information about Card 5.</p>
                 </strong>
-
               </div>
             </div>
             <button class="animated-button1" id="a5"><span>Register</span></button>
           </div>
         </div>
-      </li>
-      <li class="li" id="card2" class="box">
+      </div>
+      <div class="col-12 col-md-4">
         <div class="box-body">
           <div class="box-images">
-            <img id="day6Image" src="" alt="Image 2">
+            <img id="day6Image" src="" alt="Image 6">
           </div>
           <div class="box-text">
             <h2 id="header6">Card 6</h2>
-            <p id="box-text6">This is the text for card 6.</p>
             <label for="popup-toggle6" class="learn-more-btn">Learn More</label>
             <input type="checkbox" id="popup-toggle6" class="popup-toggle">
             <label for="popup-toggle6" class="overlay"></label>
@@ -509,17 +461,13 @@
                 <strong>
                   <p id="eventdetails6">Additional information about Card 6.</p>
                 </strong>
-
               </div>
             </div>
             <button class="animated-button1" id="a6"><span>Register</span></button>
           </div>
-
         </div>
-      </li>
-
-
-    </ul>
+      </div>
+    </div>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>

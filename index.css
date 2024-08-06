@@ -352,7 +352,7 @@ img[src="/image/3rd edition.png"]
   
   .logo2 img {
     height: auto;
-    width: 45vw;
+    width: 40vw;
     /* Adjust the height of the logo */
     z-index: 0;
   }
@@ -514,7 +514,7 @@ img[src="/image/3rd edition.png"]
 
   .gallery-text {
     width: 350px;
-    height: 100%;
+    height: 101%;
     position: fixed;
     top: 50%;
     left: 0%;

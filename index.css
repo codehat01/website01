@@ -1003,9 +1003,7 @@ img[src="/image/3rd edition.png"]
     font-style: normal;
     margin-top:100px;
     color: #333;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   /* Slide animation */

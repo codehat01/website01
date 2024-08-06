@@ -484,6 +484,31 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const popupToggles = document.querySelectorAll('.popup-toggle');
+    const overlays = document.querySelectorAll('.overlay');
+    const boxes = document.querySelectorAll('.box');
+
+    popupToggles.forEach((toggle, index) => {
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                boxes[index].style.display = 'block';
+                overlays[index].style.display = 'block';
+            } else {
+                boxes[index].style.display = 'none';
+                overlays[index].style.display = 'none';
+            }
+        });
+    });
+
+    overlays.forEach((overlay, index) => {
+        overlay.addEventListener('click', function() {
+            popupToggles[index].checked = false;
+            boxes[index].style.display = 'none';
+            this.style.display = 'none';
+        });
+    });
+});
     $(document).ready(function () {
       $('.navbar-toggler').on('click', function () {
         $(this).find('.navbar-toggler-icon').toggleClass('active');

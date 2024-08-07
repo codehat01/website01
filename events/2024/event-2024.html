@@ -167,8 +167,16 @@
       margin-top: 0;
     }
 
-    .navbar-nav .dropdown:hover .dropdown-menu,
-    .navbar-nav .dropdown .dropdown-menu:hover {
+    .navbar-nav .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .navbar-nav .dropdown-menu {
+      display: none;
+    }
+
+
+    .navbar-nav .dropdown-menu:hover {
       display: block;
     }
 
@@ -238,10 +246,10 @@
         float: none;
       }
     }
-    .box-images{
-      object-fit:cover;
-    }
 
+    .box-images {
+      object-fit: cover;
+    }
   </style>
 </head>
 
@@ -400,7 +408,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-12 col-md-4">
         <div class="box-body">
@@ -484,31 +492,31 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const popupToggles = document.querySelectorAll('.popup-toggle');
-    const overlays = document.querySelectorAll('.overlay');
-    const boxes = document.querySelectorAll('.box');
+    document.addEventListener('DOMContentLoaded', function () {
+      const popupToggles = document.querySelectorAll('.popup-toggle');
+      const overlays = document.querySelectorAll('.overlay');
+      const boxes = document.querySelectorAll('.box');
 
-    popupToggles.forEach((toggle, index) => {
-        toggle.addEventListener('change', function() {
-            if (this.checked) {
-                boxes[index].style.display = 'block';
-                overlays[index].style.display = 'block';
-            } else {
-                boxes[index].style.display = 'none';
-                overlays[index].style.display = 'none';
-            }
-        });
-    });
-
-    overlays.forEach((overlay, index) => {
-        overlay.addEventListener('click', function() {
-            popupToggles[index].checked = false;
+      popupToggles.forEach((toggle, index) => {
+        toggle.addEventListener('change', function () {
+          if (this.checked) {
+            boxes[index].style.display = 'block';
+            overlays[index].style.display = 'block';
+          } else {
             boxes[index].style.display = 'none';
-            this.style.display = 'none';
+            overlays[index].style.display = 'none';
+          }
         });
+      });
+
+      overlays.forEach((overlay, index) => {
+        overlay.addEventListener('click', function () {
+          popupToggles[index].checked = false;
+          boxes[index].style.display = 'none';
+          this.style.display = 'none';
+        });
+      });
     });
-});
     $(document).ready(function () {
       $('.navbar-toggler').on('click', function () {
         $(this).find('.navbar-toggler-icon').toggleClass('active');

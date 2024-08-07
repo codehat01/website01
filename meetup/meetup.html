@@ -1,190 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet Our Team</title>
-    <link rel="stylesheet" href="meetup.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="/meetup/Amrita_CyberNation_Logo__1-removebg-preview (1).png" type="image/icon type">
+    <style>
+        body{
+            background-image: linear-gradient(to right, #EE7199, #EF939E, #F5C7A5);
+        }
+        .img-container {
+            width: 350px;
+            height: 350px;
+            margin: 10px;
+            filter: grayscale(50%);
+            transition: transform 0.3s, filter 0.3s;
+            position: relative;
+        }
+
+        .img-container {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .img-container:hover {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .quote-container {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+        }
+
+        .scrolled {
+            background-color: #000000 !important;
+            padding: 10px 20px;
+        }
+
+        .scrolledup {
+            padding: 20px 20px;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .navbar-toggler.collapsed .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 4l22 22M26 4L4 26'/%3E%3C/svg%3E");
+}
+
+
+        .navbar-collapse {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-nav .dropdown-menu {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .navbar-nav .dropdown-item {
+            color: #ffffff;
+        }
+
+        .navbar-nav .dropdown-item:hover {
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        
+
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .centered-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-member-info {
+            color: #b22049;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .team-member-info h3,
+        .team-member-info p {
+            margin: 0;
+        }
+
+        .team-member-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #b22049;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .custom-container {
+            width: 400px;
+            height: 500px;
+        }
+
+        .custom-size {
+            width: 300px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
 </head>
+
 <body>
+
     <header>
         <section id="home" class="section">
-          <nav class="navbar" id="myNav">
-            <a href="/index.html" class="logo">
-              <img src="Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo">
-            </a>
-            <div class="moving-text">
-              <div class="text-slide">
-                <span>ACN 3rd edition</span>
-                <span>|</span>
-                <button class="animated-button"><span>Register Now</span></button>
-                <span>|</span>
-                <span>ACN 3rd edition</span>
-                <span>|</span>
-                <button class="animated-button"><span>Register Now</span></button>
-                <span>|</span>
-                <span>ACN 3rd edition</span>
-                <span>|</span>
-                <button class="animated-button"><span>Register Now</span></button>
-                <span>|</span>
-              </div>
-            </div>
-            <div class="navigation">
-              <ul class="navigation__menu">
-                <li>
-                  <a href="/index.html">Home<span></span></a>
-                </li>
-              </ul>
-              <ul class="navigation__menu">
-                <li>
-                  <a href="/index.html#aboutacn">About<span></span></a>
-                </li>
-              </ul>
-              <ul class="navigation__menu">
-                <li>
-                  <a href="#">Editions<span class="navarrow"></span></a>
-                  <ul class="navigation__submenu">
-                    <li><a href="/events/2022/event-2022.html">2022</a></li>
-                    <li><a href="/events/2023/event-2023.html">2023</a></li>
-                    <li><a href="/events/2024/event-2024.html">2024</a></li>
-      
-                  </ul>
-                </li>
-              </ul>
-              <ul class="navigation__menu">
-                <li>
-                  <a href="/sponsors/spon.html">Sponsors<span></span></a>
-                </li>
-              </ul>
-      
-      
-              <ul class="navigation__menu">
-                <li>
-                  <a href="#">Gallery<span class="navarrow"></span></a>
-                  <ul class="navigation__submenu">
-                    <li><a href="/gallery-by-year/2022/2022.html">2022</a></li>
-                    <li><a href="/gallery-by-year/2023/2023.html">2023</a></li>
-      
-                  </ul>
-                </li>
-              </ul>
-              <ul class="navigation__menu">
-                <li>
-                  <a href="#">Team<span></span></a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </section>
-      </header>
-    <div class="day1">
-        <h1>Meet Our Team</h1>
-        <h2 class="slogan">The minds behind the success of ACN</h2>
-    </div>
-    <div class="con1">
-        <div class="image-container" id="image-container">
-            <img src="amma.jpg" alt="Amma" class="image" id="image">
-            <div class="name-title">
-                <h2>Sri Mata Amritanandamayi </h2>
-                <p>Chancellor</p>
-                <p></p>
-            </div>
-        </div>
-        <div class="quote-container" id="quote-container">
-           <svg width="41" height="29" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M40.3844 20.6713C40.3844 19.2013 39.8699 17.8048 38.8409 16.4818C37.8119 15.1588 36.3174 14.4973 34.3574 14.4973C33.5734 14.4973 32.7649 14.6198 31.9319 14.8648C31.0989 15.1098 30.2414 15.5753 29.3594 16.2613C28.7714 15.3793 28.4774 13.9583 28.4774 11.9983C28.4774 8.86227 29.3594 6.53479 31.1234 5.01578C32.8874 3.49677 35.4844 2.39428 38.9144 1.70828V0.238281C36.5624 0.238281 34.2839 0.605778 32.0789 1.34078C29.8739 2.07578 27.9629 3.15377 26.3459 4.57478C24.7289 5.99579 23.4304 7.68627 22.4504 9.64628C21.4704 11.6063 20.9804 13.8113 20.9804 16.2613C20.9804 19.4953 21.9604 22.2883 23.9204 24.6403C25.8804 26.9923 28.5264 28.1683 31.8584 28.1683C34.1124 28.1683 36.0969 27.5313 37.8119 26.2573C39.5269 24.9833 40.3844 23.1213 40.3844 20.6713ZM19.5104 20.6713C19.5104 19.2013 18.9959 17.8048 17.9669 16.4818C16.9379 15.1588 15.4434 14.4973 13.4834 14.4973C12.6994 14.4973 11.8909 14.6198 11.0579 14.8648C10.2249 15.1098 9.3674 15.5753 8.48539 16.2613C7.89739 15.1833 7.60339 13.7623 7.60339 11.9983C7.60339 8.86227 8.48538 6.53479 10.2494 5.01578C12.0134 3.49677 14.6104 2.39428 18.0404 1.70828V0.238281C15.6884 0.238281 13.4099 0.605778 11.2049 1.34078C8.99988 2.07578 7.0889 3.15377 5.47189 4.57478C3.85488 5.99579 2.60539 7.68627 1.72339 9.64628C0.841386 11.6063 0.400391 13.8113 0.400391 16.2613C0.400391 19.4953 1.33138 22.2883 3.19339 24.6403C5.0554 26.9923 7.65237 28.1683 10.9844 28.1683C13.2384 28.1683 15.2229 27.5313 16.9379 26.2573C18.6529 24.9833 19.5104 23.1213 19.5104 20.6713Z" fill="url(#paint0_linear)"/>
-<defs>
-<linearGradient id="paint0_linear" x1="1.52039" y1="27.3346" x2="39.1175" y2="27.3346" gradientUnits="userSpaceOnUse">
-<stop stop-color="#B10F56"/>
-<stop offset="1" stop-color="#D00846"/>
-</linearGradient>
-</defs>
-</svg>            
-<p id="quote">Life and living are not the same. For living, we may need a job, money, a home, a car and other creature comforts. However, these alone fail to make life complete. For that, we need love, compassion, tenderness — a heart that knows and responds to the pain of others. We need broadmindedness and maturity in thought and action. - Amma</p>
-        </div>
-    </div>
+            <nav class="navbar navbar-expand-lg" id="myNav">
+                <a href="index.html#home" class="logo navbar-brand">
+                    <img src="Amrita_CyberNation_Logo__1-removebg-preview (1).png" alt="Logo" style="height: 50px;">
+                </a>
     
-    <main>
-        <section class="head head-center1">
-                
-            <div class="head-center">
-                <img src="head1.jpg" alt="Head of Team" class="s">
-            </div>
-            <div class="txt">
-                <h3 id="txt1">Sampoojya Swami VinayamritanandaPuri</h3>
-                <p class="txt1">Chief Patron Administrative Director, AVV Chennai</p>
-                <p></p>
-            </div>
+                <div class="moving-text">
+                    <div class="text-slide">
+                        <span>ACN 3rd edition</span>
+                        <span>|</span>
+                        <button class="animated-button"><span>Register Now</span></button>
+                        <span>|</span>
+                        <span>ACN 3rd edition</span>
+                        <span>|</span>
+                        <button class="animated-button"><span>Register Now</span></button>
+                        <span>|</span>
+                        <span>ACN 3rd edition</span>
+                        <span>|</span>
+                        <button class="animated-button"><span>Register Now</span></button>
+                        <span>|</span>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse navigation" id="navbarNav">
+                    <ul class="navbar-nav ml-auto navigation__menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#home">Home<span></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#aboutacn">About<span></span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editions</a>
+                            <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                                <a class="dropdown-item" href="#">2022</a>
+                                <a class="dropdown-item" href="#">2023</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#home">Sponsors<span></span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                            <div class="dropdown-menu navigation__submenu" aria-labelledby="galleryDropdown">
+                                <a class="dropdown-item" href="#">2022</a>
+                                <a class="dropdown-item" href="#">2023</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#footer">Contact<span></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            </nav>
         </section>
-        <div class="heads">
-            <section class="head">
-                <img src="venkat.jpg" alt="Head of Team">
-                <div class="txt">
-                    <h2>Dr. P. Venkat Rangan</h2>
-                    <p>Patron Vice Chancellor Amrita Vishwa Vidyapeetham</p>
-                    <p></p>
-                </div>
-            </section>
-            <section class="head">
-                <img src="bharat.jpg" alt="Head of Team">
-                <div class="txt">
-                    <h2>Prof. Bharat Jayaraman</h2>
-                    <p>Patron Dean School of Computing Amrita Vishwa Vidyapeetham</p>
-                    <p></p>
-                </div>
-            </section>
-            <section class="head">
-                <img src="head2.jpg" alt="Head of Team">
-                <div class="txt">
-                    <h2>Manikantan I. B</h2>
-                    <p>Director of Amrita Vishwa Vidyapeetham Chennai</p>
-                    <p></p>
-                </div>
-            </section>
-            <section class="head">
-                <img src="head3.jpg" alt="Head of Team">
-                <div class="txt">
-                    <h2>Dr. V. Jayakumar</h2>
-                    <p>Principal of Amrita Vishwa Vidyapeetham Chennai</p>
-                    <p></p>
-                </div>
-            </section>
-            <section class="head">
-                <img src="head4.jpg" alt="Head of Team">
-                <div class="txt">
-                    <h2>Dr. S. Sountharrajan</h2>
-                    <p>Chairperson, Department of Computer Science and Engineering</p>
-                    <p></p>
-                </div>
-            </section>
+    </header>
+    
 
-            <section class="head">
-                <img src="head5.jpg" alt="Head of Team">
-                <div class="txt">
-                    <h2>Dr. S. Udhayakumar</h2>
-                    <p>Department of Computer Science and Engineering</p>
-                    <p></p>
-                </div>
-            </section>
-            <section class="head">
-                <img src="head6.jpg" alt="Head of Team">
-                <div class="txt">
-                    <h2>Dr. S. Baghavathi Priya</h2>
-                    <p>Department of Computer Science and Engineering</p>
-                    <p></p>
-                </div>
-            </section>
-            <section class="head">
-                <img src="head7.jpg" alt="Head of Team">
-                <div class="txt">
-                    <h2>Dr. Natarajan</h2>
-                    <p>Department of Computer Science and Engineering</p>
-                    <p></p>
-                </div>
-            </section>
+
+
+
+    <main class="container my-5">
+        <div class="text-center mb-5">
+            <h1>Meet Our Team</h1>
+            <h2 class="slogan">The minds behind the success of ACN</h2>
         </div>
-        
+
+        <div class="row quote-container text-center mb-5">
+            <div class="col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                <img src="amma.jpg" class="img-fluid" alt="Amma">
+		<div class="team-member-info">
+
+
+			<h3>Sri Mata Amritanandamayi</h3>
+                        <p>Chancellor</p>
+		</div>
+            </div>
+            <div class="col-md-6 mb-4 d-flex flex-column justify-content-center">
+                <svg width="41" height="29" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M40.3844 20.6713C40.3844 19.2013 39.8699 17.8048 38.8409 16.4818C37.8119 15.1588 36.3174 14.4973 34.3574 14.4973C33.5734 14.4973 32.7649 14.6198 31.9319 14.8648C31.0989 15.1098 30.2414 15.5753 29.3594 16.2613C28.7714 15.3793 28.4774 13.9583 28.4774 11.9983C28.4774 8.86227 29.3594 6.53479 31.1234 5.01578C32.8874 3.49677 35.4844 2.39428 38.9144 1.70828V0.238281C36.5624 0.238281 34.2839 0.605778 32.0789 1.34078C29.8739 2.07578 27.9629 3.15377 26.3459 4.57478C24.7289 5.99579 23.4304 7.68627 22.4504 9.64628C21.4704 11.6063 20.9804 13.8113 20.9804 16.2613C20.9804 19.4953 21.9604 22.2883 23.9204 24.6403C25.8804 26.9923 28.5264 28.1683 31.8584 28.1683C34.1124 28.1683 36.0969 27.5313 37.8119 26.2573C39.5269 24.9833 40.3844 23.1213 40.3844 20.6713ZM19.5104 20.6713C19.5104 19.2013 18.9959 17.8048 17.9669 16.4818C16.9379 15.1588 15.4434 14.4973 13.4834 14.4973C12.6994 14.4973 11.8909 14.6198 11.0579 14.8648C10.2249 15.1098 9.3674 15.5753 8.48539 16.2613C7.89739 15.1833 7.60339 13.7623 7.60339 11.9983C7.60339 8.86227 8.48538 6.53479 10.2494 5.01578C12.0134 3.49677 14.6104 2.39428 18.0404 1.70828V0.238281C15.6884 0.238281 13.4099 0.605778 11.2049 1.34078C8.99988 2.07578 7.0889 3.15377 5.47189 4.57478C3.85488 5.99579 2.60539 7.68627 1.72339 9.64628C0.841386 11.6063 0.400391 13.8113 0.400391 16.2613C0.400391 19.4953 1.33138 22.2883 3.19339 24.6403C5.0554 26.9923 7.65237 28.1683 10.9844 28.1683C13.2384 28.1683 15.2229 27.5313 16.9379 26.2573C18.6529 24.9833 19.5104 23.1213 19.5104 20.6713Z"
+                        fill="url(#paint0_linear)" />
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="1.52039" y1="27.3346" x2="39.1175" y2="27.3346"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#B10F56" />
+                            <stop offset="1" stop-color="#D00846" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <p id="quote">"I have always believed in the power of unity and dedication. It’s this spirit that
+                    fuels our success."</p>
+                    <svg id="rev" width="41" height="29" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M40.3844 20.6713C40.3844 19.2013 39.8699 17.8048 38.8409 16.4818C37.8119 15.1588 36.3174 14.4973 34.3574 14.4973C33.5734 14.4973 32.7649 14.6198 31.9319 14.8648C31.0989 15.1098 30.2414 15.5753 29.3594 16.2613C28.7714 15.3793 28.4774 13.9583 28.4774 11.9983C28.4774 8.86227 29.3594 6.53479 31.1234 5.01578C32.8874 3.49677 35.4844 2.39428 38.9144 1.70828V0.238281C36.5624 0.238281 34.2839 0.605778 32.0789 1.34078C29.8739 2.07578 27.9629 3.15377 26.3459 4.57478C24.7289 5.99579 23.4304 7.68627 22.4504 9.64628C21.4704 11.6063 20.9804 13.8113 20.9804 16.2613C20.9804 19.4953 21.9604 22.2883 23.9204 24.6403C25.8804 26.9923 28.5264 28.1683 31.8584 28.1683C34.1124 28.1683 36.0969 27.5313 37.8119 26.2573C39.5269 24.9833 40.3844 23.1213 40.3844 20.6713ZM19.5104 20.6713C19.5104 19.2013 18.9959 17.8048 17.9669 16.4818C16.9379 15.1588 15.4434 14.4973 13.4834 14.4973C12.6994 14.4973 11.8909 14.6198 11.0579 14.8648C10.2249 15.1098 9.3674 15.5753 8.48539 16.2613C7.89739 15.1833 7.60339 13.7623 7.60339 11.9983C7.60339 8.86227 8.48538 6.53479 10.2494 5.01578C12.0134 3.49677 14.6104 2.39428 18.0404 1.70828V0.238281C15.6884 0.238281 13.4099 0.605778 11.2049 1.34078C8.99988 2.07578 7.0889 3.15377 5.47189 4.57478C3.85488 5.99579 2.60539 7.68627 1.72339 9.64628C0.841386 11.6063 0.400391 13.8113 0.400391 16.2613C0.400391 19.4953 1.33138 22.2883 3.19339 24.6403C5.0554 26.9923 7.65237 28.1683 10.9844 28.1683C13.2384 28.1683 15.2229 27.5313 16.9379 26.2573C18.6529 24.9833 19.5104 23.1213 19.5104 20.6713Z"
+                            fill="url(#paint0_linear)" />
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="1.52039" y1="27.3346" x2="39.1175" y2="27.3346"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#B10F56" />
+                                <stop offset="1" stop-color="#D00846" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <!-- Row 1 -->
+            <div class="col-md-12 mb-4 centered-image">
+                <div class="img-container custom-container">
+                    <img src="head1.jpg" alt="Team Member 1" class="custom-size">
+                    <div class="team-member-info">
+                        <h3>Sampoojya Swami VinayamritanandaPuri</h3>
+                        <p> Chief Patron Administrative Director, AVV Chennai</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="col-md-6 mb-4 centered-image">
+                <div class="img-container">
+                    <img src="venkat.jpg" alt="Team Member 2">
+                    <div class="team-member-info">
+                        <h3>Dr. P. Venkat Rangan</h3>
+                        <p>Patron Vice Chancellor Amrita Vishwa Vidyapeetham</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 centered-image">
+                <div class="img-container">
+                    <img src="bharat.jpg" alt="Team Member 3">
+                    <div class="team-member-info">
+                        <h3>Prof. Bharat Jayaraman</h3>
+                        <p>Patron Dean School of Computing Amrita Vishwa Vidyapeetham</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Row 3 -->
+            <div class="col-md-6 mb-4 centered-image">
+                <div class="img-container">
+                    <img src="head2.jpg" alt="Team Member 4">
+                    <div class="team-member-info">
+                        <h3>Manikantan I. B</h3>
+                        <p>Director of Amrita Vishwa Vidyapeetham Chennai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 centered-image">
+                <div class="img-container">
+                    <img src="head3.jpg" alt="Team Member 5">
+                    <div class="team-member-info">
+                        <h3>Dr. V. Jayakumar</h3>
+                        <p>Principal of Amrita Vishwa Vidyapeetham Chennai</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Row 4 -->
+            <div class="col-md-6 mb-4 centered-image">
+                <div class="img-container">
+                    <img src="heaad4.jpg" alt="Team Member 6">
+                    <div class="team-member-info">
+                        <h3>Dr. S. Sountharrajan</h3>
+                        <p>Chairperson, Department of Computer Science and Engineering</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 centered-image">
+                <div class="img-container">
+                    <img src="head5.jpg" alt="Team Member 7">
+                    <div class="team-member-info">
+                        <h3>Dr. S. Udhayakumar</h3>
+                        <p>Chairperson, Department of Computer Science and Engineering</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Row 5 -->
+            <div class="col-md-6 mb-4 centered-image">
+                <div class="img-container">
+                    <img src="head6.jpg" alt="Team Member 8">
+                    <div class="team-member-info">
+                        <h3>Dr. S. Baghavathi Priya</h3>
+                        <p>Chairperson, Department of Computer Science and Engineering</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 centered-image">
+                <div class="img-container">
+                    <img src="head7.jpg" alt="Team Member 9">
+                    <div class="team-member-info">
+                        <h3>Dr. Natarajan</h3>
+                        <p>Chairperson, Department of Computer Science and Engineering</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <footer>
+        <div class="footer-content" id="footer">
+          <div class="footer-left">
+            <a href="/index.html" class="logo2"><img src="/cryptoimg/Welcome.png" alt="Logo"></a>
+          </div>
+          <div class="footer-divider"></div>
+          <div class="address">
+            <h4>OUR ADDRESS</h4>
+            <p>Amrita Vishwa Vidyapeetham<br>
+              Chennai Campus<br>
+              Vengal<br>
+              Chennai - 601 103<br>
+              Tamilnadu, India</p>
+          </div>
+          <div class="footer-divider"></div>
+          <div class="footer-nav">
+            <ul>
+              <li><a href="/index.html">HOME</a></li>
+              <li><a href="/meetup/meetup.html">TEAM</a></li>
+              <li><a href="/events/2024/event-2024.html">EVENTS 3.0</a></li>
+            </ul>
+          </div>
+          <div class="footer-divider"></div>
+          <div class="footer-right">
+            <a href="https://www.instagram.com/amrita_cybernation?igsh=MTVyd3hhcG5tZjJkeQ" target="_blank" class="fab fa-instagram"></a>
+            <a href="https://x.com" target="_blank" class="fab fa-twitter"></a>
+            <a href="https://www.facebook.com/chennaicampus/" target="_blank" class="fab fa-facebook-f"></a>
+            <a href="https://www.linkedin.com/company/amrita-cybernation/" target="_blank" class="fab fa-linkedin-in"></a>
+          </div>
+        </div>
+      </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.navbar-toggler').on('click', function () {
+            $(this).toggleClass('collapsed');
+        });
+
+        $('.nav-link').on('click', function () {
+            
+            $('.navbar-toggler').addClass('collapsed');
+        });
+    });
+</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         const quotes = [
             "Life and living are not the same. For living, we may need a job, money, a home, a car and other creature comforts. However, these alone fail to make life complete. For that, we need love, compassion, tenderness — a heart that knows and responds to the pain of others. We need broadmindedness and maturity in thought and action. - Amma",
@@ -210,7 +431,7 @@
 
         setInterval(changeQuote, 12000); // Change quote every 2 minutes
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             let observerOptions = {
                 root: null,
                 rootMargin: "0px",
@@ -232,8 +453,8 @@
 
             const nav = document.querySelector("nav");
             if (nav) {
-                window.addEventListener("scroll", function() {
-                    if (window.scrollY > 50) { 
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 50) {
                         nav.classList.add("scrolled");
                     } else {
                         nav.classList.remove("scrolled");
@@ -242,53 +463,31 @@
             }
         });
         window.onload = function () {
-    var nav = document.getElementById("myNav");
-    nav.style.transform = "translateY(0)";
-  }
-  window.onload = function () {
-    var nav = document.getElementById("myNav");
-    nav.classList.add("nav-dropdown"); // Add a class to trigger dropdown
-  }
+            var nav = document.getElementById("myNav");
+            nav.style.transform = "translateY(0)";
+        }
+        window.onload = function () {
+            var nav = document.getElementById("myNav");
+            nav.classList.add("nav-dropdown"); // Add a class to trigger dropdown
+        }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    var navbar = document.querySelector(".navbar"); // Selects element with class "navbar"
+        document.addEventListener("DOMContentLoaded", function () {
+            var navbar = document.querySelector(".navbar"); // Selects element with class "navbar"
 
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.add("scrolledup");
-        navbar.classList.remove("scrolled");
-      }
-    });
-  });
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.add("scrolledup");
+                    navbar.classList.remove("scrolled");
+                }
+            });
+        });
 
-    /* moving text*/
-    var textSlide = document.querySelector(".text-slide").cloneNode(true);
-  document.querySelector(".moving-text").appendChild(textSlide);
+        /* moving text*/
+        var textSlide = document.querySelector(".text-slide").cloneNode(true);
+        document.querySelector(".moving-text").appendChild(textSlide);
     </script>
-  
 </body>
-<footer>
-  <div class="footer-content" id="footer">
-    <div class="footer-left">
-      <a href="/index.html" class="logo2"><img src="Amrita_CyberNation_Logo___1_-removebg-preview (1).png"
-          alt="Logo"></a>
-    </div>
-    <div class="footer-divider"></div>
-        <div class="footer-right">
-            <a href="https://www.instagram.com/amrita_cybernation?igsh=MTVyd3hhcG5tZjJkeQ" target="_blank" style="text-decoration: none; color: white;">
-                <img src="/image/download (3).png" alt="Instagram Logo">
-            </a>
-            <a href="https://x.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
-                <img src="/image/5lY42eHs_400x400.jpg" alt="X.com Logo">
-            </a>
-            <a href="https://facebook.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
-                <img src="/image/download (4).png" alt="facebook.com Logo">
-            </a>
-            <a href="https://linkedin.com" target="_blank" style="text-decoration: none; color: white; margin-left: 5px;">
-                <img src="/image/download (5).png" alt="linkedin.com Logo">
-            </a>
-        </div>
-</footer>
+
 </html>

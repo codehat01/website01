@@ -22,14 +22,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(changeQuote, 12000); // Change quote every 12 seconds
 
-    const nav = document.querySelector(".navbar");
-    if (nav) {
-        window.addEventListener("scroll", function() {
-            if (window.scrollY > 50) {
-                nav.classList.add("scrolled");
-            } else {
-                nav.classList.remove("scrolled");
-            }
-        });
-    }
 });

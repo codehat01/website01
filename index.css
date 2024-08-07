@@ -461,7 +461,7 @@ img[src="/image/3rd edition.png"]
   .text {
     width: 100%;
     /* Adjust this value to change text width */
-    text-align:center;
+    text-align:left;
   }
 
 .container .text {
@@ -507,6 +507,7 @@ img[src="/image/3rd edition.png"]
   .galleries.visible {
     opacity: 1;
     transform: translateY(0);
+    height:500px;
   }
 
   .gallery-text {

@@ -525,6 +525,7 @@ img[src="/image/3rd edition.png"]
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
   #image-track {

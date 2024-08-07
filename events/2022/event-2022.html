@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACN Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+ .navbar {
+      background-color: #000000;
+      height: 80px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      transition: transform 1.5s ease, width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
+      animation: textReveal 2s;
+    }
+
+    @keyframes textReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .navbar.shrink {
+      height: 80px;
+      width: 90%;
+      margin-left: calc((100vw - 90vw) / 2);
+      margin-top: 20px;
+      border-radius: 70px;
+    }
+
+    .navbar.scrolledup {
+      transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+      background-color: #b22049;
+      color: #ffffff;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: white;
+      padding: 7px 7px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 16px;
+    }
+
+    .navbar-brand img {
+      height: 90px;
+    }
+
+    .moving-text {
+      white-space: nowrap;
+      position: relative;
+      font-size: 20px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      overflow: hidden;
+      width: 51%;
+    }
+
+    .moving-text:before,
+    .moving-text:after {
+      position: absolute;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      content: "";
+      z-index: 2;
+    }
+
+    .moving-text:hover .text-slide {
+      animation-play-state: paused;
+    }
+
+    .text-slide {
+      display: inline-flex;
+      align-items: center;
+      animation: 10s slide infinite linear;
+    }
+
+    .text-slide span {
+      margin: 0 10px;
+    }
+
+    @keyframes slide {
+      from {
+        transform: translateX(0%);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animated-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 130px;
+      height: 35px;
+      background-color: #b22049;
+      color: white;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s, background-color 0.3s;
+      border-radius: 40px;
+      margin: 0 10px;
+      text-decoration: none;
+      /* Remove underline from the link */
+      box-sizing: border-box;
+      /* Include padding and border in the element's total width and height */
+    }
+
+    .animated-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 1;
+      transition: top 0.3s;
+      top: 100%;
+      box-sizing: border-box;
+      /* Ensure pseudo-element respects padding */
+    }
+
+    .animated-button:hover::before {
+      top: 0;
+    }
+
+    .animated-button span {
+      position: relative;
+      z-index: 2;
+      transition: color 0.3s;
+      white-space: nowrap;
+      /* Prevent text from wrapping */
+    }
+
+    .animated-button:hover {
+      background-color: black;
+    }
+
+    .animated-button:hover span {
+      color: #b22049;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: white;
+      padding: 7px 7px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 16px;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+      background-color: #b22049;
+      color: #ffffff;
+    }
+
+    .navbar-toggler {
+      margin-left: auto;
+      border: none;
+      background: transparent;
+      margin-bottom: 3%;
+      width: 50px;
+      height: 50px;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+
+    }
+
+    .navigation__menu {
+      font-size: 20px;
+      gap: 12px;
+    }
+
+    .dropdown-menu.navigation__submenu,
+    .dropdown-menu.navigation__submenu.show {
+      background-color: #000000;
+    }
+
+    .dropdown-menu.navigation__submenu .dropdown-item {
+      color: white;
+
+    }
+
+    .dropdown-menu.navigation__submenu .dropdown-item:hover,
+    .dropdown-menu.navigation__submenu .dropdown-item:focus {
+      background-color: #b22049;
+      color: white;
+      display: block;
+      margin-left: 5px;
+    }
+
+    .navbar-nav .dropdown {
+      position: relative;
+    }
+
+    .navbar-nav .dropdown-menu {
+      margin-top: 0;
+    }
+
+    .navbar-nav .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .navbar-nav .dropdown-menu {
+      display: none;
+    }
+
+
+    .navbar-nav .dropdown-menu:hover {
+      display: block;
+    }
+
+
+
+
+    .navbar-nav .dropdown-menu {
+      top: 100%;
+      left: 0;
+    }
+
+    @media (max-width: 992px) {
+      .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem;
+        font-size: 40px !important;
+      }
+      .dropdown-menu.navigation__submenu .dropdown-item {
+      color: white;
+      font-size: 30px;
+
+    }
+
+      .moving-text {
+        margin-bottom: 20px;
+        width: 80%;
+        font-size: 16px;
+      }
+
+      .animated-button {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+      }
+
+      .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .moving-text {
+        width: 75%;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .moving-text {
+        width: 51%;
+        margin-bottom: 20px;
+      }
+    }
+
+    .dropdown-toggle::after {
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item.dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
+    .navbar-nav .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    @media (max-width: 992px) {
+      .navbar-nav .dropdown-menu {
+        position: static;
+        float: none;
+      }
+    }
+</style>
+
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+    <div id="main-content" style="display: none;">
+
+        <header>
+            <section id="home" class="section">
+                <nav class="navbar navbar-expand-lg" id="myNav">
+                    <a href="/index.html#home" class="logo navbar-brand">
+                        <img src="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo"
+                            style="height: 90px;">
+                    </a>
+
+                    <div class="moving-text" style="width: 80%;">
+                        <div class="text-slide">
+                            <span>ACN 3rd edition</span>
+                            <span>|</span>
+                            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                                        Now</span></button></a>
+                            <span>|</span>
+                            <span>ACN 3rd edition</span>
+                            <span>|</span>
+                            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                                        Now</span></button></a>
+                            <span>|</span>
+                            <span>ACN 3rd edition</span>
+                            <span>|</span>
+                            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                                        Now</span></button></a>
+                            <span>|</span>
+                            <span>ACN 3rd edition</span>
+                            <span>|</span>
+                            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                                        Now</span></button></a>
+                            <span>|</span>
+                        </div>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navigation" id="navbarNav">
+                        <ul class="navbar-nav ml-auto navigation__menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html">Home<span></span></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events 3.0</a>
+                                <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                                    <a class="dropdown-item" href="#">ACN Cyber conclave</a>
+                                    <a class="dropdown-item" href="#">ACN Cyber Workshop</a>
+                                    <a class="dropdown-item" href="#">ACN Cyber Tech Fest</a>
+                                    <a class="dropdown-item" href="/Editions/cyber-awareness-page/index.html">ACN Cyber Awareness</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editions</a>
+                                <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                                    <a class="dropdown-item" href="#">2022</a>
+                                    <a class="dropdown-item" href="/events/2023/event-2023.html">2023</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/sponsors/spon.html">Sponsors<span></span></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                                <div class="dropdown-menu navigation__submenu" aria-labelledby="galleryDropdown">
+                                    <a class="dropdown-item" href="/gallery-by-year/2022/2022.html">2022</a>
+                                    <a class="dropdown-item" href="/gallery-by-year/2023/2023.html">2023</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/meetup/meetup.html">Team<span></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </section>
+        </header>
+
+        <div class="day1">
+            <h1>Cyber Conclave </h1>
+        </div>
+
+        <div class="custom-container1">
+            <ul id="list_1">
+                <li id="item1" class="box">
+                    <div class="box-body">
+                        <div class="box-images">
+                            <img id="img1" src="img_1.jpeg" alt="Image 1" onmouseover="showText('Text for Image 1')">
+                            <img id="img2" src="img_1.jpeg" alt="Image 2" onmouseover="showText('Text for Image 2')">
+                            <img id="img3" src="img_1.jpeg" alt="Image 3" onmouseover="showText('Text for Image 3')">
+                            <img id="img4" src="img_1.jpeg" alt="Image 4" onmouseover="showText('Text for Image 4')">
+                        </div>
+                        <div class="box-text">
+                            <h2>Panel 1</h2>
+                            <p>Panel 1: Cyber Threats: An Emerging Global Challenge
+
+                                Panel Members:
+
+                                Mr. Ishwar Prasad Bhat, CEO, Necurity Solutions
+                                Natarajan Elangovan, Head – Security Engineering at Wipro Limited, Chennai
+                                T. T. Aditya, Product Owner – Security and Privacy, Continental Corporation Pvt. Ltd.,
+                                Bengaluru
+                                S. Venkat Sairam, Chief Manager, Computer Systems Dept. CUB
+
+                                Panel Chair: Dr. Prabaharan Poornachandran, Director, Centre for Internet Studies and
+                                Artificial Intelligence, Amrita Vishwa Vidyapeetham, Amritapuri, Kerala</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="item2" class="box">
+                    <div class="box-body">
+
+                        <div class="box-text">
+                            <h2>Panel 2</h2>
+                            <p>Panel 2: Technological Solutions and Directions to Secure Cyber Space
+
+                                Panel Members:
+
+                                Mr Yesudian Rajkumar J.K, Founder Amud Solutions, Zero Trust Consultant, Quick Heal
+                                Technologies, Chennai
+                                Dittin Andrews, Joint Director Cyber Security, CDAC, Thiruvanthapuram
+                                Melvin John, Security Specialist at NEC Corporation India Pvt. Ltd, Bengaluru
+                                (R) Mr. Devender Singh Rawat, Former Deputy Director, Electronic Warfare Communication
+                                Spectrum
+
+                                Panel Chair: Dr Shankar Raman, CEO, Pravarthak Ecosystems, IIT Madras Research Park,
+                                Chennai</p>
+                        </div>
+                        <div class="box-images">
+                            <img id="img5" src="img_5.jpeg" alt="Image 5">
+                            <img id="img6" src="img_6.jpeg" alt="Image 6">
+                            <img id="img7" src="img_7.jpeg" alt="Image 7">
+                            <img id="img8" src="img_8.jpeg" alt="Image 8">
+                        </div>
+                    </div>
+                </li>
+                <li id="item3" class="box">
+                    <div class="box-body">
+                        <div class="box-images">
+                            <img id="img9" src="img_9.jpeg" alt="Image 9">
+                            <img id="img10" src="img_10.jpeg" alt="Image 10">
+                            <img id="img11" src="img_11.jpeg" alt="Image 11">
+                            <img id="img12" src="img_12.jpeg" alt="Image 12">
+                        </div>
+                        <div class="box-text">
+                            <h2>Panel 3</h2>
+                            <p>Panel 3: Role of Academia in Strengthening Cybersecurity
+
+                                Panel Members:
+
+                                Dr S.A.V.Satyamurty, Distinguished Scientist and Former Director, IGCAR, Presently
+                                Director, Research, Vinayaga Missions Research Foundation
+                                Prof Dr Sethumadhavan, Head, TIFAC Core in Cybersecurity, Amrita Vishwa Vidyapeetham,
+                                Coimbatore
+                                Siraj Rahim DGM – Operation Technology, MRF Limited, Chennai
+                                Mr Pradeep, Sr Director, FICE/INTEL Bengaluru
+
+                                Panel Chair: Mr.Sitaram Chamarty, Principal Consultant at TCS, Hyderabad</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="day2">
+            <h1>Cyber Tech Fest’22 </h1>
+        </div>
+
+        <div class="custom-container1">
+            <ul id="list_2">
+                <li id="item4" class="box">
+                    <div class="box-body">
+                        <div class="box-image">
+                            <img src="img2/Picture1.jpg" alt="Image 17">
+                        </div>
+                        <div class="box-text">
+                            <h2>CTF</h2>
+                            <p>CTF (Capture The Flag) (6Hrs) is a competition containing challenges in different domains
+                                of cybersecurity such as Forensics, Web Exploitation, Reverse Engineering, OSINT, etc…
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li id="item5" class="box">
+                    <div class="box-body">
+                        <div class="box-text">
+                            <h2>Ideathon with cybersecurity</h2>
+                            <p>Ideathon with Cybersecurity – The theme will be given on the day of the event.</p>
+                        </div>
+                        <div class="box-image">
+                            <img src="img2/Picture2.jpg" alt="Image 21">
+                        </div>
+                    </div>
+                </li>
+                <li id="item6" class="box">
+                    <div class="box-body">
+                        <div class="box-image">
+                            <img  src="img2/Picture4.jpg" alt="Image 25">
+                        </div>
+                        <div class="box-text">
+                            <h2>Scavenger Hunt</h2>
+                            <p>Scavenger Hunt: Quiz-like competition with clues given in the description. And this will
+                                be an individually participating competition. Questions will be based on web
+                                exploitation</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="item7" class="box">
+                    <div class="box-body">
+                        <div class="box-text">
+                            <h2>Cybertrivia</h2>
+                            <p>Cybertrivia: An oral quiz competition that requires a team to participate in the event.
+                            </p>
+                        </div>
+                        <div class="box-image">
+                            <img src="img2/Picture5.jpg" alt="Image 29">
+                        </div>
+                    </div>
+                </li>
+                <li id="item8" class="box">
+                    <div class="box-body">
+                        <div class="box-image">
+                            <img  src="img2/Picture3.jpg" alt="Image 17">
+                        </div>
+                        <div class="box-text">
+                            <h2>Debug the Code</h2>
+                            <p>Debug the Code: An individual event where each participant will be given a code with
+                                errors and they should find the errors and correct them.</p>
+                        </div>
+                    </div>
+                </li>
+                <li id="item9" class="box">
+                    <div class="box-body">
+                        <div class="box-text">
+                            <h2>Identify a Language</h2>
+                            <p>Identify a Language: An individual event where each participant will be given some
+                                program and the participant must identify the language.</p>
+                        </div>
+                        <div class="box-image">
+                            <img  src="img2/Picture6.jpg" alt="Image 21">
+                        </div>
+                    </div>
+                </li>
+                <li id="item10" class="box">
+                    <div class="box-body">
+                        <div class="box-image">
+                            <img  src="img2/Picture7.jpg" alt="Image 21">
+                        </div>
+                        <div class="box-text">
+                            <h2>Code in an Unknown Language</h2>
+                            <p>Code in an Unknown Language: An individual competition where participants need to learn a
+                                new language in less amount of time and write the code for the given problem.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="day2">
+        <h1>Industry meet </h1>
+    </div>
+
+    <div class="custom-container1">
+        <ul id="list_2">
+            <li id="item11" class="box">
+                <div class="box-body">
+                    <div class="box-image">
+                        <img id="img17" src="img/c21.png" alt="Image 17">
+                    </div>
+                    <div class="box-text">
+                        <h2>Mr. Venkatesh Natarajan</h2>
+                        <p>Digital Transformation Evangelist,​
+                            Former Chief Digital Officer​
+                            Ashok Leyland Limited, Chennai​</p>
+                    </div>
+                </div>
+            </li>
+            <li id="item12" class="box">
+                <div class="box-body">
+                    <div class="box-text">
+                        <h2>Dr. Manikantan Srinivasan​</h2>
+                        <p>Assistant General Manager,​
+                            NEC (Mobile networks Excellence Centre), Chennai,​
+                            NEC Corporation India Private Limited​</p>
+                    </div>
+                    <div class="box-image">
+                        <img id="img18" src="img/c18.jpg" alt="Image 21">
+                    </div>
+                </div>
+            </li>
+            <li id="item13" class="box">
+                <div class="box-body">
+                    <div class="box-image">
+                        <img id="img19" src="img/c14.jpg" alt="Image 25">
+                    </div>
+                    <div class="box-text">
+                        <h2>Mr. Andrew David Bhagyam​</h2>
+                        <p>Privacy Program Manager, Zoho Corp​
+                            Chennai​</p>
+                    </div>
+                </div>
+            </li>
+            <li id="item14" class="box">
+                <div class="box-body">
+                    <div class="box-text">
+                        <h2>Mr. Aashish Vivekanand​</h2>
+                        <p>Cloud Solution Architect, ​
+                            Trusted Services (Singapore)​</p>
+                    </div>
+                    <div class="box-image">
+                        <img id="img20" src="img/c20.jpg" alt="Image 29">
+                    </div>
+                </div>
+            </li>
+            <li id="item15" class="box">
+                <div class="box-body">
+                    <div class="box-image">
+                        <img id="img17" src="img/c17.jpg" alt="Image 17">
+                    </div>
+                    <div class="box-text">
+                        <h2>Mr Natarajan Swaminathan</h2>
+                        <p>Senior Consultant – Cyber Security practice ,Tata Consultancy Services</p>
+                    </div>
+                </div>
+            </li>
+            <li id="item16" class="box">
+                <div class="box-body">
+                    <div class="box-text">
+                        <h2>Ms. Panchi S​</h2>
+                        <p>Managing Director,​
+                            YesPanchi Tech Services Pvt Ltd.​</p>
+                    </div>
+                    <div class="box-image">
+                        <img id="img18" src="img/c19.jpg" alt="Image 21">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+
+    <div class="day2">
+        <h1>Cyber Abyaan’22</h1>
+    </div>
+
+    <div class="custom-container1">
+        <ul id="list">
+            <li id="item17" class="box">
+                <div class="box-body">
+                    <div class="box-image">
+                        <img id="img17" src="img_17.jpeg" alt="Image 17">
+                    </div>
+                    <div class="box-text">
+                        <h2>Cyber Abyaan’22</h2>
+                        <p>
+                          Most people are at least semi-aware that identity theft and network hacks are possible, and are reasonably good at not intentionally downloading malicious code or clicking dubious links. This event will focus on rural schools and villages to spread cyber awareness and basic training. The objective of this event is to initiate a social cyber consciousness drive to ensure that the rural population do not fall prey to malicious cyber attacks. This drive will also sensitise people on the corrective actions and support systems available in case of facing cyber related issues.
+                          
+                          </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+
+    <!-- Firebase scripts -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <!-- Custom scripts -->
+    <script defer src="script.js"></script>
+    <script defer src="firebase.js"></script>
+    <script defer src="img.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+          $('.navbar-toggler').on('click', function() {
+            $(this).find('.navbar-toggler-icon').toggleClass('active');
+            if ($('.navbar-toggler-icon').hasClass('active')) {
+              $('.navbar-toggler-icon').html('&times;');
+            } else {
+              $('.navbar-toggler-icon').html('');
+              $('.navbar-toggler-icon').addClass('navbar-toggler-icon');
+            }
+          });
+      
+          $(window).on('scroll', function() {
+            var navbar = $('#myNav');
+            var scrollTop = $(this).scrollTop();
+            var lastScrollTop = 0;
+            
+            if (scrollTop > 0) {
+              navbar.addClass('shrink');
+            } else {
+              navbar.removeClass('shrink');
+            }
+      
+            if (scrollTop > lastScrollTop) {
+              navbar.addClass('scrolledup');
+            } else {
+              navbar.removeClass('scrolledup');
+            }
+      
+            lastScrollTop = scrollTop;
+          });
+      
+          // New dropdown hover functionality
+          var dropdownTimeout;
+          $('.navbar-nav .dropdown').hover(
+            function() {
+              var $this = $(this);
+              clearTimeout(dropdownTimeout);
+              $this.addClass('show');
+              $this.find('.dropdown-menu').addClass('show');
+            },
+            function() {
+              var $this = $(this);
+              dropdownTimeout = setTimeout(function() {
+                $this.removeClass('show');
+                $this.find('.dropdown-menu').removeClass('show');
+              }, 200); // 200ms delay before closing
+            }
+          );
+      
+          $('.navbar-nav .dropdown-menu').hover(
+            function() {
+              clearTimeout(dropdownTimeout);
+            },
+            function() {
+              var $dropdown = $(this).closest('.dropdown');
+              dropdownTimeout = setTimeout(function() {
+                $dropdown.removeClass('show');
+                $dropdown.find('.dropdown-menu').removeClass('show');
+              }, 200); // 200ms delay before closing
+            }
+          );
+        });
+      </script>
+    
+</body>
+</html>

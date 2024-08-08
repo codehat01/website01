@@ -471,15 +471,26 @@
       margin-top: 0;
     }
 
-    .navbar-nav .dropdown:hover .dropdown-menu,
-    .navbar-nav .dropdown .dropdown-menu:hover {
-      display: block;
-    }
+    .navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-nav .dropdown-menu {
+    display: none;
+}
+
+
+.navbar-nav .dropdown-menu:hover {
+    display: block;
+}
 
     .navbar-nav .dropdown-menu {
       top: 100%;
       left: 0;
     }
+
+
+
 
     @media (max-width: 992px) {
       .navbar-expand-lg .navbar-nav .nav-link {
@@ -762,7 +773,7 @@
       <div class="collapse navbar-collapse navigation" id="navbarNav">
         <ul class="navbar-nav ml-auto navigation__menu">
           <li class="nav-item">
-            <a class="nav-link" href="index.html#home">Home<span></span></a>
+            <a class="nav-link" href="/index.html#home">Home<span></span></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button" data-toggle="dropdown"
@@ -770,8 +781,8 @@
             <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
               <a class="dropdown-item" href="#">ACN Cyber conclave</a>
               <a class="dropdown-item" href="#">ACN Cyber Workshop</a>
-              <a class="dropdown-item" href="#">ACN Cyber Tech Fest</a>
-              <a class="dropdown-item" href="#">ACN Cyber Awareness</a>
+              <a class="dropdown-item" href="/events/2024/event-2024.html">ACN Cyber Tech Fest</a>
+              <a class="dropdown-item" href="/Editions/cyber-awareness-page/index.html">ACN Cyber Awareness</a>
             </div>
           </li>
           <li class="nav-item dropdown">

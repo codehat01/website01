@@ -477,4 +477,17 @@ h1{
   .navbar-toggler-icon{
     margin-left:-0px
   }
+  @media screen and (min-width: 370px){
+  .moving-text{
+    margin-left:-18px !important;
+    margin-top:10px;
+    color:aliceblue;
+    
+  }
+  #potato{
+    margin-left:-10px!important;
+    margin-right:15px!important;
+  }
+}
+
 }

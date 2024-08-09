@@ -640,3 +640,50 @@ html {
     }
   }
 
+  @media (max-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: .5rem;
+      padding-left: .5rem;
+      font-size: 40px !important;
+    }
+    .dropdown-menu.navigation__submenu .dropdown-item {
+    color: white;
+    font-size: 30px;
+
+  }
+
+    .moving-text {
+      margin-bottom: 20px;
+      width: 80%;
+      font-size: 16px;
+    }
+
+    .animated-button {
+      width: 100px;
+      height: 30px;
+      font-size: 12px;
+    }
+
+    .navbar-collapse {
+      background-color: rgba(0, 0, 0, 0.9);
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .moving-text {
+      width: 75%;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .moving-text {
+      width: 51%;
+      margin-bottom: 20px;
+    }
+  }

@@ -466,4 +466,15 @@ h1{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+  .navbar.scrolledup{
+    width:100% !important;
+    margin-left: -0px !important
+  }
+  .moving-text{
+    width:70% !important;
+    margin-top:10px
+  }
+  .navbar-toggler-icon{
+    margin-left:-0px
+  }
 }

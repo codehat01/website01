@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ACN</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" type="image/icon type">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f8f8;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: #000000;
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            transition: transform 1.5s ease, width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
+            animation: textReveal 2s;
+        }
+
+        @keyframes textReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        .navbar.shrink {
+            height: 80px;
+            width: 90%;
+            margin-left: calc((100vw - 90vw) / 2);
+            margin-top: 20px;
+            border-radius: 70px;
+        }
+
+        .navbar.scrolledup {
+            transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            background-color: #b22049;
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: white;
+            padding: 7px 7px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .navbar-brand img {
+            height: 90px;
+        }
+
+        .moving-text {
+            white-space: nowrap;
+            position: relative;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            overflow: hidden;
+            width: 51%;
+        }
+
+        .moving-text:before,
+        .moving-text:after {
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            content: "";
+            z-index: 2;
+        }
+
+        .moving-text:hover .text-slide {
+            animation-play-state: paused;
+        }
+
+        .text-slide {
+            display: inline-flex;
+            align-items: center;
+            animation: 10s slide infinite linear;
+        }
+
+        .text-slide span {
+            margin: 0 10px;
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateX(0%);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animated-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 130px;
+            height: 35px;
+            background-color: #b22049;
+            color: white;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 40px;
+            margin: 0 10px;
+            text-decoration: none;
+            /* Remove underline from the link */
+            box-sizing: border-box;
+            /* Include padding and border in the element's total width and height */
+        }
+
+        .animated-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 1;
+            transition: top 0.3s;
+            top: 100%;
+            box-sizing: border-box;
+            /* Ensure pseudo-element respects padding */
+        }
+
+        .animated-button:hover::before {
+            top: 0;
+        }
+
+        .animated-button span {
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s;
+            white-space: nowrap;
+            /* Prevent text from wrapping */
+        }
+
+        .animated-button:hover {
+            background-color: black;
+        }
+
+        .animated-button:hover span {
+            color: #b22049;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: white;
+            padding: 7px 7px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            background-color: #b22049;
+            color: #ffffff;
+        }
+
+        .navbar-toggler {
+            margin-left: auto;
+            border: none;
+            background: transparent;
+            margin-bottom: 3%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+
+        }
+
+        .navigation__menu {
+            font-size: 20px;
+            gap: 12px;
+        }
+
+        .dropdown-menu.navigation__submenu,
+        .dropdown-menu.navigation__submenu.show {
+            background-color: #000000;
+        }
+
+        .dropdown-menu.navigation__submenu .dropdown-item {
+            color: white;
+
+        }
+
+        .dropdown-menu.navigation__submenu .dropdown-item:hover,
+        .dropdown-menu.navigation__submenu .dropdown-item:focus {
+            background-color: #b22049;
+            color: white;
+            display: block;
+            margin-left: 5px;
+        }
+
+        .navbar-nav .dropdown {
+            position: relative;
+        }
+
+        .navbar-nav .dropdown-menu {
+            margin-top: 0;
+        }
+
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .navbar-nav .dropdown-menu {
+            display: none;
+        }
+
+
+        .navbar-nav .dropdown-menu:hover {
+            display: block;
+        }
+
+
+
+
+        .navbar-nav .dropdown-menu {
+            top: 100%;
+            left: 0;
+        }
+
+        @media (max-width: 992px) {
+            .navbar-expand-lg .navbar-nav .nav-link {
+                padding-right: .5rem;
+                padding-left: .5rem;
+                font-size: 40px !important;
+            }
+
+            .dropdown-menu.navigation__submenu .dropdown-item {
+                color: white;
+                font-size: 30px;
+
+            }
+
+            .moving-text {
+                margin-bottom: 20px;
+                width: 80%;
+                font-size: 16px;
+            }
+
+            .animated-button {
+                width: 100px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .navbar-collapse {
+                background-color: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .moving-text {
+                width: 75%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .moving-text {
+                width: 51%;
+                margin-bottom: 20px;
+            }
+        }
+
+        .dropdown-toggle::after {
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item.dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .navbar-nav .dropdown-menu {
+                position: static;
+                float: none;
+            }
+        }
+
+        footer {
+            position: relative;
+            background-color: #000000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            /* Limit content width */
+            margin: 0;
+            /* Center the content horizontally */
+            padding: 0 50px;
+            z-index: 10;
+            /* Adjust padding as needed */
+        }
+
+        .footer-left,
+        .footer-right {
+            flex: 1;
+            max-width: fit-content;
+            z-index: 0;
+            /* Take up remaining space and set max width */
+        }
+
+        .main-content {
+            flex: 1;
+            margin-top: 200px;
+            margin-bottom: 100px;
+        }
+
+        .footer-right {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 20px;
+            /* Increased gap between the icons */
+            margin-top: 20px;
+            /* Adjust spacing as needed */
+            z-index: 0;
+        }
+
+        .footer-right img {
+            width: 35px;
+            height: 35px;
+            vertical-align: middle;
+            margin-right: 10px;
+            z-index: 0;
+        }
+
+        .footer-right a {
+            font-size: 40px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+            /* Center the icons inside the grid items */
+        }
+
+        .footer-right a:hover {
+            color: #b22049;
+            transform: scale(1.2);
+            z-index: 0;
+        }
+
+        .footer-divider {
+            width: 2px;
+            height: 150px;
+            background-color: #ccc;
+            margin: 0 20px;
+            z-index: 0;
+        }
+
+        footer p {
+            margin: 0;
+            /* Remove default margin for paragraphs */
+            font-size: 14px;
+            /* Adjust font size */
+            z-index: 0;
+        }
+
+        .logo2 img {
+            height: auto;
+            width: 40vw;
+            /* Adjust the height of the logo */
+            z-index: 0;
+        }
+
+
+        .footer-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .footer-nav ul li {
+            margin: 10px 0;
+            z-index: 0;
+        }
+
+        .footer-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s ease;
+            z-index: 0;
+        }
+
+        .footer-nav ul li a:hover {
+            color: #b22049;
+            transform: translateX(20px);
+            transition: transform 0.3s ease-in;
+            z-index: 0;
+        }
+
+        .address,
+        .social-links {
+            text-align: end;
+            font-size: 15px;
+        }
+
+        .address h4,
+        .social-links h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #ffffff;
+            z-index: 0;
+        }
+
+        .address p {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #ffffff;
+            z-index: 0;
+        }
+
+        footer {
+            position: relative;
+            background-color: #000000;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            /* Limit content width */
+            margin: 0;
+            /* Center the content horizontally */
+            padding: 0 50px;
+            z-index: 10;
+            /* Adjust padding as needed */
+        }
+
+        .footer-left,
+        .footer-right {
+            flex: 1;
+            max-width: fit-content;
+            z-index: 0;
+            /* Take up remaining space and set max width */
+        }
+
+        .footer-right {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 20px;
+            /* Increased gap between the icons */
+            margin-top: 20px;
+            /* Adjust spacing as needed */
+            z-index: 0;
+        }
+
+        .footer-right img {
+            width: 35px;
+            height: 35px;
+            vertical-align: middle;
+            margin-right: 10px;
+            z-index: 0;
+        }
+
+        .footer-right a {
+            font-size: 40px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+            /* Center the icons inside the grid items */
+        }
+
+        .footer-right a:hover {
+            color: #b22049;
+            transform: scale(1.2);
+            z-index: 0;
+        }
+
+        .footer-divider {
+            width: 2px;
+            height: 150px;
+            background-color: #ccc;
+            margin: 0 20px;
+            z-index: 0;
+        }
+
+        footer p {
+            margin: 0;
+            /* Remove default margin for paragraphs */
+            font-size: 14px;
+            /* Adjust font size */
+            z-index: 0;
+        }
+
+        .logo2 img {
+            height: auto;
+            width: 40vw;
+            /* Adjust the height of the logo */
+            z-index: 0;
+        }
+
+
+        .footer-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .footer-nav ul li {
+            margin: 10px 0;
+            z-index: 0;
+        }
+
+        .footer-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s ease;
+            z-index: 0;
+        }
+
+        .footer-nav ul li a:hover {
+            color: #b22049;
+            transform: translateX(20px);
+            transition: transform 0.3s ease-in;
+            z-index: 0;
+        }
+
+        .address,
+        .social-links {
+            text-align: end;
+            font-size: 15px;
+        }
+
+        .address h4,
+        .social-links h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #ffffff;
+            z-index: 0;
+        }
+
+        .address p {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #ffffff;
+            z-index: 0;
+        }
+
+        .card-container {
+            top: 100px;
+            display: flex;
+            justify-content: center;
+            /* Center the cards horizontally */
+            gap: 20px;
+            /* Add space between cards */
+            max-width: 90vw;
+            max-height: 60vw;
+        }
+
+        .card {
+            width: 250px;
+            /* Adjust the width */
+            height: 150px;
+            /* Adjust the height */
+            border-radius: 7px;
+            cursor: pointer;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            overflow: hidden;
+            /* Make sure the image doesn't exceed the card bounds */
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            /* For overlay positioning */
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensure the image covers the entire card area */
+            border-radius: 7px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            /* Smooth transition for opacity and transform */
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            /* Slight lift effect */
+        }
+
+        .card-container:hover img {
+            opacity: 0.7;
+            /* Reduce opacity of all images when hovering over the container */
+        }
+
+        .card:hover img {
+            opacity: 1;
+            /* Keep the hovered image fully opaque */
+            transform: scale(1.1);
+            /* Slight zoom effect on hover */
+        }
+
+        .card:hover::before {
+            content: '';
+            /* Add overlay content */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            /* Semi-transparent overlay */
+            border-radius: 7px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            /* Start with hidden overlay */
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            /* Show overlay on hover */
+        }
+
+        /* Media query for smaller screens (phones) */
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+
+            .card-container {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+                height: auto;
+                /* Maintain aspect ratio */
+            }
+        }
+
+        /* Media query for tablets */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .card-container {
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin-left: 5%;
+            }
+
+            .card {
+                width: 45%;
+                /* Make cards take up more space */
+                height: 250px;
+                /* Adjust the height for tablets */
+            }
+        }
+
+        /* Media query for larger screens (PC view) */
+        @media (min-width: 1025px) {
+            .card {
+                width: 400px;
+                /* Larger width */
+                height: 250px;
+                /* Larger height */
+            }
+        }
+        .text{
+            margin: 100px;
+            margin-top: 350px;
+            text-align: center;
+        }
+        .text h1{
+            font-size: 100px;
+            color: #b22049;
+            padding-bottom: 30px;
+        }
+        .text h2{
+            font-size: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section id="home" class="section">
+            <nav class="navbar navbar-expand-lg" id="myNav">
+                <a href="index.html#home" class="logo navbar-brand">
+                    <img src="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo"
+                        style="height: 90px;">
+                </a>
+
+                <div class="moving-text" style="width: 80%;">
+                    <div class="text-slide">
+                        <span>ACN 3rd edition</span>
+                        <span>|</span>
+                        <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                                    Now</span></button></a>
+                        <span>|</span>
+                        <span>ACN 3rd edition</span>
+                        <span>|</span>
+                        <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                                    Now</span></button></a>
+                        <span>|</span>
+                        <span>ACN 3rd edition</span>
+                        <span>|</span>
+                        <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                                    Now</span></button></a>
+                        <span>|</span>
+                        <span>ACN 3rd edition</span>
+                        <span>|</span>
+                        <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                                    Now</span></button></a>
+                        <span>|</span>
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse navigation" id="navbarNav">
+                    <ul class="navbar-nav ml-auto navigation__menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#home">Home<span></span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events 3.0</a>
+                            <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                                <a class="dropdown-item" href="/coming-soon.html">ACN Cyber conclave</a>
+                                <a class="dropdown-item" href="/coming-soon.html">ACN Cyber Workshop</a>
+                                <a class="dropdown-item" href="/coming-soon.html">Amrita Developers Group</a>
+                                <a class="dropdown-item" href="/events/2024/event-2024.html">ACN Cyber Tech Fest</a>
+                                <a class="dropdown-item" href="/Editions/cyber-awareness-page/index.html">ACN Cyber
+                                    Awareness</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editions</a>
+                            <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                                <a class="dropdown-item" href="/events/2022/event-2022.html">2022</a>
+                                <a class="dropdown-item" href="/events/2023/event-2023.html">2023</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/sponsors/spon.html">Sponsors<span></span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                            <div class="dropdown-menu navigation__submenu" aria-labelledby="galleryDropdown">
+                                <a class="dropdown-item" href="/gallery-by-year/2022/2022.html">2022</a>
+                                <a class="dropdown-item" href="/gallery-by-year/2023/2023.html">2023</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/meetup/meetup.html">Team<span></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+    </header>
+    <div class="main-content">
+        <div class="text">
+        <H1>Coming Soon!</H1>
+        <h2>Amrita Developers Group</h2>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="/image/1652660921188.png" alt="Card Image">
+            </div>
+            <div class="card">
+                <img src="/image/xd-dev-days.png" alt="Card Image">
+            </div>
+            <div class="card">
+                <img src="/image/image.jpeg" alt="Card Image">
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <div class="footer-content" id="footer">
+        <div class="footer-left">
+            <a href="/index.html" class="logo2"><img src="/cryptoimg/Welcome.png" alt="Logo"></a>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="address">
+            <h4>OUR ADDRESS</h4>
+            <p>Amrita Vishwa Vidyapeetham<br>
+                Chennai Campus<br>
+                Vengal<br>
+                Chennai - 601 103<br>
+                Tamilnadu, India</p>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-nav">
+            <ul>
+                <li><a href="/index.html">HOME</a></li>
+                <li><a href="/meetup/meetup.html">TEAM</a></li>
+                <li><a href="/events/2024/event-2024.html">EVENTS 3.0</a></li>
+            </ul>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-right">
+            <a href="https://www.instagram.com/amrita_cybernation?igsh=MTVyd3hhcG5tZjJkeQ" target="_blank"
+                class="fab fa-instagram"></a>
+            <a href="https://x.com" target="_blank" class="fab fa-twitter"></a>
+            <a href="https://www.facebook.com/chennaicampus/" target="_blank" class="fab fa-facebook-f"></a>
+            <a href="https://www.linkedin.com/company/amrita-cybernation/" target="_blank"
+                class="fab fa-linkedin-in"></a>
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.getElementById("myNav");
+        nav.style.transform = "translateY(0)";
+        nav.classList.add("nav-dropdown");
+
+        const containers = document.querySelectorAll('.container');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        containers.forEach(container => {
+            observer.observe(container);
+        });
+
+    });
+
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.navbar-toggler').on('click', function () {
+            $(this).find('.navbar-toggler-icon').toggleClass('active');
+            if ($('.navbar-toggler-icon').hasClass('active')) {
+                $('.navbar-toggler-icon').html('&times;');
+            } else {
+                $('.navbar-toggler-icon').html('');
+                $('.navbar-toggler-icon').addClass('navbar-toggler-icon');
+            }
+        });
+
+        $(window).on('scroll', function () {
+            var navbar = $('#myNav');
+            var scrollTop = $(this).scrollTop();
+            var lastScrollTop = 0;
+
+            if (scrollTop > 0) {
+                navbar.addClass('shrink');
+            } else {
+                navbar.removeClass('shrink');
+            }
+
+            if (scrollTop > lastScrollTop) {
+                navbar.addClass('scrolledup');
+            } else {
+                navbar.removeClass('scrolledup');
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        // New dropdown hover functionality
+        var dropdownTimeout;
+        $('.navbar-nav .dropdown').hover(
+            function () {
+                var $this = $(this);
+                clearTimeout(dropdownTimeout);
+                $this.addClass('show');
+                $this.find('.dropdown-menu').addClass('show');
+            },
+            function () {
+                var $this = $(this);
+                dropdownTimeout = setTimeout(function () {
+                    $this.removeClass('show');
+                    $this.find('.dropdown-menu').removeClass('show');
+                }, 200); // 200ms delay before closing
+            }
+        );
+
+        $('.navbar-nav .dropdown-menu').hover(
+            function () {
+                clearTimeout(dropdownTimeout);
+            },
+            function () {
+                var $dropdown = $(this).closest('.dropdown');
+                dropdownTimeout = setTimeout(function () {
+                    $dropdown.removeClass('show');
+                    $dropdown.find('.dropdown-menu').removeClass('show');
+                }, 200); // 200ms delay before closing
+            }
+        );
+    });
+</script>
+
+</html>

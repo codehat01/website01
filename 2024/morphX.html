@@ -19,8 +19,8 @@
         .logo span,
         .initiative h2 {
             font-family: "Acme", sans-serif;
-          font-weight: 400;
-          font-style: normal;
+            font-weight: 400;
+            font-style: normal;
         }
 
         h1,
@@ -806,7 +806,7 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: 1.5rem;
             color: #666;
             /* Adjust text color */
             line-height: 1.6;
@@ -836,7 +836,7 @@
         }
 
         .about-image-container img {
-            max-width: 80%;
+            max-width: 70%;
             height: auto;
         }
 
@@ -882,7 +882,7 @@
         }
 
         .about-section p {
-            font-size: 1em;
+            font-size: 1.3em;
             line-height: 1.5em;
             text-align: left;
             display: flex;
@@ -897,6 +897,35 @@
         .scroll-fade.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .rules-container {
+            justify-content: center;
+            display: flex;
+            position: relative;
+            margin: 0;
+            padding: 0%;
+        }
+
+        .rules {
+            width: 60%;
+            justify-content: center;
+            background-color: #000000;
+            color: #f4a414;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .rules h1 {
+            margin-top: 3%;
+        }
+
+        .rules p {
+            text-align: left;
+            margin-left: 15%;
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-right: 15%;
         }
     </style>
 </head>
@@ -987,6 +1016,12 @@
             <div class="logo">
                 <h1>morphX</h1>
             </div>
+            <p>
+                In this event participants are given a basic code first and are challenged to work towards
+                editing and improving the functionality of the application. It can also involve in identifying
+                errors in it. Instead of building something from scratch, the focus is on reconstructing and
+                understanding existing solutions and limitations in it and giving it a unique twist to
+                traditional hackathons.</p>
             <div class="initiative">
                 <div class="text-container">
                     <span id="text"></span>
@@ -1026,34 +1061,22 @@
     <main class="main-content">
         <div class="about-container section scroll-fade" id="about">
             <div class="about-image-container">
-                <img src="/2024/images//National Level ctf.png" alt="CRYPTOSHIELD Image">
+                <img src="/2024/images/morphX_flyer.png" alt="CRYPTOSHIELD Image">
             </div>
             <div class="about-content">
                 <div class="about-section">
-                    <h1>WHAT IS</h1>
-                    <span>morphX
-                    </span>
-                    <p>
-                        In this event participants are given the solution first and are challenged to work backward to
-                        identify or recreate the original problem, code, or process that produced it. Instead of
-                        building something from scratch, the focus is on deconstructing and understanding existing
-                        solutions, making it a unique twist on traditional hackathons. Then all participants will
-                        present their reconstructed solution to panel of judges who then declare top 3 teams on grounds
-                        of creativity , innovation, feasibility and use case in real life</p>
-                </div>
-                <div class="about-section">
                     <h1>IMPORTANT</h1>
-                    <span>DATES AND DEADLINE</span><br><br><br>
+                    <span>DETAILS</span><br><br><br>
                     <span class="highlight">Registration Deadline:</span>
-                    <p> 27th August, 2024</p>
+                    <p> 17th September, 2024</p>
                     <span class="highlight">Event On:</span>
-                    <p>9th September, 2024</p>
+                    <p>18th September, 2024</p>
                 </div>
                 <div class="about-section">
                     <span>Team Size</span>
-                    <p>Individual</p>
+                    <p>Maximum 2 per team</p>
                     <span>Registration fees</span>
-                    <p>Rs.100</p>
+                    <p>Rs.150 Per Team</p>
                 </div>
                 <div class="about-section">
                     <span>Location</span>
@@ -1062,6 +1085,40 @@
             </div>
         </div>
 
+        <div class="rules-container scroll-fade">
+            <div class="rules">
+                <h1>Rules and Regulations</h1>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #f4a414;margin-right: 5px;">1.</Bold>Duration of Event: 4hours.
+                </p>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #f4a414;margin-right: 5px;">2.</Bold> Participants should bring
+                    their own devices.
+                </p>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #f4a414;margin-right: 5px;">3.</Bold>All teams will be provided
+                    with base code and they will work on reconstructing ( A basic code will be given first and are
+                    challenged to work towards editing and improving the functionality of the application.) the code
+                    within the given time frame at assigned venue.
+                </p>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #f4a414;margin-right: 5px;">4.</Bold>Submission requirements:
+                    <br>
+                    <Bold style="margin-left: 10%;">a.</Bold> Architectural diagram is required.<br>
+                    <Bold style="margin-left: 10%;">b.</Bold>Fully functioning reconstructed code <br>
+                </p>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #f4a414;margin-right: 5px;">5.</Bold>Judgement criteria:
+                    creativity, innovation, feasibility and use case in real life; compilation, interpretation and
+                    running of code
+                </p>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -1219,21 +1276,21 @@
 
         const texts = [
             "Deconstruct to Win!",
-            "09.09.2024",
+            "18.09.2024",
             "morphX Awaits",
-            "09.09.2024",
+            "18.09.2024",
             "Reverse the Challenge!",
-            "09.09.2024",
+            "18.09.2024",
             "Unravel the Mystery",
-            "09.09.2024",
+            "18.09.2024",
             "Decode and Recreate!",
-            "09.09.2024",
+            "18.09.2024",
             "Present Your Insights",
-            "09.09.2024",
+            "18.09.2024",
             "Innovate, Analyze, Succeed!",
-            "09.09.2024",
+            "18.09.2024",
             "Top 3 Teams Triumph!",
-            "09.09.2024"
+            "18.09.2024"
         ];
         let currentTextIndex = 0;
         let currentCharIndex = 0;
@@ -1268,7 +1325,7 @@
             typeText();
         });
 
-        const targetDate = new Date("2024-09-09T00:00:00");
+        const targetDate = new Date("2024-09-18T00:00:00");
 
         const updateCountdown = () => {
             const now = new Date();

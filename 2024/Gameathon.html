@@ -653,7 +653,7 @@
             margin: 0;
         }
 
-        .left-section{
+        .left-section {
             flex: 1;
             padding: 40px;
             display: flex;
@@ -663,6 +663,7 @@
             z-index: 10;
             padding-right: 0;
         }
+
         .right-section {
             flex: 1;
             padding: 40px;
@@ -673,6 +674,7 @@
             z-index: 10;
             padding-left: 0;
         }
+
         .logo h1 {
             font-size: 4rem;
             /* Larger font size for the main title */
@@ -756,7 +758,7 @@
         .countdown-item .number {
             font-size: 3rem;
             /* Larger font size */
-            color: #34e489;
+            color: #05b4f1;
             /* Bright yellow for emphasis */
             font-weight: bold;
         }
@@ -796,7 +798,7 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: 1.5rem;
             color: #ffffff;
             /* Adjust text color */
             line-height: 1.6;
@@ -826,7 +828,7 @@
         }
 
         .about-image-container img {
-            max-width: 80%;
+            max-width: 70%;
             height: auto;
         }
 
@@ -870,7 +872,7 @@
         }
 
         .about-section p {
-            font-size: 1em;
+            font-size: 1.3em;
             line-height: 1.5em;
             text-align: left;
             display: flex;
@@ -957,297 +959,35 @@
             padding-top: 10px;
         }
 
-        .game-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 40px;
-            perspective: 1000px;
-            position: absolute;
-            top: 20%;
-            left: 23%;
-            right: 10%;
-        }
-
-        .game-type {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            border: 2px solid #00ffcc;
-            border-radius: 15px;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .game-type img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease, filter 0.4s ease;
-        }
-
-        /* Neon Border */
-        .game-type::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border-radius: 15px;
-            border: 2px solid rgba(0, 255, 204, 0.5);
-            filter: blur(8px);
-            z-index: -1;
-            transition: 0.4s ease;
-        }
-
-        /* Grid hover effects */
-        .game-type:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 0px 30px 10px rgba(0, 255, 204, 0.6);
-        }
-
-        .game-type:hover::before {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-
-        .game-type:hover img {
-            transform: scale(1.2);
-            filter: brightness(80%);
-        }
-
-        /* Scanline Effect */
-        .game-type::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(255, 255, 255, 0.1) 50%, transparent 50%);
-            background-size: 100% 2px;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Dynamic Background */
-        .dynamic-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #39FF14, #1F51FF);
-            mix-blend-mode: screen;
-            filter: blur(15px);
-            opacity: 0.2;
-            z-index: -2;
-        }
 
 
-        /* Power-Up Effect */
-        .power-up {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 60px;
-            height: 60px;
-            background-size: contain;
-            animation: powerUp 2s infinite;
-            opacity: 0;
-        }
-
-        @keyframes powerUp {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0;
-            }
-
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-        }
-
-        /* Glitch Effect */
-        .glitch {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://cdn.pixabay.com/photo/2018/02/23/12/12/retro-3171404_960_720.png') no-repeat center center;
-            background-size: cover;
-            animation: glitch 1s infinite;
-            mix-blend-mode: multiply;
-            opacity: 0.6;
-        }
-
-        @keyframes glitch {
-            0% {
-                transform: translateX(0);
-                opacity: 0.6;
-            }
-
-            50% {
-                transform: translateX(-10px);
-                opacity: 0.9;
-            }
-
-            100% {
-                transform: translateX(0);
-                opacity: 0.6;
-            }
-        }
-
-        /* Neon Pulse */
-        .neon-pulse {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-            background: rgba(0, 255, 204, 0.1);
-            animation: neonPulse 1.5s infinite;
-            mix-blend-mode: overlay;
-            opacity: 0.5;
-        }
-
-        @keyframes neonPulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-        }
-
-        /* Pixelated Glitch */
-        .pixel-glitch {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://cdn.pixabay.com/photo/2018/03/12/15/04/tech-3214205_960_720.png') no-repeat center center;
-            background-size: cover;
-            animation: pixelGlitch 1s infinite;
-            mix-blend-mode: multiply;
-            opacity: 0.6;
-        }
-
-        @keyframes pixelGlitch {
-            0% {
-                transform: translateX(0);
-                opacity: 0.6;
-            }
-
-            50% {
-                transform: translateX(-15px);
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: translateX(0);
-                opacity: 0.6;
-            }
-        }
-
-
-
-        /* Code Rain */
-        .code-rain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .code-rain span {
-            position: absolute;
-            width: 1px;
-            height: 100%;
-            background: #00ffcc;
-            animation: codeRain 1s infinite;
-            opacity: 0.7;
-        }
-
-        @keyframes codeRain {
-            0% {
-                top: -100%;
-            }
-
-            100% {
-                top: 100%;
-            }
-        }
-
-        /* Sprite Animation */
-        .sprite {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 40px;
-            height: 40px;
-            background: url('https://cdn.pixabay.com/photo/2017/12/17/08/30/character-3022808_960_720.png') no-repeat;
-            background-size: 160px 40px;
-            animation: spriteAnimation 0.5s steps(4) infinite;
-        }
-
-        @keyframes spriteAnimation {
-            0% {
-                background-position: 0;
-            }
-
-            100% {
-                background-position: -160px;
-            }
-        }
-
-        .code-typing {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            color: #00ffcc;
-            font-size: 14px;
-            font-family: 'Courier New', monospace;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid #00ffcc;
-            animation: typing 3s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-                opacity: 1;
-            }
-
-            to {
-                width: 100%;
-                opacity: 0.5;
-            }
-        }
-
-        .Themes {
-            max-width: 100%;
+        .rules-container {
             justify-content: center;
-            height: 700px;
+            display: flex;
+            position: relative;
+            margin: 0;
+            padding: 0%;
+        }
+
+        .rules {
+            width: 60%;
+            justify-content: center;
+            background-color: #000000;
+            color: #05b4f1;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .rules h1 {
+            margin-top: 3%;
+        }
+
+        .rules p {
+            text-align: left;
+            margin-left: 15%;
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-right: 15%;
         }
     </style>
 </head>
@@ -1507,7 +1247,7 @@
                 </div>
             </div>
 
-            
+
             <div class="marquee-column scroll-down">
                 <div class="marquee-content">
                     <img src="/2024/images/12.jpg" alt="Marquee Image 1">
@@ -1557,6 +1297,9 @@
             <div class="logo">
                 <h1>Gameathon</h1>
             </div>
+            <p>Dive into the world of game development at Amrita CyberNation with our exhilarating event, Game
+                Development! This is your chance to explore the thrilling realm of game creation, from
+                brainstorming innovative concepts to designing captivating gameplay experiences.</p>
             <div class="initiative">
                 <div class="text-container">
                     <span id="text"></span>
@@ -1596,23 +1339,18 @@
     <main class="main-content">
         <div class="about-container section scroll-fade" id="about">
             <div class="about-image-container">
-                <img src="/2024/images/National Level ctf.png" alt="CRYPTOSHIELD Image">
+                <img src="/2024/images/Battle.png" alt="CRYPTOSHIELD Image">
             </div>
             <div class="about-content">
                 <div class="about-section">
-                    <h1>WHAT IS</h1>
-                    <span>GAME DEVELOPMENT</span>
-                    <p>Dive into the world of game development at Amrita CyberNation with our exhilarating event, Game
-                        Development! This is your chance to explore the thrilling realm of game creation, from
-                        brainstorming innovative concepts to designing captivating gameplay experiences.</p>
-                </div>
-                <div class="about-section">
                     <h1>IMPORTANT</h1>
-                    <span>DATES AND DEADLINE</span><br><br><br>
+                    <span>DETAILS</span><br><br><br>
                     <span class="highlight">Registration Deadline:</span>
-                    <p> 27th August, 2024</p>
-                    <span class="highlight">Event On:</span>
-                    <p>9th September, 2024</p>
+                    <p> 17th September, 2024</p>
+                    <span class="highlight">Event Starts On:</span>
+                    <p>18th September, 2024 at 11 am</p>
+                    <span class="highlight">Event Ends On:</span>
+                    <p>19th September, 2024 at 11 am</p>
                 </div>
                 <div class="about-section">
                     <span>Team Size</span>
@@ -1624,58 +1362,41 @@
                     <span>Location</span>
                     <p>Shield Lab</p>
                 </div>
+                <div class="about-section">
+                    <span>PRIZES</span>
+                    <p>1st Place:Rs.3000</p>
+                    <p>2nd Place:Rs.2000</p>
+                </div>
             </div>
         </div>
-
+        <div class="rules-container scroll-fade">
+            <div class="rules">
+                <h1>Rules and Guidelines</h1>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #05b4f1;margin-right: 5px;">1.</Bold>Shield Lab's systems will
+                    be used.
+                </p>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #05b4f1;margin-right: 5px;">2.</Bold>Plagarism is strongly
+                    contemned, and if a participant is identified to have plagarised from an online source, then the
+                    participant will be disqualified.
+                </p>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #05b4f1;margin-right: 5px;">3.</Bold>It is an Open-themed event and all ideas are welcomed.
+                </p>
+                <br>
+                <p>
+                    <Bold style="font-size: 2rem;color: #05b4f1;margin-right: 5px;">4.</Bold>Inappropriate language and visuals will lead to disqualification.
+                </p>
+                <br>
+            </div>
+        </div>
     </main>
-    <div class="Themes scroll-fade">
-        <div class="dynamic-bg"></div>
-        <div class="code-rain">
-            <span style="left: 10%; animation-duration: 1.5s;"></span>
-            <span style="left: 30%; animation-duration: 1s;"></span>
-            <span style="left: 50%; animation-duration: 2s;"></span>
-            <span style="left: 70%; animation-duration: 1s;"></span>
-            <span style="left: 90%; animation-duration: 1.5s;"></span>
-        </div>
-        <div class="game-container">
-            <div class="game-type">
-                <img src="/2024/images/11.jpg" alt="2D Game">
-                <div class="power-up"></div>
-                <div class="glitch"></div>
-                <div class="neon-pulse"></div>
-                <div class="pixel-glitch"></div>
-                <div class="sprite"></div>
-                <div class="code-typing">2D Game is Loading...</div>
-            </div>
-            <div class="game-type">
-                <img src="/2024/images/10.jpg" alt="3D Game">
-                <div class="power-up"></div>
-                <div class="glitch"></div>
-                <div class="neon-pulse"></div>
-                <div class="pixel-glitch"></div>
-                <div class="sprite"></div>
-                <div class="code-typing">3D Game is Loading...</div>
-            </div>
-            <div class="game-type">
-                <img src="/2024/images/9.jpg" alt="AR Game">
-                <div class="power-up"></div>
-                <div class="glitch"></div>
-                <div class="neon-pulse"></div>
-                <div class="pixel-glitch"></div>
-                <div class="sprite"></div>
-                <div class="code-typing">AR Game is Loading...</div>
-            </div>
-            <div class="game-type">
-                <img src="/2024/images/6.jpg" alt="VR Game">
-                <div class="power-up"></div>
-                <div class="glitch"></div>
-                <div class="neon-pulse"></div>
-                <div class="pixel-glitch"></div>
-                <div class="sprite"></div>
-                <div class="code-typing">VR Game is Loading...</div>
-            </div>
-        </div>
-    </div>
+
+
     <footer>
         <div class="footer-content" id="footer">
             <div class="footer-left">

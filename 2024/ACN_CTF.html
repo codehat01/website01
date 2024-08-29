@@ -19,6 +19,7 @@
             font-family: "Share Tech Mono", monospace;
             font-weight: 400;
             font-style: normal;
+            color: #00ff7f;
         }
 
         h1,
@@ -83,7 +84,7 @@
         }
 
         .navbar-nav .nav-item .nav-link:hover {
-            background-color: #3e9322;
+            background-color: #00ff7f;
             color: #ffffff;
         }
 
@@ -143,7 +144,7 @@
             align-items: center;
             width: 130px;
             height: 35px;
-            background-color: #3e9322;
+            background-color: #1f9a3a;
             color: white;
             border: none;
             font-size: 15px;
@@ -191,7 +192,7 @@
         }
 
         .animated-button:hover span {
-            color: #3e9322;
+            color: #00ff7f;
         }
 
         .navbar-toggler {
@@ -225,7 +226,7 @@
 
         .dropdown-menu.navigation__submenu .dropdown-item:hover,
         .dropdown-menu.navigation__submenu .dropdown-item:focus {
-            background-color: #3e9322;
+            background-color: #00ff7f;
             color: white;
             display: block;
             margin-left: 5px;
@@ -404,7 +405,7 @@
         }
 
         .footer-right a:hover {
-            color: #3e9322;
+            color: #00ff7f;
             transform: scale(1.2);
             z-index: 0;
         }
@@ -454,7 +455,7 @@
         }
 
         .footer-nav ul li a:hover {
-            color: #3e9322;
+            color: #00ff7f;
             transform: translateX(20px);
             transition: transform 0.3s ease-in;
             z-index: 0;
@@ -543,7 +544,7 @@
         }
 
         .footer-right a:hover {
-            color: #3e9322;
+            color: #00ff7f;
             transform: scale(1.2);
             z-index: 0;
         }
@@ -593,7 +594,7 @@
         }
 
         .footer-nav ul li a:hover {
-            color: #3e9322;
+            color: #00ff7f;
             transform: translateX(20px);
             transition: transform 0.3s ease-in;
             z-index: 0;
@@ -627,7 +628,7 @@
             color: #fff;
             background-color: #1a1a1a;
             font-weight: 500;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-family: 'Share Tech Mono';
         }
 
         .hero h2 {
@@ -672,7 +673,7 @@
         .logo h1 {
             font-size: 7rem;
             /* Larger font size for the main title */
-            color: #3e9322;
+            color: #ffffff;
             /* White color for better contrast */
             margin-bottom: 1rem;
             /* Increased margin for spacing */
@@ -697,7 +698,7 @@
         .initiative h2 {
             font-size: 3rem;
             /* Larger subtitle */
-            color: #3e9322;
+            color: #00FF7F;
             /* Same color as the year for consistency */
             margin-bottom: 15px;
         }
@@ -712,9 +713,9 @@
 
         .apply-button {
             margin-top: 35px;
-            padding: 15px 30px;
+            padding: 15px 15px;
             /* Increased padding for a more prominent button */
-            background-color: #3e9322;
+            background-color: #1f9a3a;
             /* Orange background */
             color: #ffffff;
             text-transform: uppercase;
@@ -727,6 +728,8 @@
             text-decoration: none;
             display: inline-block;
             transition: background-color 0.3s ease;
+            width: 250px;
+            border-radius: 30px;
         }
 
         .apply-button:hover {
@@ -857,12 +860,12 @@
             letter-spacing: 2px;
             font-weight: 700;
             justify-content: left;
-            color: #3e9322;
+            color: #00ff7f;
             display: flex;
         }
 
         .about-section h1 span {
-            color: #3e9322;
+            color: #00ff7f;
             font-weight: lighter;
             font-weight: 700;
 
@@ -872,7 +875,7 @@
 
         .about-section span {
             font-size: 2em;
-            color: #3e9322;
+            color: #00ff7f;
             font-weight: lighter;
             font-weight: 700;
             justify-content: left;
@@ -922,6 +925,111 @@
             color: #ffffff;
             margin-right: 15%;
         }
+        .theme-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.theme-text {
+    font-size: 50px;
+    margin-bottom: 3%; /* Adjust as needed */
+    color: #00FF7F;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.image-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  width: 25%; /* Adjust the width as needed */
+}
+
+.image-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+    padding: 0; /* Ensure no padding */
+}
+
+.image-container img {
+    width: 100%;
+    height: 171px; /* Maintain aspect ratio */
+    object-fit: fill; /* Ensure image covers the container */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: block; /* Remove any inline-block gaps */
+}
+
+
+.image-container:hover {
+    animation: bounceZoom 0.5s ease-in-out forwards;
+    box-shadow: 0 0 20px 10px rgba(0, 123, 255, 0.4); /* Glowing effect */
+}
+
+.image-container:not(:hover) {
+    animation: unbounceZoom 0.5s ease-in-out forwards;
+}
+
+@keyframes bounceZoom {
+    0% {
+        transform: scale(1);
+    }
+    35% {
+        transform: scale(1.13);
+    }
+    75% {
+        transform: scale(1.07);
+    }
+    100% {
+        transform: scale(1.13);
+    }
+}
+
+@keyframes unbounceZoom {
+    0% {
+        transform: scale(1.13);
+    }
+    35% {
+        transform: scale(1.07);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.text-button {
+    margin-top: 15%; /* Adjust as needed */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f9a3a;
+    color: #FFF;
+    transition: background-color 0.3s ease;
+}
+
+
+
     </style>
 </head>
 
@@ -1012,9 +1120,13 @@
                 <h1>ACN CTF</h1>
             </div>
             <div class="initiative">
-                <div class="text-container">
-                    <span id="text"></span>
-                </div>
+              <p>An initiative by</p>
+              <h2>Amrita School of Computing</h2>
+              <p>Amrita Vishwa Vidyapeetham</p>
+              <p>VENGAL | CHENNAI</p>
+              <div class="text-container">
+                <span id="text"></span>
+              </div>
             </div>
             <a class="apply-button" href="">Click To Register</a>
         </div>
@@ -1104,6 +1216,55 @@
         </div>
         </div>
     </main>
+    <div id="theme"></div>
+<br><br>
+<br><br>
+<br><br>
+  <div class="theme-container">
+    <h1 class="theme-text">THEMES</h1>
+    <div class="content-container">
+        <div class="image-button-container">
+            <div class="image-container">
+                <img src="/2024/images/c.webp" alt="Image 1">
+            </div>
+            <button class="text-button">Cryptography</button>
+        </div>
+        <div class="image-button-container">
+            <div class="image-container">
+                <img src="/2024/images/b.jpg" alt="Image 2">
+            </div>
+            <button class="text-button">Binary Exploitation</button>
+        </div>
+        <div class="image-button-container">
+            <div class="image-container">
+                <img src="/2024/images/d.jpg" alt="Image 3">
+            </div>
+            <button class="text-button">Forensic</button>
+        </div>
+        <div class="image-button-container">
+          <div class="image-container">
+              <img src="/2024/images/r.png" alt="Image 4">
+          </div>
+          <button class="text-button">Reverse-Engineering</button>
+</div>
+<div class="image-button-container">
+  <div class="image-container">
+      <img src="/2024/images/we.webp" alt="Image 1">
+  </div>
+  <button class="text-button">Web Expliotation</button>
+</div>
+<div class="image-button-container">
+  <div class="image-container">
+      <img src="/2024/images/osint.png" alt="Image 1">
+  </div>
+  <button class="text-button">OS-int</button>
+</div>
+<div class="image-button-container">
+  <div class="image-container">
+      <img src="/2024/images/mi.png" alt="Image 1">
+  </div>
+  <button class="text-button">Miscellaneous</button>
+</div></div></div>
 
     <footer>
         <div class="footer-content" id="footer">

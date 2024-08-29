@@ -930,7 +930,7 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: 1.5rem;
             color: #666;
             /* Adjust text color */
             line-height: 1.6;
@@ -960,7 +960,7 @@
         }
 
         .about-image-container img {
-            max-width: 80%;
+            max-width: 90%;
             height: auto;
         }
 
@@ -995,7 +995,7 @@
 
 
         .about-section span {
-            font-size: 1.5em;
+            font-size: 2em;
             color: #d4af37;
             font-weight: lighter;
             font-weight: 700;
@@ -1004,7 +1004,7 @@
         }
 
         .about-section p {
-            font-size: 1em;
+            font-size: 1.5em;
             line-height: 1.5em;
             text-align: left;
             display: flex;
@@ -1150,6 +1150,9 @@
             <div class="logo">
                 <h1>Game Fusion <span class="year">4.0</span></h1>
             </div>
+            <p>Welcome to GAME FUSION 4.0, the ultimate gaming showdown at Amrita CyberNation! Dive into a
+                thrilling fusion of action, strategy, and esports as we bring together gamers from all corners
+                of the campus for an adrenaline-pumping experience like no other.</p>
             <div class="initiative">
                 <div class="text-container">
                     <span id="text"></span>
@@ -1189,23 +1192,18 @@
     <main class="main-content">
         <div class="about-container section scroll-fade" id="about">
             <div class="about-image-container">
-                <img src="/2024/images/val.jpg" alt="CRYPTOSHIELD Image">
+                <img src="/2024/images/Gaming Tournament.png" alt="CRYPTOSHIELD Image">
             </div>
             <div class="about-content">
                 <div class="about-section">
-                    <h1>WHAT IS</h1>
-                    <span>GAME FUSION 4.0</span>
-                    <p>Welcome to GAME FUSION 4.0, the ultimate gaming showdown at Amrita CyberNation! Dive into a
-                        thrilling fusion of action, strategy, and esports as we bring together gamers from all corners
-                        of the campus for an adrenaline-pumping experience like no other.</p>
-                </div>
-                <div class="about-section">
                     <h1>IMPORTANT</h1>
-                    <span>DATES AND DEADLINE</span><br><br><br>
+                    <span>DETAILS</span><br><br><br>
                     <span class="highlight">Registration Deadline:</span>
-                    <p> 27th August, 2024</p>
-                    <span class="highlight">Event On:</span>
-                    <p>9th September, 2024</p>
+                    <p> 17th September, 2024</p>
+                    <span class="highlight">Event Starts On:</span>
+                    <p>18th September, 2024 @10 am</p>
+                    <span class="highlight">Event Ends On:</span>
+                    <p>19th September, 2024 @ 10 am</p>
                 </div>
                 <div class="about-section">
                     <span>Team Size</span>
@@ -1216,6 +1214,10 @@
                 <div class="about-section">
                     <span>Location</span>
                     <p>Shield Lab</p>
+                </div>
+                <div class="about-section">
+                    <span>Prize</span>
+                    <p>Prize Pool of Rs.30000</p>
                 </div>
             </div>
         </div>
@@ -1474,7 +1476,7 @@
             );
         });
         const textElement = document.getElementById('text');
-        const texts = ["Prepare for Glory!", "09.09.2024", "Victory Awaits!", "09.09.2024", "Rise, Fight, Conquer!", "09.09.2024", "Enter the Battle Zone!", "09.09.2024"];
+        const texts = ["Prepare for Glory!", "18.09.2024", "Victory Awaits!", "18.09.2024", "Rise, Fight, Conquer!", "18.09.2024", "Enter the Battle Zone!", "18.09.2024"];
         let currentTextIndex = 0;
         let currentCharIndex = 0;
         let isDeleting = false;
@@ -1508,7 +1510,7 @@
             typeText();
         });
 
-        const targetDate = new Date("2024-09-09T00:00:00");
+        const targetDate = new Date("2024-09-18T00:00:00");
 
         const updateCountdown = () => {
             const now = new Date();

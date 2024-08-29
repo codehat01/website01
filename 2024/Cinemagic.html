@@ -478,7 +478,7 @@
         }
 
         .address p {
-            font-size: 1em;
+            font-size: 1.3em;
             line-height: 1.5;
             color: #ffffff;
             z-index: 0;
@@ -804,7 +804,7 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: 1.3rem;
             color: #666;
             /* Adjust text color */
             line-height: 1.6;
@@ -834,7 +834,7 @@
         }
 
         .about-image-container img {
-            max-width: 80%;
+            max-width: 70%;
             height: auto;
         }
 
@@ -880,7 +880,7 @@
         }
 
         .about-section p {
-            font-size: 1em;
+            font-size: 1.3em;
             line-height: 1.5em;
             text-align: left;
             display: flex;
@@ -917,7 +917,7 @@
 
         .rules h1 {
             margin-top: 3%;
-            color:#15a8bc;
+            color: #15a8bc;
         }
 
         .rules p {
@@ -1016,6 +1016,12 @@
             <div class="logo">
                 <h1>Cinemagic</h1>
             </div>
+            <p>
+                Lights, camera, action! Step into the world of storytelling and cyber awareness with Cinemagic, the
+                ultimate video-making competition at Amrita CyberNation. This event invites participants to harness
+                their creativity and technical skills to create impactful videos that highlight key aspects of
+                cybersecurity and digital safety.
+            </p>
             <div class="initiative">
                 <div class="text-container">
                     <span id="text"></span>
@@ -1059,28 +1065,12 @@
             </div>
             <div class="about-content">
                 <div class="about-section">
-                    <h1>WHAT IS</h1>
-                    <span>Cinemagic
-                    </span>
-                    <p>
-                        Prepare to test your cybersecurity skills at Cinemagic, the ultimate Capture The Flag
-                        competition
-                        at
-                        Amrita CyberNation! This event challenges participants to solve a series of security-related
-                        puzzles
-                        and challenges, ranging from cryptography and web exploitation to reverse engineering and
-                        forensics.
-                    </p>
-                </div>
-                <div class="about-section">
                     <h1>IMPORTANT</h1>
                     <span>DATES AND DEADLINE</span><br><br><br>
                     <span class="highlight">Registration Deadline:</span>
-                    <p> 27th August, 2024</p>
-                    <span class="highlight">Event starts On:</span>
+                    <p> 4th September, 2024</p>
+                    <span class="highlight">Event On:</span>
                     <p>11th September, 2024</p>
-                    <span class="highlight">Event ends On:</span>
-                    <p>14th September, 2024</p>
                 </div>
                 <div class="about-section">
                     <span>Team Size</span>
@@ -1267,15 +1257,16 @@
         });
         const textElement = document.getElementById('text');
         const texts = [
-            "Capture the Flag!",
-            "09.09.2024",
-            "Hack Your Way to Victory!",
-            "09.09.2024",
-            "Decode, Defend, Dominate!",
-            "09.09.2024",
-            "Prove Your Cyber Skills!",
-            "09.09.2024"
+            "Lights, Camera, Action!",
+            "11.09.2024",
+            "Create for Cyber Awareness!",
+            "11.09.2024",
+            "Tell Your Cyber Story!",
+            "11.09.2024",
+            "Inspire Digital Safety!",
+            "11.09.2024"
         ];
+
         let currentTextIndex = 0;
         let currentCharIndex = 0;
         let isDeleting = false;
@@ -1309,7 +1300,7 @@
             typeText();
         });
 
-        const targetDate = new Date("2024-09-09T00:00:00");
+        const targetDate = new Date("2024-09-11T00:00:00");
 
         const updateCountdown = () => {
             const now = new Date();

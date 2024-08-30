@@ -1,5 +1,9 @@
-const db = firebase.firestore();
-const storage = firebase.storage();
+const app = firebase.initializeApp(firebaseConfig, "app");
+const db = app.firestore();
+const storage = app.storage();
+const app1 = firebase.initializeApp(firebaseConfig1, "app1");
+const db1 = app1.firestore();
+const auth1 = app1.auth();
 
 async function fetchAndDisplayImages() {
     try {

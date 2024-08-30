@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CryptoShield24</title>
+  <link rel="icon" href="/2024/images/ACN (4).png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Navbar*/
+
+    .navbar {
+      /* Existing styles */
+      transform: translateY(-100%);
+      transition: transform 1.5s ease;
+      height: 100px;
+      width: 100%;
+    }
+
+    .navbar.nav-dropdown {
+      transform: translateY(0);
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: rgb(50, 19, 80);
+      color: rgb(255, 255, 255);
+      background-size: cover;
+      background-position: center;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* Navigation bar */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      box-sizing: border-box;
+      z-index: 1000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 80px;
+      animation: textReveal 2s;
+      width: 100%;
+    }
+
+    @keyframes textReval {
+      0% {
+        opacity: 1;
+        transform: translateY(-100px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+    }
+
+    .logo img {
+      height: 80px;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      box-sizing: border-box;
+      z-index: 1000;
+      position: fixed;
+      /* Ensures navbar stays fixed on scroll */
+      top: 0;
+      left: 0;
+      height: 80px;
+      width: 100%;
+      animation: textReveal 2s;
+    }
+
+    @keyframes textReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .logo img {
+      height: 80px;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      font-size: 15px;
+    }
+
+    .navigation__menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      display: flex;
+      /* Ensures menu items are inline */
+      align-items: center;
+      /* Aligns items vertically */
+    }
+
+    .navigation__menu>li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      /* Ensures the arrow aligns with text */
+      margin-right: 10px;
+      /* Reduces gap between menu items */
+    }
+
+    .navigation__menu>li>a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 10px 15px;
+      /* Adjust padding for consistency */
+      display: flex;
+      /* Use flexbox to align items */
+      align-items: center;
+      /* Aligns text and arrow vertically */
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 10px;
+    }
+
+    .navigation__menu>li>a:hover {
+      background-color: #1F51FF;
+      color: #ffffff;
+    }
+
+    .navarrow {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #ffffff;
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .navigation__menu>li:hover .navarrow {
+      transform: rotate(180deg);
+    }
+
+    .navigation__submenu {
+      position: absolute;
+      top: 100%;
+      left: 10%;
+      /* Aligns submenu directly below parent item */
+      width: max-content;
+      /* Fit submenu to content width */
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background-color: #000000;
+      border: 1px solid #1F51FF;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      max-height: 0;
+      border-radius: 4px;
+      z-index: 1000;
+      transform: translateY(-10px);
+    }
+
+    .navigation__menu>li:hover .navigation__submenu {
+      opacity: 1;
+      max-height: 300px;
+      /* Adjust based on content */
+      transform: translateY(0);
+    }
+
+    .navigation__submenu>li>a {
+      padding: 10px 15px;
+      /* Consistent padding with submenu */
+      display: block;
+      text-decoration: none;
+      color: #ffffff;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .navigation__submenu>li>a:hover {
+      background-color: #000000;
+      color: #6D3F77;
+    }
+
+    .navigation__submenu .submenu-button {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .navigation__submenu .submenu-button button {
+      background-color: #1F51FF;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .navigation__submenu .submenu-button button:hover {
+      background-color: #ffffff;
+      color: #1F51FF;
+      transform: scale(1.05);
+    }
+
+
+
+
+    .logo img {
+      height: 90px;
+      /* Adjust the height of the logo */
+    }
+
+    .logo2 img {
+      height: 100px;
+      /* Adjust the height of the logo */
+    }
+
+    #new {
+      background-color: black;
+      color: white;
+      display: flex;
+      width: 1050px;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 40px;
+      margin-left: 200px;
+      margin-top: 20px;
+      /* Add margin-top to move it down from the top */
+      position: fixed;
+      z-index: 1000;
+      height: 90px;
+      padding: 15px;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #new.visible {
+      opacity: 1;
+      /* Fade in */
+      transform: translateY(0);
+      /* Slide in */
+      transition: opacity 3s ease, transform 3s ease;
+    }
+
+    #new {
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      height: 50px;
+    }
+
+    .navbar a,
+    #new a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .animated-button {
+      width: 150px;
+      height: 50px;
+      background-color: #1F51FF;
+      color: white;
+      border: 5px solid #1F51FF;
+      font-size: 20px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s;
+      border-radius: 40px;
+      margin-top: 20px;
+    }
+
+    .animated-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 1;
+      transition: top 0.3s;
+      top: 100%;
+    }
+
+    .animated-button:hover::before {
+      top: 0;
+    }
+
+    .animated-button span {
+      position: relative;
+      z-index: 2;
+      transition: color 0.3s;
+    }
+
+    .animated-button:hover span {
+      color: #1F51FF;
+    }
+
+
+
+
+    .navbar.scrolled {
+      width: 90%;
+      /* Adjust width as needed */
+      margin-left: calc((100vw - 90vw) / 2);
+      /* Center horizontally */
+      margin-top: 20px;
+      /* Adjust top margin as needed */
+      border-radius: 70px;
+      /* Rounded corners */
+      transition: width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
+      /* Smooth transitions */
+      position: fixed;
+      /* Fixed positioning */
+      left: 0;
+      /* Ensure it sticks to the left */
+      right: 0;
+      /* Ensure it stretches to the right */
+      display: flex;
+      /* Ensure flex layout */
+      justify-content: center;
+      /* Center horizontally */
+      align-items: center;
+      /* Center vertically */
+    }
+
+    .navbar.scrolledup {
+      transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
+      /* Smooth transitions with ease-out */
+    }
+
+    .ACN {
+      width: 1000px;
+      height: 900px;
+      margin-bottom: 105px;
+    }
+
+    /*moving text*/
+    .moving-text {
+      white-space: nowrap;
+      position: relative;
+      font-size: 20px;
+      /* Increased by 5px */
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      /* Increased by 5px */
+      overflow: hidden;
+      width: 60%;
+    }
+
+
+    .moving-text:before,
+    .moving-text:after {
+      position: absolute;
+      top: 0;
+      width: 50px;
+      /* Increased by 5px */
+      height: 100%;
+      content: "";
+      z-index: 2;
+    }
+
+
+
+    .text-slide {
+      display: inline-flex;
+      align-items: center;
+      animation: 10s slide infinite linear;
+    }
+
+    .animated-button {
+      width: 130px;
+      height: 35px;
+      /* Decreased height */
+      background-color: #1F51FF;
+      color: white;
+      border: none;
+      font-size: 15px;
+      /* Optional: Adjust font size if needed */
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s, background-color 0.3s;
+      /* Added transition for background-color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 40px;
+      margin: 0 10px;
+      /* Added margin for spacing around "X" */
+    }
+
+
+    .animated-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 1;
+      transition: top 0.3s;
+      top: 100%;
+    }
+
+    .animated-button:hover::before {
+      top: 0;
+    }
+
+    .animated-button span {
+      position: relative;
+      z-index: 2;
+      transition: color 0.3s;
+    }
+
+    .animated-button:hover {
+      background-color: black;
+      /* Changed hover color to black */
+    }
+
+    .animated-button:hover span {
+      color: #1F51FF;
+    }
+
+    .text-slide span {
+      margin: 0 10px;
+      /* Added margin for spacing around "X" */
+    }
+
+    @keyframes slide {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .moving-text:hover .text-slide {
+      animation-play-state: paused;
+    }
+
+
+
+
+
+
+    /* Style for the contact button */
+    .contact-button {
+      z-index: 1001;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: url('cryptoimg/contact.png') no-repeat center center;
+      background-size: cover;
+      width: 60px;
+      /* Adjust size as needed */
+      height: 60px;
+      /* Adjust size as needed */
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-button:hover {
+      transform: scale(1.1);
+      /* Slight zoom effect on hover */
+    }
+
+    /* Style for the popup */
+    .contact-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    .contact-popup.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .contact-popup-content {
+      background-color: rgb(50, 19, 80);
+      color: white;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 12px;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8);
+      /* Smaller size initially */
+      opacity: 0;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      color: #000000;
+    }
+
+    .contact-popup.show .contact-popup-content {
+      transform: scale(1);
+      /* Scale up to original size */
+      opacity: 1;
+    }
+
+    .contact-popup-content h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: white;
+    }
+
+    .contact-popup-content p {
+      margin: 10px 0;
+      font-size: 16px;
+
+      color: white;
+    }
+
+    .contact-popup-content h3 {
+      margin: 10px 0;
+      font-size: 16px;
+
+      color: white;
+    }
+
+    .contact-popup-content .separator {
+      border-top: 1px solid #ddd;
+      margin: 20px 0;
+    }
+
+    .close-popup {
+      color: #888;
+      float: right;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-popup:hover,
+    .close-popup:focus {
+      color: #333;
+      text-decoration: none;
+    }
+
+    
+
+    /*landing*/
+    .container {
+      display: flex;
+      align-items: center;
+      margin-top: 10vh;
+      justify-content: center;
+    }
+
+    .left-section,
+    .right-section {
+      flex: 1;
+      margin-bottom: 20vh;
+    }
+
+    .left-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 3%;
+    }
+
+    .initiative {
+      margin-top: 20px;
+    }
+
+    .initiative h2 {
+      color: #00bfff;
+    }
+
+    .sponsors {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .sponsors img {
+      margin-right: 10px;
+    }
+
+    .apply-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #1F51FF;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .right-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-right: 30px;
+    }
+
+    .robot-hand img {
+      padding-left: 20%;
+      height: 70%;
+      width: 70%;
+    }
+
+    .timer {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .time-box {
+      background-color: blueviolet;
+      padding: 10px;
+      margin: 0 5px;
+      font-size: 24px;
+    }
+
+    .text-container {
+      position: relative;
+      width: 100%;
+      font-size: 2em;
+      height: 2em;
+
+    }
+
+    #text {
+      position: absolute;
+      left: 0;
+      top: 0;
+      white-space: nowrap;
+      border-right: 2px solid black;
+      color: #00bfff;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      color: #000000;
+    }
+
+    .countdown-item {
+      background-color: #ffffff;
+      border: 2px solid #000000;
+      border-radius: 8px;
+      width: 100px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .number {
+      font-size: 48px;
+      font-weight: bold;
+      position: relative;
+      top: 100%;
+      animation: slideIn 1s forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        top: -100%;
+      }
+
+      to {
+        top: 10%;
+      }
+    }
+
+    .number {
+      color: #000000;
+    }
+
+    span {
+      width: max-content;
+    }
+
+    .logo h1 {
+      font-size: 70px;
+    }
+
+
+/*theme*/
+.theme-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.theme-text {
+    font-size: 50px;
+    margin-bottom: 3%; /* Adjust as needed */
+    color: #00bfff;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.image-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.image-container {
+    width: 80%;
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+    padding: 0; /* Ensure no padding */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure image covers the container */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: block; /* Remove any inline-block gaps */
+}
+
+
+.image-container:hover {
+    animation: bounceZoom 0.5s ease-in-out forwards;
+    box-shadow: 0 0 20px 10px rgba(0, 123, 255, 0.4); /* Glowing effect */
+}
+
+.image-container:not(:hover) {
+    animation: unbounceZoom 0.5s ease-in-out forwards;
+}
+
+@keyframes bounceZoom {
+    0% {
+        transform: scale(1);
+    }
+    35% {
+        transform: scale(1.13);
+    }
+    75% {
+        transform: scale(1.07);
+    }
+    100% {
+        transform: scale(1.13);
+    }
+}
+
+@keyframes unbounceZoom {
+    0% {
+        transform: scale(1.13);
+    }
+    35% {
+        transform: scale(1.07);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.text-button {
+    margin-top: 15%; /* Adjust as needed */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1F51FF;
+    color: #FFF;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+    /* about*/
+    .about-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 10%;
+    }
+
+    .about-image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-image-container img {
+      max-width: 90%;
+      height: auto;
+    }
+
+    .about-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .about-section {
+      margin-bottom: 40px;
+    }
+
+    .about-section h1 {
+      font-family: 'roboto', sans-serif;
+      font-size: 2.5em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .about-section h1 span {
+      font-family: sans-serif;
+      color: #00bfff;
+      font-weight: lighter;
+      font-weight: 700;
+    }
+
+    
+
+    .about-section span {
+      font-size: 2.5em;
+      font-family: sans-serif;
+      color: #00bfff;
+      font-weight: lighter;
+      font-weight: 700;
+    }
+
+    .about-section p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+
+    /*award and prizes*/
+
+
+    .award-prizes {
+      text-align: center;
+      margin-top: 8%;
+      margin-bottom: 10%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .award-prizes h2 {
+      font-family: 'Open Sans', sans-serif;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .prize-items {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .prize-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 30%;
+    }
+
+    .prize-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 20%;
+    }
+
+    .prize-text {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    text-align: center;
+    height: 80px;
+    margin-top: 5%
+    }
+
+    .highlight {
+      font-size: 1.2em !important;
+    }
+
+    .prize-text p {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #ffffff;
+    }
+    .award-prizes span {
+    font-size: 2.5em;
+    font-family: sans-serif;
+    color: #00bfff;
+    font-weight: lighter;
+    font-weight: 700;
+}
+
+
+/*sponsors*/
+.sponsors{
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.sponsors span {
+    font-size: 2.5em;
+    font-family: sans-serif;
+    color: #00bfff;
+    font-weight: lighter;
+    font-weight: 700;
+}
+.sponsor-images {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: auto auto; 
+  gap: 130px; 
+  justify-content: center; 
+  max-width: 500px; 
+  margin: 0 auto; 
+  margin-bottom: 10%;
+}
+
+.sponsor-images img {
+  width: 400px;
+  height: auto;
+  padding: 20px;
+}
+
+.sponsor-images img:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.sponsor-images img:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.sponsor-images img:nth-child(3) {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  justify-self: center;
+}
+
+.sponsor-images img:hover {
+  transform: scale(1.1);
+      border-color: white;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+
+
+/*footer*/
+    footer{
+  position: relative;
+  background-color: #000000;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 0;
+  padding-left: 30px;
+}
+
+.footer-left,
+.footer-right {
+  flex: 1;
+  max-width: fit-content;
+}
+
+.footer-right {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.footer-right img {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  margin-right: 10px;
+  
+}
+
+.footer-right a {
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.footer-right a:hover {
+  color: #b22049;
+  transform: scale(1.2);
+  
+}
+
+.footer-divider {
+  width: 2px;
+  height: 150px;
+  background-color: #ccc;
+  margin: 0 20px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.logo2 img {
+  height: auto;
+  width: 45vw;
+  /* Adjust the height of the logo */
+  
+}
+
+
+.footer-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.footer-nav ul li {
+  margin: 10px 0;
+  
+}
+
+.footer-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+  
+}
+
+.footer-nav ul li a:hover {
+  color: #b22049;
+  transform: translateX(20px);
+  transition: transform 0.3s ease-in;
+  
+}
+
+.address, .social-links {
+  text-align: end;
+  
+}
+
+.address h4, .social-links h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #ffffff;
+  
+}
+
+.address p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #ffffff;
+  
+}
+
+  </style>
+</head>
+
+<header>
+  <section id="home" class="section">
+    <nav class="navbar" id="myNav">
+      <a href="/index.html" class="logo">
+        <img src="/cryptoimg/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo">
+      </a>
+      <div class="moving-text">
+        <div class="text-slide">
+          <span>ACN 3rd edition</span>
+          <span>|</span>
+          <button class="animated-button"><span>Register Now</span></button>
+          <span>|</span>
+          <span>ACN 3rd edition</span>
+          <span>|</span>
+          <button class="animated-button"><span>Register Now</span></button>
+          <span>|</span>
+          <span>ACN 3rd edition</span>
+          <span>|</span>
+          <button class="animated-button"><span>Register Now</span></button>
+          <span>|</span>
+        </div>
+      </div>
+      <div class="navigation">
+        <ul class="navigation__menu">
+          <li>
+            <a href="index.html">Home<span></span></a>
+          </li>
+        </ul>
+        <ul class="navigation__menu">
+          <li>
+            <a href="cryptoshield-2024.html#about">About<span></span></a>
+          </li>
+        </ul>
+
+        <ul class="navigation__menu">
+          <li>
+            <a href="cryptoshield-2024.html#sponsor">Sponsors<span></span></a>
+          </li>
+        </ul>
+
+
+        <ul class="navigation__menu">
+          <li>
+            <a href="cryptoshield-2024.html#theme">Themes</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  </section>
+</header>
+
+<body>
+  <div class="container">
+    <div class="left-section">
+      <div class="logo">
+        <h1>CRYPTO SHIELD <span class="year">2024</span></h1>
+      </div>
+      <p>CryptoShield Hackathon'24 is designed to ignite student passion for innovation and problem-solving. This
+          event provides a unique platform for students to collaborate, brainstorm, and build incredible tech solutions.
+          The Grand Finale will be held offline at Amrita School of Engineering, Chennai, where the full team, along
+          with an optional mentor, must be physically present throughout the hackathon.</p>
+      <div class="initiative">
+        <div class="text-container">
+          <span id="text"></span>
+        </div>
+      </div>
+      <a class="apply-button" href="https://cryptoshield-hackathon.devfolio.co/">Click To Register</a>
+    </div>
+    <div class="right-section">
+      <div class="robot-hand">
+        <img src="cryptoimg/home.png" alt="Robot Hand">
+      </div>
+      <div class="countdown">
+        <div class="countdown-item">
+          <div id="months" class="number">00</div>
+          <div class="label">Months</div>
+        </div>
+        <div class="countdown-item">
+          <div id="days" class="number">00</div>
+          <div class="label">Days</div>
+        </div>
+        <div class="countdown-item">
+          <div id="hours" class="number">00</div>
+          <div class="label">Hours</div>
+        </div>
+        <div class="countdown-item">
+          <div id="minutes" class="number">00</div>
+          <div class="label">Minutes</div>
+        </div>
+        <div class="countdown-item">
+          <div id="seconds" class="number">00</div>
+          <div class="label">Seconds</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="about"></div>
+<br><br>
+<br><br>
+<br><br>
+
+  <div class="about-container">
+    <div class="about-image-container">
+      <img src="/2024/images/Cryptoshield.png" alt="CRYPTOSHIELD Image">
+    </div>
+    <div class="about-content">
+      <div class="about-section">
+        <h1>IMPORTANT</h1>
+        <span>DETAILS</span><br><br><br>
+        <span class="highlight">Registration Starts :</span>
+        <p>26th July, 2024</p>
+        <span class="highlight">Registration Closed :</span>
+        <p> 27th August, 2024</p>
+        <span class="highlight">CRYPTOSHIELD :</span>
+        <p>9th September, 2024</p>
+      </div>
+      <div class="about-section">
+        <span>ELIGIBILITY</span>
+        <p>Open to all students currently enrolled in College or University programs such as BE/B.Tech/Diploma, MCA/BCA,
+          ME/M.Tech, B.Sc./M.Sc., as well as BBA/MBA.</p>
+      </div>
+      <div class="about-section">
+        <span>REGISTRATION </span>
+        <h1>PROCESS</h1>
+        <p>• Register for the event and submit your project idea to enter the second round.</p>
+        <p>• Shortlisted teams will receive a notification email and must RSVP within 2 days to confirm their
+          participation.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+<div id="theme"></div>
+<br><br>
+<br><br>
+<br><br>
+  <div class="theme-container">
+    <h1 class="theme-text">THEME</h1>
+    <div class="content-container">
+        <div class="image-button-container">
+            <div class="image-container">
+                <img src="cryptoimg/cyber1.jpg" alt="Image 1">
+            </div>
+            <button class="text-button">CYBER SECURITY</button>
+        </div>
+        <div class="image-button-container">
+            <div class="image-container">
+                <img src="cryptoimg/block-chain.jpg" alt="Image 2">
+            </div>
+            <button class="text-button">BLOCK CHAIN</button>
+        </div>
+        <div class="image-button-container">
+            <div class="image-container">
+                <img src="cryptoimg/ai.jpg" alt="Image 3">
+            </div>
+            <button class="text-button">ARTIFICIAL INTELLIGENCE</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <div class="award-prizes">
+    <span>Awards and Prizes</span>
+    <div class="prize-items">
+      
+      <div class="prize-item">
+        <!-- Trophy SVG Icon -->
+        <svg width="100px" height="100px" viewBox="0 0 120 120" id="Layer_1" version="1.1" xml:space="preserve"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <style type="text/css">
+              .st0 {
+                fill: #FFC54D;
+              }
+
+              .st1 {
+                fill: #F46262;
+              }
+
+              .st2 {
+                fill: #FFFFFF;
+              }
+
+              .st3 {
+                fill: #285FFF;
+              }
+            </style>
+            <g>
+              <circle class="st0" cx="60.1" cy="81.5" r="22.5"></circle>
+              <path class="st1" d="M76.2,59.9H44c-2.5,0-4.5-2-4.5-4.5v-5.3h41.1v5.3C80.6,57.9,78.6,59.9,76.2,59.9z">
+              </path>
+              <path class="st1" d="M76.2,16H44c-2.5,0-4.5,2-4.5,4.5v28.3h41.1V20.5C80.6,18,78.6,16,76.2,16z"></path>
+              <path class="st2"
+                d="M61.1,69l3.4,6.8c0.2,0.3,0.5,0.6,0.8,0.6l7.5,1.1c0.9,0.2,1.3,1.2,0.6,1.9L68,84.8c-0.2,0.2-0.4,0.6-0.3,1 l1.3,7.5c0.2,0.9-0.8,1.6-1.6,1.1l-6.7-3.5c-0.3-0.2-0.7-0.2-1,0l-6.8,3.5c-0.8,0.4-1.8-0.2-1.6-1.1l1.3-7.5c0.1-0.3-0.1-0.7-0.3-1 l-5.4-5.3c-0.6-0.6-0.3-1.8,0.6-1.9l7.5-1.1c0.3-0.1,0.6-0.2,0.8-0.6l3.4-6.8C59.5,68.2,60.7,68.2,61.1,69z">
+              </path>
+              <rect class="st0" height="35.5" width="17.2" x="51.5" y="16"></rect>
+              <path class="st3"
+                d="M82.9,51.5H37.1c-0.7,0-1.2-0.5-1.2-1.2v-0.3c0-0.7,0.5-1.2,1.2-1.2h45.9c0.7,0,1.2,0.5,1.2,1.2v0.3 C84.1,50.9,83.6,51.5,82.9,51.5z">
+              </path>
+            </g>
+          </g>
+        </svg>
+        <div class="prize-text">
+          <p>Grand Prize Pool of 2,300$.</p>
+        </div>
+      </div>
+      <div class="prize-item">
+        <!-- Excellence SVG Icon -->
+        <svg height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <circle style="fill:#FFF59B;" cx="256" cy="256" r="256"></circle>
+            <path style="fill:#3C69BE;"
+              d="M220.69,194.207h61.793l95.684-163.228c-15.662-8.521-32.337-15.396-49.76-20.526L220.69,194.207z"></path>
+            <path style="fill:#6496E1;"
+              d="M176.127,12.777c-17.175,5.638-33.54,13.039-48.897,21.999l93.46,159.431h61.793L176.127,12.777z"></path>
+            <path style="fill:#9B9BA0;"
+              d="M300.138,238.345c-4.875,0-8.828-3.948-8.828-8.828v-35.31c0-4.871-3.961-8.828-8.828-8.828h-52.966 c-4.866,0-8.828,3.957-8.828,8.828v35.31c0,4.879-3.953,8.828-8.828,8.828c-4.875,0-8.828-3.948-8.828-8.828v-35.31 c0-14.603,11.88-26.483,26.483-26.483h52.966c14.603,0,26.483,11.88,26.483,26.483v35.31 C308.966,234.397,305.013,238.345,300.138,238.345z">
+            </path>
+            <path style="fill:#4678D2;"
+              d="M160.982,92.353l59.708,101.854h61.793L178.814,17.359C171.418,32.32,164.362,55.775,160.982,92.353z ">
+            </path>
+            <path style="fill:#6496E1;"
+              d="M328.408,10.453L315.795,31.97c3.705,22.336,9.715,46.791,19.147,72.75l43.227-73.74 C362.506,22.46,345.832,15.584,328.408,10.453z">
+            </path>
+            <circle style="fill:#FFD75F;" cx="256" cy="326.621" r="123.586"></circle>
+            <path style="fill:#DCB464;"
+              d="M256,220.69c-58.41,0-105.931,47.518-105.931,105.931S197.59,432.552,256,432.552 s105.931-47.518,105.931-105.931S314.41,220.69,256,220.69z M256,238.345c7.415,0,14.616,0.93,21.502,2.66 c-53.685,10.68-96.278,52.588-107.116,107.123c-1.73-6.888-2.661-14.09-2.661-21.507C167.724,277.949,207.324,238.345,256,238.345z M292.825,256.568c-20.175,10.037-26.846,20.497-34.282,32.181c-4.461,7.009-9.078,14.268-17.612,22.802 c-4.522,4.518-13.354,8.104-22.702,11.905c-8.343,3.388-17.889,7.274-26.422,12.876 C206.706,292.679,245.898,261.114,292.825,256.568z M256,414.897c-28.845,0-54.5-13.91-70.62-35.371 c0.029-22.031,15.659-30.035,39.49-39.715c11.052-4.483,21.495-8.724,28.543-15.776c9.906-9.906,15.285-18.354,20.025-25.811 c8.674-13.635,14.474-22.718,45.591-33.324c15.602,15.932,25.246,37.717,25.246,61.721C344.276,375.293,304.676,414.897,256,414.897 z">
+            </path>
+          </g>
+        </svg>
+        <div class="prize-text">
+          <p>A Certificate of Excellence and Participation will be given</p>
+        </div>
+      </div>
+      <div class="prize-item">
+        <!-- Certificate SVG Icon -->
+        <svg height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path style="fill:#38ABEC;"
+              d="M486.881,435.574H25.119c-9.446,0-17.102-7.656-17.102-17.102V93.528 c0-9.446,7.656-17.102,17.102-17.102h461.762c9.446,0,17.102,7.656,17.102,17.102v324.944 C503.983,427.918,496.327,435.574,486.881,435.574z">
+            </path>
+            <path style="fill:#3E92DD;"
+              d="M33.67,418.472V93.528c0-9.445,7.658-17.102,17.102-17.102H25.119 c-9.445,0-17.102,7.658-17.102,17.102v324.944c0,9.445,7.658,17.102,17.102,17.102h25.653 C41.328,435.574,33.67,427.917,33.67,418.472z">
+            </path>
+            <path style="fill:#E7EBEC;"
+              d="M452.676,392.818H59.324c-4.722,0-8.551-3.829-8.551-8.551V127.733c0-4.722,3.829-8.551,8.551-8.551 h393.353c4.722,0,8.551,3.829,8.551,8.551v256.534C461.228,388.99,457.399,392.818,452.676,392.818z">
+            </path>
+            <path style="fill:#CED7D9;"
+              d="M76.426,384.267V127.733c0-4.722,3.829-8.551,8.551-8.551H59.324c-4.722,0-8.551,3.829-8.551,8.551 v256.534c0,4.722,3.829,8.551,8.551,8.551h25.653C80.255,392.818,76.426,388.99,76.426,384.267z">
+            </path>
+            <g>
+              <polygon style="fill:#FDD349;"
+                points="186.772,236.363 154.037,246.347 189.423,350.063 197.325,320.261 221.795,339.018 "></polygon>
+              <polygon style="fill:#FDD349;"
+                points="137.103,236.363 169.838,246.347 134.452,350.063 126.55,320.261 102.079,339.018 "></polygon>
+            </g>
+            <circle style="fill:#FF5800;" cx="161.937" cy="221.795" r="59.858"></circle>
+            <circle style="fill:#FDD349;" cx="161.937" cy="221.795" r="34.205"></circle>
+            <path style="fill:#FCB82D;"
+              d="M179.04,247.449c-18.891,0-34.205-15.314-34.205-34.205c0-9.919,4.226-18.847,10.971-25.094 c-15.963,2.89-28.073,16.849-28.073,33.646c0,18.891,15.314,34.205,34.205,34.205c8.972,0,17.132-3.459,23.233-9.11 C183.181,247.25,181.134,247.449,179.04,247.449z">
+            </path>
+            <path style="fill:#6D888E;"
+              d="M397.094,187.591H285.929c-7.084,0-12.827-5.743-12.827-12.827l0,0 c0-7.084,5.743-12.827,12.827-12.827h111.165c7.084,0,12.827,5.743,12.827,12.827l0,0 C409.921,181.848,404.178,187.591,397.094,187.591z">
+            </path>
+            <path
+              d="M486.881,68.409H25.119C11.268,68.409,0,79.677,0,93.528v324.944c0,13.851,11.268,25.119,25.119,25.119h94.419 c4.428,0,8.017-3.588,8.017-8.017s-3.588-8.017-8.017-8.017H25.119c-5.01,0-9.086-4.076-9.086-9.086V93.528 c0-5.01,4.076-9.086,9.086-9.086h461.762c5.01,0,9.086,4.076,9.086,9.086v324.944c0,5.01-4.076,9.086-9.086,9.086H154.037 c-4.428,0-8.017,3.588-8.017,8.017s3.588,8.017,8.017,8.017h332.844c13.851,0,25.119-11.268,25.119-25.119V93.528 C512,79.677,500.732,68.409,486.881,68.409z">
+            </path>
+            <path
+              d="M358.258,111.165H59.324c-9.136,0-16.568,7.432-16.568,16.568v256.534c0,9.136,7.432,16.568,16.568,16.568h393.353 c9.136,0,16.568-7.432,16.568-16.568V127.733c0-9.136-7.432-16.568-16.568-16.568h-59.858c-4.428,0-8.017,3.588-8.017,8.017 c0,4.428,3.588,8.017,8.017,8.017h59.858c0.294,0,0.534,0.241,0.534,0.534v256.534c0,0.294-0.241,0.534-0.534,0.534H59.324 c-0.294,0-0.534-0.241-0.534-0.534V127.733c0-0.294,0.24-0.534,0.534-0.534h298.934c4.428,0,8.017-3.588,8.017-8.017 C366.275,114.753,362.686,111.165,358.258,111.165z">
+            </path>
+            <path
+              d="M97.403,345.529c2.87,2.061,6.748,2,9.554-0.15l14.926-11.44l4.822,18.179c0.905,3.414,3.94,5.834,7.469,5.956 c0.094,0.003,0.188,0.005,0.281,0.005c3.417,0,6.475-2.173,7.586-5.428l19.897-58.32l19.897,58.32 c1.111,3.255,4.167,5.428,7.586,5.428c0.093,0,0.187-0.002,0.281-0.005c3.531-0.122,6.565-2.542,7.469-5.956l4.822-18.179 l14.926,11.44c2.819,2.16,6.839,2.182,9.681,0.053c2.749-2.059,3.892-5.753,2.783-9.004l-21.943-64.316 c13.73-12.429,22.371-30.382,22.371-50.317c0-37.426-30.449-67.875-67.875-67.875s-67.875,30.449-67.875,67.875 c0,19.935,8.641,37.888,22.372,50.317l-21.943,64.316C93.352,339.772,94.533,343.469,97.403,345.529z M205.658,316.549 c-1.121-0.859-2.231-1.738-3.365-2.579c-2.315-1.718-5.281-2.234-7.989-1.132c-4.137,1.684-4.83,5.756-5.845,9.579l-11.732-34.388 c6.02-1.344,11.743-3.481,17.047-6.311L205.658,316.549z M110.096,221.795c0-28.585,23.256-51.841,51.841-51.841 s51.841,23.256,51.841,51.841s-23.256,51.841-51.841,51.841S110.096,250.381,110.096,221.795z M147.147,288.027l-11.732,34.388 c-1.014-3.823-1.707-7.895-5.845-9.579c-2.708-1.102-5.674-0.586-7.989,1.132c-1.134,0.842-2.244,1.72-3.365,2.579l11.884-34.831 C135.404,284.546,141.126,286.684,147.147,288.027z">
+            </path>
+            <path
+              d="M161.937,264.017c23.281,0,42.221-18.941,42.221-42.221s-18.941-42.221-42.221-42.221s-42.221,18.941-42.221,42.221 S138.657,264.017,161.937,264.017z M161.937,195.608c14.441,0,26.188,11.747,26.188,26.188s-11.747,26.188-26.188,26.188 c-14.441,0-26.188-11.747-26.188-26.188S147.497,195.608,161.937,195.608z">
+            </path>
+            <path
+              d="M409.921,230.881h-17.102c-4.428,0-8.017,3.588-8.017,8.017c0,4.428,3.588,8.017,8.017,8.017h17.102 c4.428,0,8.017-3.588,8.017-8.017C417.937,234.469,414.349,230.881,409.921,230.881z">
+            </path>
+            <path
+              d="M273.102,298.221h25.653c4.428,0,8.017-3.588,8.017-8.017s-3.588-8.017-8.017-8.017h-25.653 c-4.428,0-8.017,3.588-8.017,8.017S268.674,298.221,273.102,298.221z">
+            </path>
+            <path
+              d="M367.165,246.914c4.428,0,8.017-3.588,8.017-8.017c0-4.428-3.588-8.017-8.017-8.017h-25.653 c-4.428,0-8.017,3.588-8.017,8.017c0,4.428,3.588,8.017,8.017,8.017H367.165z">
+            </path>
+            <path
+              d="M273.102,246.914h42.756c4.428,0,8.017-3.588,8.017-8.017c0-4.428-3.588-8.017-8.017-8.017h-42.756 c-4.428,0-8.017,3.588-8.017,8.017C265.086,243.326,268.674,246.914,273.102,246.914z">
+            </path>
+            <path
+              d="M409.921,282.188h-85.512c-4.428,0-8.017,3.588-8.017,8.017s3.588,8.017,8.017,8.017h85.512 c4.428,0,8.017-3.588,8.017-8.017S414.349,282.188,409.921,282.188z">
+            </path>
+            <path
+              d="M397.094,153.921H285.929c-11.493,0-20.843,9.351-20.843,20.843c0,11.493,9.351,20.843,20.843,20.843h111.165 c11.493,0,20.843-9.351,20.843-20.843C417.937,163.271,408.587,153.921,397.094,153.921z M397.094,179.574H285.929 c-2.652,0-4.81-2.158-4.81-4.81s2.158-4.81,4.81-4.81h111.165c2.652,0,4.81,2.158,4.81,4.81S399.746,179.574,397.094,179.574z">
+            </path>
+            <path
+              d="M273.102,349.528h68.409c4.428,0,8.017-3.588,8.017-8.017c0-4.428-3.588-8.017-8.017-8.017h-68.409 c-4.428,0-8.017,3.588-8.017,8.017C265.086,345.94,268.674,349.528,273.102,349.528z">
+            </path>
+            <path
+              d="M409.921,333.495h-42.756c-4.428,0-8.017,3.588-8.017,8.017c0,4.428,3.588,8.017,8.017,8.017h42.756 c4.428,0,8.017-3.588,8.017-8.017C417.937,337.083,414.349,333.495,409.921,333.495z">
+            </path>
+          </g>
+        </svg>
+        <div class="prize-text">
+          <p>All participants will receive a Certificate of Participation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div id="sponsor"></div>
+  <br><br>
+  <br><br>
+  <br><br>
+  <div class="sponsors">
+    <span>SPONSORS</span>
+  </div>
+  <div class="sponsor-images">
+    <img src="/cryptoimg/ETH.png" alt="Sponsor 1">
+    <img src="/cryptoimg/Polygen.png" alt="Sponsor 2">
+    <img src="/cryptoimg/QuillAudits_Web3_Security_Logo_(White_-_Horizontal).png" alt="Sponsor 3">
+  </div>
+
+
+
+  <!-- Contact Button -->
+  <button id="contact-button" class="contact-button"></button>
+
+  <!-- Popup -->
+  <div id="contact-popup" class="contact-popup">
+    <div class="contact-popup-content">
+      <span id="close-popup" class="close-popup">&times;</span>
+      <h2>Contact Us</h2>
+      <p>Amrita School of Engineering, Chennai, Tamil Nadu</p>
+      <div class="separator"></div>
+      <h3>Incharge</h3>
+      <p>Sridharan S 7010642533</p>
+      <p>Srish N (+91) 9444410261</p>
+      <div class="separator"></div>
+      <h3>Mail us</h3>
+      <p>crytposhieldhackthon@gmail.com</p>
+      <div class="separator"></div>
+      <p>AmritaCyberNation</p>
+
+    </div>
+  </div>
+
+</body>
+<footer>
+  <div class="footer-content" id="footer">
+    <div class="footer-left">
+      <a href="/index.html" class="logo2"><img src="/cryptoimg/Welcome.png" alt="Logo"></a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="address">
+      <h4>OUR ADDRESS</h4>
+      <p>Amrita Vishwa Vidyapeetham<br>
+        Chennai Campus<br>
+        Vengal<br>
+        Chennai - 601 103<br>
+        Tamilnadu, India</p>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-nav">
+      <ul>
+        <li><a href="/index.html">HOME</a></li>
+        <li><a href="/meetup/meetup.html">TEAM</a></li>
+        <li><a href="/events/2024/event-2024.html">EVENTS 3.0</a></li>
+      </ul>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-right">
+      <a href="https://www.instagram.com/amrita_cybernation?igsh=MTVyd3hhcG5tZjJkeQ" target="_blank" class="fab fa-instagram"></a>
+      <a href="https://x.com" target="_blank" class="fab fa-twitter"></a>
+      <a href="https://www.facebook.com/chennaicampus/" target="_blank" class="fab fa-facebook-f"></a>
+      <a href="https://www.linkedin.com/company/amrita-cybernation/" target="_blank" class="fab fa-linkedin-in"></a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+
+  const textElement = document.getElementById('text');
+  const texts = ["Battle of Development!", "Igniting Innovation ", "Igniting Problem-Solving", "09.09.2024"];
+  let currentTextIndex = 0;
+  let currentCharIndex = 0;
+  let isDeleting = false;
+
+  function typeText() {
+    const currentText = texts[currentTextIndex];
+    if (isDeleting) {
+      // Remove characters
+      textElement.textContent = currentText.substring(0, currentCharIndex - 1);
+      currentCharIndex--;
+      if (currentCharIndex === 0) {
+        isDeleting = false;
+        currentTextIndex = (currentTextIndex + 1) % texts.length;
+      }
+    } else {
+      // Add characters
+      textElement.textContent = currentText.substring(0, currentCharIndex + 1);
+      currentCharIndex++;
+      if (currentCharIndex === currentText.length) {
+        setTimeout(() => {
+          isDeleting = true;
+        }, 1500); // Wait for 1.5 seconds before starting to delete
+      }
+    }
+
+    let typingSpeed = isDeleting ? 50 : 100; // Increase typing speed here
+    setTimeout(typeText, typingSpeed);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    typeText();
+  });
+
+  const targetDate = new Date("2024-09-09T00:00:00");
+
+  const updateCountdown = () => {
+    const now = new Date();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.querySelector(".countdown").innerHTML = "EXPIRED";
+      return;
+    }
+
+    const years = targetDate.getFullYear() - now.getFullYear();
+    const months = targetDate.getMonth() - now.getMonth() + (years * 12);
+    const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const targetDays = new Date(targetDate.getFullYear(), targetDate.getMonth(), 0).getDate();
+
+    let monthsDifference = months;
+    let daysDifference = days;
+
+    if (now.getDate() > targetDate.getDate()) {
+      monthsDifference -= 1;
+      daysDifference = daysInCurrentMonth - now.getDate() + targetDate.getDate();
+    } else {
+      daysDifference = targetDate.getDate() - now.getDate();
+    }
+
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    updateElement("months", monthsDifference);
+    updateElement("days", daysDifference);
+    updateElement("hours", hours);
+    updateElement("minutes", minutes);
+    updateElement("seconds", seconds);
+  };
+
+  const updateElement = (id, value) => {
+    const element = document.getElementById(id);
+    if (element.innerText != value) {
+      element.classList.remove("slideIn");
+      void element.offsetWidth; // Trigger reflow
+      element.classList.add("slideIn");
+      element.innerText = value;
+    }
+  };
+
+  const timer = setInterval(updateCountdown, 1000);
+
+
+
+  window.onload = function () {
+    var nav = document.getElementById("myNav");
+    nav.style.transform = "translateY(0)";
+  }
+  window.onload = function () {
+    var nav = document.getElementById("myNav");
+    nav.classList.add("nav-dropdown"); // Add a class to trigger dropdown
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var navbar = document.querySelector(".navbar"); // Selects element with class "navbar"
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.add("scrolledup");
+        navbar.classList.remove("scrolled");
+      }
+    });
+  });
+
+  /* moving text*/
+  var textSlide = document.querySelector(".text-slide").cloneNode(true);
+  document.querySelector(".moving-text").appendChild(textSlide);
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactButton = document.getElementById('contact-button');
+    const contactPopup = document.getElementById('contact-popup');
+    const closePopup = document.getElementById('close-popup');
+
+    // Show popup
+    contactButton.addEventListener('click', () => {
+      contactPopup.classList.add('show');
+    });
+
+    // Hide popup when clicking the close button
+    closePopup.addEventListener('click', () => {
+      contactPopup.classList.remove('show');
+    });
+
+    // Hide popup when clicking outside of it
+    window.addEventListener('click', (event) => {
+      if (event.target === contactPopup) {
+        contactPopup.classList.remove('show');
+      }
+    });
+  });
+
+</script>
+
+</html>

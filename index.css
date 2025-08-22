@@ -612,7 +612,7 @@ body {
 }
 
 #backimage {
-  width: 400vw;
+  width: 500vw;
   /* Total width for 3 containers (100vw each) */
   height: 100vh;
   /* Full viewport height */

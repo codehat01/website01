@@ -1,656 +1,890 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<div id="ani">
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACN Website</title>
-    <link rel="stylesheet" href="new.css">
+    <title>Events 3.0</title>
+    <link rel="stylesheet" href="event.css">
+    <link rel="icon" href="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" type="image/icon type">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f7fafc;
+      .navbar {
+        background-color: rgba(27, 36, 45, 0.5);
+        height: 80px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        transition: transform 1.5s ease, width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
+        animation: textReveal 2s;
+      }
+
+
+      @keyframes textReveal {
+        0% {
+          opacity: 0;
+          transform: translateY(-100px);
         }
 
-        .navbar {
-            background-color: #000000;
-            height: 80px;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-            transition: transform 1.5s ease, width 1s ease, border-radius 1s ease, margin-left 1s ease, margin-top 1s ease;
-            animation: textReveal 2s;
+        100% {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+
+      .navbar.shrink {
+        height: 80px;
+        width: 90%;
+        margin-left: calc((100vw - 90vw) / 2);
+        margin-top: 20px;
+        border-radius: 70px;
+      }
+
+
+
+      .navbar.scrolledup {
+        transition: width 0.5s ease-out, border-radius 0.5s ease-out, margin-left 0.5s ease-out, margin-top 0.5s ease-out;
+      }
+
+      .navbar-brand img {
+        height: 90px;
+      }
+
+      .moving-text {
+        white-space: nowrap;
+        position: relative;
+        font-size: 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        overflow: hidden;
+        width: 51%;
+      }
+
+      .text-slide {
+        display: inline-flex;
+        align-items: center;
+        animation: 10s slide infinite linear;
+      }
+
+      @keyframes slide {
+        from {
+          transform: translateX(0%);
         }
 
-        @keyframes textReveal {
-            0% { opacity: 0; transform: translateY(-100px); }
-            100% { opacity: 1; transform: translateY(0px); }
+        to {
+          transform: translateX(-50%);
         }
+      }
 
-        .navbar.shrink {
-            height: 80px;
-            width: 90%;
-            margin-left: calc((100vw - 90vw) / 2);
-            margin-top: 20px;
-            border-radius: 70px;
-        }
+      .animated-button {
+        width: 130px;
+        height: 35px;
+        background-color: #b22049;
+        color: white;
+        border: none;
+        font-size: 15px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: color 0.3s, background-color 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 40px;
+        margin: 0 10px;
+      }
 
-        .navbar-brand img {
-            height: 90px;
+      .animated-button:hover {
+        background-color: white;
+      }
+
+      .animated-button:hover span {
+        color: #b22049;
+      }
+
+      .navbar-nav .nav-item .nav-link {
+        color: white;
+        padding: 7px 7px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .navbar-nav .nav-item .nav-link:hover {
+        background-color: #b22049;
+        color: #ffffff;
+      }
+
+      .navbar-toggler {
+        margin-left: auto;
+        border: none;
+        background: transparent;
+        margin-bottom: 3%;
+        width: 50px;
+        height: 50px;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+
+      }
+
+      .navigation__menu {
+        font-size: 20px;
+        gap: 12px;
+
+      }
+
+      .dropdown-menu.navigation__submenu,
+      .dropdown-menu.navigation__submenu.show {
+        background-color: #000000;
+      }
+
+      .dropdown-menu.navigation__submenu .dropdown-item {
+        color: white;
+      }
+
+      .dropdown-menu.navigation__submenu .dropdown-item:hover,
+      .dropdown-menu.navigation__submenu .dropdown-item:focus {
+        background-color: #b22049;
+        color: white;
+        display: block;
+        margin-left: 5px;
+      }
+
+      .navbar-nav .dropdown {
+        position: relative;
+      }
+
+      .navbar-nav .dropdown-menu {
+        margin-top: 0;
+      }
+
+      .navbar-nav .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .navbar-nav .dropdown-menu {
+        display: none;
+      }
+
+
+      .navbar-nav .dropdown-menu:hover {
+        display: block;
+      }
+
+      .navbar-nav .dropdown-menu {
+        top: 100%;
+        left: 0;
+      }
+
+      @media (max-width: 992px) {
+        .navbar-expand-lg .navbar-nav .nav-link {
+          padding-right: .5rem;
+          padding-left: .5rem;
+          font-size: 20px !important;
         }
 
         .moving-text {
-            white-space: nowrap;
-            position: relative;
-            font-size: 20px;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            overflow: hidden;
-            width: 51%;
-        }
-
-        .text-slide {
-            display: inline-flex;
-            align-items: center;
-            animation: 10s slide infinite linear;
-        }
-
-        .text-slide:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes slide {
-            from { transform: translateX(0%); }
-            to { transform: translateX(-50%); }
+          margin-bottom: 20px;
+          width: 75% !important;
+          font-size: 16px;
         }
 
         .animated-button {
-            width: 130px;
-            height: 35px;
-            background-color: #b22049;
-            color: white;
-            border: none;
-            font-size: 15px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: color 0.3s, background-color 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 40px;
-            margin: 0 10px;
+          width: 100px;
+          height: 30px;
+          font-size: 12px;
         }
 
-        .animated-button:hover {
-            background-color: white;
+        .navbar-collapse {
+          background-color: rgba(0, 0, 0, 0.9);
+          position: absolute;
+          top: 80px;
+          left: 0;
+          right: 0;
+          z-index: 1000;
         }
+      }
 
-        .animated-button:hover span {
-            color: #b22049;
+      @media (max-width: 768px) {
+        .moving-text {
+          width: 65% !important;
+          margin-bottom: 20px;
         }
+      }
 
-        .navigation__menu {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
+      @media (max-width: 480px) {
+        .moving-text {
+          width: 59% !important;
+          margin-bottom: 20px;
         }
+      }
 
-        .navigation__menu > li {
-            position: relative;
-            margin-right: 20px;
+      .dropdown-toggle::after {
+        transition: transform 0.3s ease;
+      }
+
+      .nav-item.dropdown:hover .dropdown-toggle::after {
+        transform: rotate(180deg);
+      }
+
+      .navbar-nav .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      @media (max-width: 992px) {
+        .navbar-nav .dropdown-menu {
+          position: static;
+          float: none;
         }
+      }
 
-        .navigation__menu > li > a {
-            color: white;
-            text-decoration: none;
-            padding: 7px 7px;
-            border-radius: 10px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+      .box-images {
+        object-fit: cover;
+      }
 
-        .navigation__menu > li > a:hover {
-            background-color: #b22049;
-            color: #ffffff;
-        }
+      /* profile*/
+      /* Profile Container */
+      .profile-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+      }
 
-        .navigation__submenu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #000000;
-            min-width: 200px;
-            display: none;
-            z-index: 1;
-        }
+      .profile-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ddd;
+        cursor: pointer;
+        overflow: hidden;
+      }
 
-        .navigation__menu > li:hover .navigation__submenu {
-            display: block;
-        }
+      .profile-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-        .navigation__submenu li {
-            padding: 10px;
-        }
+      /* Profile Dropdown */
+      .profile-dropdown {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #1f1f1f;
+        border-radius: 10px;
+        width: 320px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+        z-index: 1000;
+        color: white;
+      }
 
-        .navigation__submenu li a {
-            color: white;
-            text-decoration: none;
-        }
+      .profile-dropdown h2,
+      .profile-dropdown p {
+        margin: 0;
+        color: white;
+      }
 
-        .navigation__submenu li a:hover {
-            color: #b22049;
-        }
+      .profile-dropdown h2 {
+        font-size: 18px;
+        font-weight: normal;
+        margin-bottom: 5px;
+      }
 
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
+      .profile-dropdown p {
+        font-size: 14px;
+        color: #bbb;
+      }
 
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 5px 0;
-        }
+      /* Account Actions */
+      .account-actions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
 
-        /* Day sections */
-        .day1, .day2 {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 100px;
-        }
+      .account-actions button {
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 48%;
+        cursor: pointer;
+        text-align: center;
+      }
 
-        .custom-container {
-            width: 90%;
-            margin: 0 auto;
-        }
+      .account-actions button:hover {
+        background-color: #555;
+      }
 
-        #list, #list1 {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 17vh;
-        }
 
-        .box {
-            position: sticky;
-            top: 17vh;
-        }
 
-        .box-body {
-            justify-content: center;
-            box-sizing: border-box;
-            box-shadow: 0 0 30px 0 rgb(255, 255, 255);
-            height: 500px;
-            display: flex;
-            transition: all 0.5s;
-            border-radius: 50px;
-            overflow: hidden;
-            margin-top: 15vh;
-            width: 1280px;
-        }
-
-        .box-images {
-            width: 58%;
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
-            gap: 5px;
-            background-color: black;
-        }
-
-        .box-images img {
-            width: 372px;
-            height: 247.5px;
-            object-fit: fill;
-            transition: transform 0.5s ease-in-out, z-index 0s 0.5s;
-            z-index: 0;
-        }
-
-        .box-images img:hover {
-            z-index: 1;
-            transform: scale(2.05);
-        }
-
-        .box-text {
-            flex: 1;
-            background-color: rgb(0, 0, 0);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 20%;
-            color: white;
-        }
-
-        .box-text h2, .box-text h3 {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0 0 10px 0;
-        }
-
-        .box-text h2 {
-            font-size: 2.5em;
-        }
-
-        .box-text h3 {
-            font-size: 1.1em;
-        }
-
-        .box-text p {
-            text-align: center;
-            max-width: 350px;
-            margin: 0;
-            animation: fallDown 1s ease-out forwards;
-        }
-
-        /* Only for boxes with two images */
-        #item7 .box-images {
-          grid-template-columns: 2fr 2fr;
-          grid-template-rows: 1fr;
-        }
-
-        @media (max-width: 992px) {
-            .navbar {
-                padding: 0 20px;
-            }
-
-            .moving-text {
-                width: 80%;
-                font-size: 16px;
-            }
-
-            .animated-button {
-                width: 100px;
-                height: 30px;
-                font-size: 12px;
-            }
-
-            .navigation {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: #000000;
-                padding: 20px;
-                box-sizing: border-box;
-            }
-
-            .navigation.active {
-                display: block;
-            }
-
-            .navigation__menu {
-                flex-direction: column;
-            }
-
-            .navigation__menu > li {
-                margin: 10px 0;
-            }
-
-            .navigation__submenu {
-                position: static;
-                display: none;
-                width: 100%;
-            }
-
-            .navigation__submenu.active {
-                display: block;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .box-body {
-                flex-direction: column;
-                width: 90%;
-                height: auto;
-            }
-
-            .box-images {
-                width: 100%;
-            }
-            .box-text{
-                width: 104%;
-            }
-
-            .box-images img {
-                width: 100%;
-                height: auto;
-            }
-        }
+      /* Close Button */
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div id="loading-screen">
-        <div class="loader"></div>
-        <p>Loading...</p>
-    </div>
-    <div id="main-content" style="display: none;">
-        <header>
-    <section id="home" class="section">
-      <nav class="navbar navbar-expand-lg" id="myNav">
-        <a href="/" class="logo navbar-brand">
-          <img src="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo" style="height: 90px;">
-        </a>
+  <body>
 
-        <div class="moving-text" style="width: 80%;">
-          <div class="text-slide">
-            <span>ACN 3rd edition</span>
-            <span>|</span>
-            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
-                  Now</span></button></a>
-            <span>|</span>
-            <span>ACN 3rd edition</span>
-            <span>|</span>
-            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
-                  Now</span></button></a>
-            <span>|</span>
-            <span>ACN 3rd edition</span>
-            <span>|</span>
-            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
-                  Now</span></button></a>
-            <span>|</span>
-            <span>ACN 3rd edition</span>
-            <span>|</span>
-            <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
-                  Now</span></button></a>
-            <span>|</span>
+
+    <header>
+
+      <section id="home" class="section">
+        <nav class="navbar navbar-expand-lg" id="myNav">
+          <a href="/index.html" class="logo navbar-brand">
+            <img src="/image/Amrita_CyberNation_Logo___1_-removebg-preview (1).png" alt="Logo" style="height: 75px;">
+          </a>
+
+          <div class="moving-text" style="width: 80%;">
+            <div class="text-slide">
+              <span>ACN 3rd edition</span>
+              <span>|</span>
+              <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                    Now</span></button></a>
+              <span>|</span>
+              <span>ACN 3rd edition</span>
+              <span>|</span>
+              <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                    Now</span></button></a>
+              <span>|</span>
+              <span>ACN 3rd edition</span>
+              <span>|</span>
+              <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                    Now</span></button></a>
+              <span>|</span>
+              <span>ACN 3rd edition</span>
+              <span>|</span>
+              <a href="/events/2024/event-2024.html"><button class="animated-button"><span>Register
+                    Now</span></button></a>
+              <span>|</span>
+            </div>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse navigation" id="navbarNav">
+            <ul class="navbar-nav ml-auto navigation__menu">
+              <li class="nav-item">
+                <a class="nav-link" href="/index.html">Home<span></span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Events 3.0</a>
+                <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                  <a class="dropdown-item" href="/coming-soon.html">ACN Cyber conclave</a>
+                  <a class="dropdown-item" href="/coming-soon.html">ACN Cyber Workshop</a>
+                  <a class="dropdown-item" href="/coming-soon.html">Amrita Developers Group</a>
+                  <a class="dropdown-item" href="/events/2024/event-2024.html">ACN Cyber Tech Fest</a>
+                  <a class="dropdown-item" href="/Editions/cyber-awareness-page/index.html">ACN Cyber Awareness</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Editions</a>
+                <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
+                  <a class="dropdown-item" href="/events/2022/event-2022.html">2022</a>
+                  <a class="dropdown-item" href="/events/2023/event-2023.html">2023</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/sponsors/spon.html">Sponsors<span></span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Gallery</a>
+                <div class="dropdown-menu navigation__submenu" aria-labelledby="galleryDropdown">
+                  <a class="dropdown-item" href="/gallery-by-year/2022/2022.html">2022</a>
+                  <a class="dropdown-item" href="/gallery-by-year/2023/2023.html">2023</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/meetup/meetup.html">Team<span></span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </section>
+      <div class="profile-container">
+        <div class="profile-circle" id="profileCircle">
+          <img id="profileImage" src="https://via.placeholder.com/50" alt="Profile">
+        </div>
+        <div class="profile-dropdown" id="profileDropdown" style="display: none;">
+          <button class="close-button" id="closeButton">&times;</button>
+          <div class="profile-info">
+            <h2 id="userName">User Name</h2>
+            <p id="userEmail">user@example.com</p>
+          </div>
+          <div class="purchase-history">
+            <h3 style="color: #4285F4;">Purchase History</h3>
+            <div id="purchaseList"></div>
+          </div>
+          <div class="account-actions">
+            <button id="logoutButton" class="logout-button" style="display: none;">Sign out</button>
+            <button id="loginButton" class="login-button">Log in with Gmail</button>
           </div>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse navigation" id="navbarNav">
-          <ul class="navbar-nav ml-auto navigation__menu">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home<span></span></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="/coming-soon.html">Events4.0</a>
-              <!-- <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
-                <a class="dropdown-item" href="/coming-soon.html">ACN Cyber conclave</a>
-                <a class="dropdown-item" href="/coming-soon.html">ACN Cyber Workshop</a>
-                <a class="dropdown-item" href="/amrita_developers.html">Amrita Developers Group</a>
-                <a class="dropdown-item" href="/events/2024/event-2024.html">ACN Cyber Tech Fest</a>
-                <a class="dropdown-item" href="/Editions/cyber-awareness-page/index.html">ACN Cyber Awareness</a>
-              </div> -->
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="editionsDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Editions</a>
-              <div class="dropdown-menu navigation__submenu" aria-labelledby="editionsDropdown">
-                <a class="dropdown-item" href="/events/2022/event-2022.html">2022</a>
-                <a class="dropdown-item" href="/events/2023/event-2023.html">2023</a>
-                <a class="dropdown-item" href="/events/2024/event-2024.html">2024</a>
+      </div>
+
+
+
+    </header>
+
+    <div>
+      <h1 class="heading">Events</h1>
+      <h2 class="heading">These are events that are going to happens
+        in
+        Amrita Cyber Nation 2024 (3rd edition) </h2>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day1Image" src="" alt="Image 1">
+            </div>
+            <div class="box-text">
+              <h2 id="header1">Card 1</h2>
+              <p id="box-text1"></p>
+              <a class="learn-more-btn" href="/2024/Gamefusion4.0.html">Learn More</a>
+              <input type="checkbox" id="popup-toggle1" class="popup-toggle">
+              <label for="popup-toggle1" class="overlay"></label>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events1"></h2>
+                  <strong>
+                    <p id="eventdetails1">Additional information about Card 1.</p>
+                  </strong>
+                </div>
               </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/sponsors/spon.html">Sponsors<span></span></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Gallery</a>
-              <div class="dropdown-menu navigation__submenu" aria-labelledby="galleryDropdown">
-                <a class="dropdown-item" href="/gallery-by-year/2022/2022.html">2022</a>
-                <a class="dropdown-item" href="/gallery-by-year/2023/2023.html">2023</a>
-                <a class="dropdown-item" href="/gallery-by-year/2024/2024.html">2024</a>
+              <button class="animated-button1" id="a1"><span>Register</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day2Image" src="" alt="Image 2">
+            </div>
+            <div class="box-text">
+              <h2 id="header2">Card 2</h2>
+              <p id="box-text2"></p>
+              <a class="learn-more-btn" href="/cryptoshield-2024.html">Learn More</a>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events2">Popup Card 2</h2>
+                  <strong>
+                    <p id="eventdetails2">Additional information about Card 2.</p>
+                  </strong>
+                </div>
               </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/meetup/meetup.html">Team<span></span></a>
-            </li>
-          </ul>
+              <button class="animated-button1" id="a2"><span>Register</span></button>
+            </div>
+          </div>
         </div>
-      </nav>
-    </section>
-      </header>
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day3Image" src="" alt="Image 3">
+            </div>
+            <div class="box-text">
+              <h2 id="header3"></h2>
+              <p id="box-text3"></p>
+              <a class="learn-more-btn" href="/2024/ACN_CTF.html">Learn More</a>
+              <input type="checkbox" id="popup-toggle3" class="popup-toggle">
+              <label for="popup-toggle3" class="overlay"></label>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events3">Popup Card 3</h2>
+                  <strong>
+                    <p id="eventdetails3">Additional information about Card 3.</p>
+                  </strong>
+                </div>
+              </div>
+              <button class="animated-button1" id="a3"><span>Register</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <div class="day1">
-            <h1>Cyber Conclave</h1>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day4Image" src="" alt="Image 4">
+            </div>
+            <div class="box-text">
+              <h2 id="header4"></h2>
+              <p id="box-text4"></p>
+              <a class="learn-more-btn" href="/2024/FIC2.html">Learn More</a>
+              <input type="checkbox" id="popup-toggle4" class="popup-toggle">
+              <label for="popup-toggle4" class="overlay"></label>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events4">Popup Card 4</h2>
+                  <strong>
+                    <p id="eventdetails4">Additional information about Card 4.</p>
+                  </strong>
+                </div>
+              </div>
+              <button class="animated-button1" id="a4"><span>Register</span></button>
+            </div>
+          </div>
         </div>
-        
-        <div class="custom-container">
-            <ul id="list">
-                <li id="item1" class="box">
-                    <div class="box-body">
-                        <div class="box-images">
-                            <img id="img1" src="/image/event 2 conclave/IMG_8443.jpg" alt="Image 1" onmouseover="showtext('Text for Image 1')" onmouseleave="resettext()">
-                            <img id="img2" src="/image/event 2 conclave/IMG_8446.jpg" alt="Image 2" onmouseover="showtext('Text for Image 2')" onmouseleave="resettext()">
-                            <img id="img3" src="/image/event 2 conclave/IMG_8447.jpg" alt="Image 3" onmouseover="showtext('Text for Image 3')" onmouseleave="resettext()">
-                            <img id="img4" src="/image/event 2 conclave/IMG_8449.jpg" alt="Image 4" onmouseover="showtext('Text for Image 4')" onmouseleave="resettext()">
-                        </div>
-                        <div class="box-text">
-                            <h3>Cultivating Innovation in Cybersecurity to Fuel Entrepreneurship</h3>
-                            <p>Panel members:</p>
-                            <p>1. Dr. T.R. Reshmi (Scientist, SETS Chennai)</p>
-                            <p>2. Mr. Vinod Senthil T (Founder, DigiALERT)</p>
-                            <p>3. Mr. Aravind Gnanabaskaran (AGM, Expleo Solutions)</p>
-                            <p>4. Mr. Rajesh Ganesan, President of ManageEngine(a division of Zoho Corporation)</p>
-                        </div>
-                    </div>
-                </li>
-                <li id="item2" class="box">
-                    <div class="box-body">
-                        <div class="box-text">
-                            <h2 id="header5">Panel 2</h2>
-                            <p id="card-text5"></p>
-                        </div>
-                        <div class="box-images">
-                            <img id="img5" src="/image/event 2 conclave/IMG_8432.jpg" alt="Image 5">
-                            <img id="img6" src="/image/event 2 conclave/IMG_8439.jpg" alt="Image 6">
-                            <img id="img7" src="/image/event 2 conclave/IMG_8462.jpg" alt="Image 7">
-                            <img id="img8" src="/image/event 2 conclave/IMG_8548.jpg" alt="Image 8">
-                        </div>
-                    </div>
-                </li>
-            </ul>
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day5Image" src="" alt="Image 5">
+            </div>
+            <div class="box-text">
+              <h2 id="header5"></h2>
+              <p id="box-text5"></p>
+              <a class="learn-more-btn" href="/2024/IdeAte.html">Learn More</a>
+              <input type="checkbox" id="popup-toggle5" class="popup-toggle">
+              <label for="popup-toggle5" class="overlay"></label>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events5">Popup Card 5</h2>
+                  <strong>
+                    <p id="eventdetails5">Additional information about Card 5.</p>
+                  </strong>
+                </div>
+              </div>
+              <button class="animated-button1" id="a5"><span>Register</span></button>
+            </div>
+          </div>
         </div>
-        
-        <!-- <div class="day2">
-            <h1>Club Inauguration</h1>
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day6Image" src="" alt="Image 6">
+            </div>
+            <div class="box-text">
+              <h2 id="header6">Card 6</h2>
+              <a class="learn-more-btn" href="/2024/Gameathon.html">Learn More</a>
+              <input type="checkbox" id="popup-toggle6" class="popup-toggle">
+              <label for="popup-toggle6" class="overlay"></label>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events6">Popup Card 6</h2>
+                  <strong>
+                    <p id="eventdetails6">Additional information about Card 6.</p>
+                  </strong>
+                </div>
+              </div>
+              <button class="animated-button1" id="a6"><span>Register</span></button>
+            </div>
+          </div>
         </div>
-        
-        <div class="custom-container">
-            <ul id="list">
-                <li id="item3" class="box">
-                    <div class="box-body">
-                        <div class="box-images">
-                            <img id="img9" src="" alt="Image 17">
-                            <img id="img10" src="" alt="Image 18">
-                            <img id="img11" src="" alt="Image 19">
-                            <img id="img12" src="" alt="Image 20">
-                        </div>
-                        <div class="box-text">
-                            <h2 id="header">AMIGOS</h2>
-                            <h3>Amrita Intelligent Gaming and Opti-verse Sports</h3>
-                            <p id="card-tex">We feel privileged to have had Mr. Raghuraman R as our Chief Guest, who graciously unveiled the club’s logo to mark the commencement of our journey. This was followed by the badging ceremony, in which the Chief Guest handed out badges to the club’s office bearers. Following this, our Club’s President, K. Sabari Kumar, elaborated on the vision and mission of AMIGOS.</p>
-                        </div>
-                    </div>
-                </li>
-                <li id="item4" class="box">
-                    <div class="box-body">
-                        <div class="box-text">
-                            <h2 id="h">Fact</h2>
-                            <h3>Forensic Analysis Club Triage</h3>
-                            <p>The club's inauguration was graced by Mr. Palanikumar Arumugam, Vice President - Information Security, Equitas Small Finance Bank, who was our esteemed chief guest. He took center stage to unveil the club logo, symbolizing the beginning of an exciting journey into the world of forensics. Following this significant moment was a Badging Ceremony, where Mr. Palanikumar Arumugam presented badges to the club members, officially welcoming them into FACT.</p>
-                        </div>
-                        <div class="box-images">
-                            <img id="img13" src="" alt="Image 21">
-                            <img id="img14" src="" alt="Image 22">
-                            <img id="img15" src="" alt="Image 23">
-                            <img id="img16" src="" alt="Image 24">
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div> -->
-        
-        <div class="day2">
-            <h1>Cyber Techfest'23</h1>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day7Image" src="" alt="Image 1">
+            </div>
+            <div class="box-text">
+              <h2 id="header7">Card 1</h2>
+              <p id="box-text1"></p>
+              <a class="learn-more-btn" href="/2024/morphX.html">Learn More</a>
+              <input type="checkbox" id="popup-toggle1" class="popup-toggle">
+              <label for="popup-toggle1" class="overlay"></label>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events1"></h2>
+                  <strong>
+                    <p id="eventdetails1">Additional information about Card 1.</p>
+                  </strong>
+                </div>
+              </div>
+              <button class="animated-button1" id="a1"><span>Register</span></button>
+            </div>
+          </div>
         </div>
-        
-        <div class="custom-container">
-            <ul id="list1">
-                <li id="item5" class="box">
-                    <div class="box-body">
-                        <div class="box-images">
-                            <img id="img17" src="/image/event 13/20240918_041517068_iOS.jpg" alt="Image 17">
-                            <img id="img18" src="/image/event 13/20240918_052318577_iOS.jpg" alt="Image 18">
-                            <img id="img19" src="/image/event 13/20240918_052337191_iOS.jpg" alt="Image 19">
-                        </div>
-                        <div class="box-text">
-                            <h2 id="heade5">MalQuest 2024</h2>
-                            <p id="card-te5">MalQuest, a cybersecurity event, attracted 30 teams with high engagement levels, focusing on cryptography, reverse engineering, and static malware analysis. The event successfully concluded, introducing foundational concepts.</p>
-                        </div>
-                    </div>
-                </li>
-                <li id="item6" class="box">
-                    <div class="box-body">
-                        <div class="box-text">
-                            <h2 id="headr6">ACN CTF</h2>
-                            <h3>Amrita Cyber Nation CTF</h3>
-                            <p id="card-text">ACNCTF'24, a 24-hour cybersecurity competition, attracted 58 teams from various domains. The event showcased problem-solving skills and technical acumen, with teams demonstrating their technical prowess and fostering a collaborative environment.</p>
-                        </div>
-                        <div class="box-images">
-                            <img id="img21" src="/image/event 4/ctf (18).jpeg" alt="Image 21">
-                            <img id="img22" src="/image/event 4/ctf (5).jpeg" alt="Image 22">
-                            <img id="img23" src="/image/event 4/ctf (8).jpeg" alt="Image 23">
-                            <img id="img24" src="/image/event 4/ctf (3) (1).jpeg" alt="Image 24">
-                        </div>
-                    </div>
-                </li>
-                <li id="item7" class="box">
-                    <div class="box-body">
-                        <div class="box-images">
-                            <img id="img25" src="/image/event 10/20240918_075332618_iOS.jpg" alt="Image 25">
-                            <img id="img26" src="/image/event 10/20240918_075619564_iOS.jpg" alt="Image 26">
-                        </div>
-                        <div class="box-text">
-                            <h2 id="heade7">Gamathon</h2>
-                            <p id="card-tet7">Dive into the gaming extravaganza of Gamathon with BGMI, CODM, and FIFA24. Showcase your gaming finesse and aim to be the champion in the virtual battlegrounds.</p>
-                        </div>
-                    </div>
-                </li>
-                <li id="item8" class="box">
-                    <div class="box-body">
-                        <div class="box-text">
-                            <h2 id="heaer8">CryptoSheild Hackathon</h2>
-                            <p id="card-txt8">Amrita Cyber Nation's 3rd edition, the Crypto Shield Hackathon, attracted 49 teams from across India, with 15 shortlisted for the final round, focusing on Blockchain, Cybersecurity, and OpenAI.</p>
-                        </div>
-                        <div class="box-images">
-                            <img id="img29" src="/image//event 3/IMG_8583.jpg" alt="Image 29">
-                            <img id="img30" src="/image/event 3/IMG_8586.jpg" alt="Image 30">
-                            <img id="img31" src="/image/event 3/IMG_8648.jpg" alt="Image 31">
-                            <img id="img32" src="/image/event 3/IMG_8682.jpg" alt="Image 32">
-                        </div>
-                    </div>
-                </li>
-            </ul>
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day8Image" src="" alt="Image 2">
+            </div>
+            <div class="box-text">
+              <h2 id="header8">Card 2</h2>
+              <p id="box-text2"></p>
+              <a class="learn-more-btn" href="/2024/MalQuest.html">Learn More</a>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events2">Popup Card 2</h2>
+                  <strong>
+                    <p id="eventdetails2">Additional information about Card 2.</p>
+                  </strong>
+                </div>
+              </div>
+              <button class="animated-button1" id="a2"><span>Register</span></button>
+            </div>
+          </div>
         </div>
+        <div class="col-12 col-md-4">
+          <div class="box-body">
+            <div class="box-images">
+              <img id="day9Image" src="" alt="Image 3">
+            </div>
+            <div class="box-text">
+              <h2 id="header9"></h2>
+              <p id="box-text3"></p>
+              <a class="learn-more-btn" href="/2024/CyberDiplomacy_Summit.html">Learn More</a>
+              <input type="checkbox" id="popup-toggle3" class="popup-toggle">
+              <label for="popup-toggle3" class="overlay"></label>
+              <div class="box">
+                <div class="box-content">
+                  <h2 id="events3">Popup Card 3</h2>
+                  <strong>
+                    <p id="eventdetails3">Additional information about Card 3.</p>
+                  </strong>
+                </div>
+              </div>
+              <button class="animated-button1" id="a3"><span>Register</span></button>
+            </div>
+          </div>
         </div>
-        
+      </div>
+
+    </div>
 
 
-<!-- Firebase scripts -->
-<script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-<!-- Custom scripts -->
-<script defer src="script.js"></script>
-<script defer src="firebase.js"></script>
-<script defer src="img.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="firebase.js"></script>
+    <script src="events.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script>
+      VANTA.NET({
+        el: "#ani",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 1080.00,
+        minWidth: 500.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x3fbdff,
+        backgroundColor: 0x130e13
+      })
+    </script>
 
-<script>
-    $(document).ready(function(){
-      $('.navbar-toggler').on('click', function() {
-        $(this).find('.navbar-toggler-icon').toggleClass('active');
-        if ($('.navbar-toggler-icon').hasClass('active')) {
-          $('.navbar-toggler-icon').html('&times;');
-        } else {
-          $('.navbar-toggler-icon').html('');
-          $('.navbar-toggler-icon').addClass('navbar-toggler-icon');
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const profileCircle = document.getElementById('profileCircle');
+        const profileDropdown = document.getElementById('profileDropdown');
+        const profileImage = document.getElementById('profileImage');
+        const userName = document.getElementById('userName');
+        const userEmail = document.getElementById('userEmail');
+        const purchaseList = document.getElementById('purchaseList');
+        const loginButton = document.getElementById('loginButton');
+        const logoutButton = document.getElementById('logoutButton');
+        const closeButton = document.getElementById('closeButton');
+
+        profileCircle.addEventListener('click', () => {
+          profileDropdown.style.display = profileDropdown.style.display === 'none' ? 'block' : 'none';
+        });
+        closeButton.addEventListener('click', () => {
+          profileDropdown.style.display = 'none';
+        });
+
+        loginButton.addEventListener('click', () => {
+          const provider = new firebase.auth.GoogleAuthProvider();
+          auth1.signInWithPopup(provider)
+            .catch((error) => {
+              console.error('Error during login:', error);
+            });
+        });
+
+        // Handle logout
+        logoutButton.addEventListener('click', () => {
+          auth1.signOut().then(() => {
+            resetProfileInfo();
+          }).catch((error) => {
+            console.error('Error logging out:', error);
+          });
+        });
+
+        auth1.onAuthStateChanged((user) => {
+          if (user) {
+            updateProfileInfo(user);
+            fetchPurchaseHistory(user.email);
+          } else {
+            resetProfileInfo();
+          }
+        });
+
+        function updateProfileInfo(user) {
+          profileImage.src = user.photoURL || 'https://via.placeholder.com/50';
+          userName.textContent = user.displayName || 'Anonymous User';
+          userEmail.textContent = user.email || 'No email available';
+          loginButton.style.display = 'none';
+          logoutButton.style.display = 'block';
+        }
+
+        function resetProfileInfo() {
+          profileImage.src = 'https://via.placeholder.com/50';
+          userName.textContent = 'User Name';
+          userEmail.textContent = 'user@example.com';
+          loginButton.style.display = 'block';
+          logoutButton.style.display = 'none';
+          purchaseList.innerHTML = '';
+        }
+
+        // Fetch purchase history
+        function fetchPurchaseHistory(email) {
+          db1.collection('registrations')
+            .where('email', '==', email)
+            .get()
+            .then((querySnapshot) => {
+              purchaseList.innerHTML = '';
+              querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const timestamp = data.timestamp.toDate();
+                const formattedDate = timestamp.toLocaleString();
+                const purchaseItem = document.createElement('div');
+                purchaseItem.classList.add('purchase-item');
+                purchaseItem.textContent = `Event: ${data.event}, Date: ${formattedDate}`;
+                purchaseList.appendChild(purchaseItem);
+              });
+            })
+            .catch((error) => {
+              console.error("Error fetching purchase history: ", error);
+            });
         }
       });
-  
-      $(window).on('scroll', function() {
-        var navbar = $('#myNav');
-        var scrollTop = $(this).scrollTop();
-        var lastScrollTop = 0;
-        
-        if (scrollTop > 0) {
-          navbar.addClass('shrink');
-        } else {
-          navbar.removeClass('shrink');
-        }
-  
-        if (scrollTop > lastScrollTop) {
-          navbar.addClass('scrolledup');
-        } else {
-          navbar.removeClass('scrolledup');
-        }
-  
-        lastScrollTop = scrollTop;
+
+    </script>
+    <script>
+      document.getElementById('closeButton').addEventListener('click', () => {
+        profileDropdown.style.display = 'none';
       });
-  
-      // New dropdown hover functionality
-      var dropdownTimeout;
-      $('.navbar-nav .dropdown').hover(
-        function() {
-          var $this = $(this);
-          clearTimeout(dropdownTimeout);
-          $this.addClass('show');
-          $this.find('.dropdown-menu').addClass('show');
-        },
-        function() {
-          var $this = $(this);
-          dropdownTimeout = setTimeout(function() {
-            $this.removeClass('show');
-            $this.find('.dropdown-menu').removeClass('show');
-          }, 200); // 200ms delay before closing
-        }
-      );
-  
-      $('.navbar-nav .dropdown-menu').hover(
-        function() {
-          clearTimeout(dropdownTimeout);
-        },
-        function() {
-          var $dropdown = $(this).closest('.dropdown');
-          dropdownTimeout = setTimeout(function() {
-            $dropdown.removeClass('show');
-            $dropdown.find('.dropdown-menu').removeClass('show');
-          }, 200); // 200ms delay before closing
-        }
-      );
-    });
-  </script>
+    </script>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const popupToggles = document.querySelectorAll('.popup-toggle');
+        const overlays = document.querySelectorAll('.overlay');
+        const boxes = document.querySelectorAll('.box');
 
+        popupToggles.forEach((toggle, index) => {
+          toggle.addEventListener('change', function () {
+            if (this.checked) {
+              boxes[index].style.display = 'block';
+              overlays[index].style.display = 'block';
+            } else {
+              boxes[index].style.display = 'none';
+              overlays[index].style.display = 'none';
+            }
+          });
+        });
 
-</body>
+        overlays.forEach((overlay, index) => {
+          overlay.addEventListener('click', function () {
+            popupToggles[index].checked = false;
+            boxes[index].style.display = 'none';
+            this.style.display = 'none';
+          });
+        });
+      });
+      $(document).ready(function () {
+        $('.navbar-toggler').on('click', function () {
+          $(this).find('.navbar-toggler-icon').toggleClass('active');
+          if ($('.navbar-toggler-icon').hasClass('active')) {
+            $('.navbar-toggler-icon').html('&times;');
+          } else {
+            $('.navbar-toggler-icon').html('');
+            $('.navbar-toggler-icon').addClass('navbar-toggler-icon');
+          }
+        });
+
+        $(window).on('scroll', function () {
+          var navbar = $('#myNav');
+          var scrollTop = $(this).scrollTop();
+          var lastScrollTop = 0;
+
+          if (scrollTop > 0) {
+            navbar.addClass('shrink');
+          } else {
+            navbar.removeClass('shrink');
+          }
+
+          if (scrollTop > lastScrollTop) {
+            navbar.addClass('scrolledup');
+          } else {
+            navbar.removeClass('scrolledup');
+          }
+
+          lastScrollTop = scrollTop;
+        });
+
+        var dropdownTimeout;
+        $('.navbar-nav .dropdown').hover(
+          function () {
+            var $this = $(this);
+            clearTimeout(dropdownTimeout);
+            $this.addClass('show');
+            $this.find('.dropdown-menu').addClass('show');
+          },
+          function () {
+            var $this = $(this);
+            dropdownTimeout = setTimeout(function () {
+              $this.removeClass('show');
+              $this.find('.dropdown-menu').removeClass('show');
+            }, 200);
+          }
+        );
+
+        $('.navbar-nav .dropdown-menu').hover(
+          function () {
+            clearTimeout(dropdownTimeout);
+          },
+          function () {
+            var $dropdown = $(this).closest('.dropdown');
+            dropdownTimeout = setTimeout(function () {
+              $dropdown.removeClass('show');
+              $dropdown.find('.dropdown-menu').removeClass('show');
+            }, 200);
+          }
+        );
+      });
+    </script>
+  </body>
+</div>
+
 </html>

@@ -15,27 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
         cardsContainer.style.scrollBehavior = 'smooth';
     }
 
-
-
-    // Loading screen functionality
-    const loadingScreen = document.getElementById("loading-screen");
-    const mainContent = document.getElementById("main-content");
-    if (loadingScreen && mainContent) {
-        setTimeout(function() {
-            // Hide the loading screen
-            loadingScreen.style.display = "none";
-            
-            // Show the main content
-            mainContent.style.display = "block";
-        }, 3000); // 3000 milliseconds = 3 seconds
-    } else {
-        console.error("Loading screen or main content element not found");
+    // Change navbar style on scroll
+    const nav = document.querySelector("nav");
+    if (nav) {
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 50) { 
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+        });
     }
 });
-
-// Function to show text
-function showText(text) {
-    document.getElementById('card-text1').innerText = text;
-}
-
-

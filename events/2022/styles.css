@@ -449,6 +449,15 @@ html {
     transform: translate(48%, 48%) scale(2.09);
     transition: transform 0.5s ease-in-out, z-index 0s;
 }
+    #img1,#img2,#img3,#img4,#img5,#img6,#img7,#img8,#img9,#img10,#img11,#img12{
+        height:100%;
+    }
+#img7,#img5{
+    height:140px;
+    margin-top:px
+}
+
+
 
 
 #img2:hover,
@@ -678,6 +687,12 @@ html {
     .moving-text {
       width: 75%;
       margin-bottom: 20px;
+    }
+    .footer-content{
+        flex-direction:column;
+    }
+    .footer-divider{
+        display:none;
     }
   }
 

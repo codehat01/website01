@@ -489,7 +489,18 @@ html {
 /* Responsive styles for mobile */
 @media screen and (max-width: 768px) {
     ul {
+        margin-right:3px;
         margin-block-start: 0.1em;
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    footer a{
+      margin-right: 33px !important;
+    }
+    .footer-left img{
+      width:250px;
+      height:150px;
     }
 
 
@@ -694,6 +705,16 @@ html {
     .footer-divider{
         display:none;
     }
+
+.address p {
+  text-align:center;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #ffffff;
+  z-index: 0;
+  max-width:none
+}
+
   }
 
   @media (max-width: 480px) {
@@ -776,8 +797,6 @@ footer {
 }
 
 .logo2 img {
-  height: auto;
-  width: 40vw;
   /* Adjust the height of the logo */
   z-index: 0;
 }
